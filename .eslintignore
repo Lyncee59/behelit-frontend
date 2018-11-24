@@ -1,0 +1,7 @@
+build
+node_modules
+scripts
+server
+.next
+.vscode
+next.config.js

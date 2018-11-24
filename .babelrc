@@ -1,0 +1,74 @@
+{
+  "env": {
+    "development": {
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true
+          }
+        ],
+        [
+          "react-intl",
+          {
+            "messagesDir": "./lang/.messages/"
+          }
+        ],
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./src"
+            ],
+            "alias": {
+              "api": "./api",
+              "assets": "./assets",
+              "components": "./components",
+              "features": "./features",
+              "layouts": "./layouts",
+              "providers": "./providers",
+              "scenes": "./scenes",
+              "services": "./services"
+            }
+          }
+        ]
+      ],
+      "presets": [
+        "next/babel"
+      ]
+    },
+    "production": {
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": false
+          }
+        ],
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./src"
+            ],
+            "alias": {
+              "api": "./api",
+              "assets": "./assets",
+              "components": "./components",
+              "features": "./features",
+              "layouts": "./layouts",
+              "providers": "./providers",
+              "scenes": "./scenes",
+              "services": "./services"
+            }
+          }
+        ]
+      ],
+      "presets": [
+        "next/babel"
+      ]
+    }
+  }
+}
