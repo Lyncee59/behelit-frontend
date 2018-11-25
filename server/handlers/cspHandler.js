@@ -34,7 +34,7 @@ const handleCsp = (app) => {
   if (NODE_CONFIG_SET === 'local') {
     // To make everything work fine locally (HMR unhappy with styled-component nonce)
     directives.styleSrc = ["'self'", 'https://www.google.com', 'https://fonts.googleapis.com', "'unsafe-inline'", 'data:']
-    directives.scriptSrc.push("'unsafe-eval'")
+    directives.scriptSrc = ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://www.google-analytics.com', 'data:']
   }
 
   app.use(csp({

@@ -1,9 +1,9 @@
 import React from 'react'
 import { merge } from 'ramda'
 
-// import { theme, ThemeProvider } from '@behelit/components'
+import { DefaultTheme, ThemeProvider } from '@behelit/components'
 
-const customTheme = merge(theme, {
+const customTheme = merge(DefaultTheme, {
   fontPrimary: "Roboto,sans-serif",
 })
 

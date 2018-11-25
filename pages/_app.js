@@ -1,7 +1,7 @@
 import App, { Container } from 'next/app'
 import React from 'react'
 import { IntlProvider, addLocaleData } from 'react-intl'
-// import ThemeProvider from 'providers/ThemeProvider'
+import ThemeProvider from 'providers/ThemeProvider'
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -35,11 +35,11 @@ class ExplorerApp extends App {
 
     return (
       <Container>
-        {/* <ThemeProvider> */}
-          {/* <IntlProvider locale={locale} messages={messages} initialNow={now} textComponent={React.Fragment}> */}
+        <ThemeProvider>
+          <IntlProvider locale={locale} messages={messages} initialNow={now} textComponent={React.Fragment}>
             <Component {...pageProps} />
-          {/* </IntlProvider> */}
-        {/* </ThemeProvider> */}
+          </IntlProvider>
+        </ThemeProvider>
       </Container>
     )
   }

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "components.header.login",
+    "defaultMessage": "Login"
+  },
+  {
+    "id": "components.header.register",
+    "defaultMessage": "Register"
+  }
+]

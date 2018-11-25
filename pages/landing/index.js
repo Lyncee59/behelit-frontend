@@ -1,10 +1,10 @@
 import React from 'react'
+import Layout from 'layouts/Public'
 
-const Landing = () => {
-  console.log('testtttt')
-  return (
-  <span>Landing</span>
+const Landing = () => (
+  <Layout>
+    <span>Landing</span>
+  </Layout>
 )
-}
 
 export default Landing
