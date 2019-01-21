@@ -1,10 +1,66 @@
 import React from 'react'
-import Layout from 'layouts/Public'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { assoc, merge, path } from 'ramda'
 
-const Landing = () => (
-  <Layout>
-    <span>Landing</span>
-  </Layout>
+import { fetchData } from 'services/utils'
+import { getArticles } from 'services/api/public'
+import Layout from 'layouts/Public'
+import { GradientCrimsonSection } from 'components/Sections'
+
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+`
+const ColumnLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  
+  @media(min-width: 992px) {
+    width: 70%;
+  }
+`
+const ColumnRight = styled.div`
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10px;
+
+  @media(min-width: 992px) {
+    display: flex;
+    width: 30%;
+  }
+`
+
+
+const Landing = ({ currency, stats, rate }) => (
+    <Layout>
+      <GradientCrimsonSection>
+        <Wrapper>
+          <ColumnLeft>
+            Column left
+          </ColumnLeft>
+          <ColumnRight>
+            Column right
+          </ColumnRight>
+        </Wrapper>
+      </GradientCrimsonSection>
+    </Layout>
 )
+
+Landing.getInitialProps = (context) => fetchData(context, {
+  articles: getArticles(),
+})
+
+Landing.propTypes = {
+  articles: PropTypes.array,
+}
 
 export default Landing
