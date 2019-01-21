@@ -24,7 +24,7 @@
             "alias": {
               "api": "./api",
               "assets": "./assets",
-              "@behelit/components": "./components/behelit",
+              // "@behelit/components": "./components/behelit",
               "components": "./components",
               "features": "./features",
               "layouts": "./layouts",

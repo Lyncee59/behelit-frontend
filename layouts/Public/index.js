@@ -1,10 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { injectIntl } from 'react-intl'
 import Head from 'next/head'
 
-import Header from './Header'
+// import Header from './Header'
 // import Footer from './Footer'
+import { Container, theme } from '@behelit/components'
+
+const Wrapper = styled.div`
+  height: 100%;
+  background-color: ${theme('silver')};
+  background-image: url('/static/img/fresh_snow.png');
+`
 
 class Public extends React.PureComponent {
   constructor(props) {
@@ -39,9 +47,13 @@ class Public extends React.PureComponent {
         <Head>
           <title>Behelit</title>
         </Head>
-        <Header sticky={sticky} />
-        {this.props.children}
-        {/* <Footer /> */}
+        <Wrapper>
+          {/* <Header sticky={sticky} /> */}
+          <Container>
+          {this.props.children}
+          </Container>
+          {/* <Footer /> */}
+        </Wrapper>
       </React.Fragment>
     )
   }

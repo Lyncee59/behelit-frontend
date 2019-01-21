@@ -2,27 +2,22 @@ import React from 'react'
 import { normalize } from 'polished'
 import getConfig from 'next/config'
 import { assocPath, concat, keys, map } from 'ramda'
+import { config } from 'services/config'
 import { localizeUrl } from 'services/url'
-
-const { publicRuntimeConfig: { CONFIG_SET, PATHS_BASE, SERVER_PREFIX, supportedLanguages } } = getConfig()
 
 export const injectGlobalStyle = (nonce) => (
     <style nonce={nonce}>
         {`
-            ${normalize()}
-        
             html {
                 height: 100%;
-                min-height: 100%;
-                max-width: 100%;
+                width: 100%;
                 margin: 0;
                 padding: 0;
             }
 
             body {
                 height: 100%;
-                min-height: 100%;
-                max-width: 100%;
+                width: 100%;
                 margin: 0;
                 padding: 0;
                 font-size: 100%;
@@ -33,10 +28,7 @@ export const injectGlobalStyle = (nonce) => (
 
             #__next {
                 height: 100%;
-            }
-
-            hi, h2, h3, h4, h5 {
-                margin: 0px 0px 0.5em;
+                width: 100%;
             }
         `}
     </style>
@@ -51,11 +43,11 @@ export const injectMetadata = () => (
 
 export const injectFacebookOpenGraph = () => (
     <React.Fragment>
-        <meta property="og:url" content={`${PATHS_BASE}`} />
+        <meta property="og:url" content={`${config.PATHS_BASE}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Behelit" />
         <meta property="og:description" content="r" />
-        <meta property="og:image" content={`${PATHS_BASE}${SERVER_PREFIX}`} />
+        <meta property="og:image" content={`${config.PATHS_BASE}${config.SERVER_PREFIX}`} />
         <meta property="og:image:alt" content="Behelit homepage" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
@@ -66,7 +58,7 @@ export const injectFacebookOpenGraph = () => (
 export const injectTwitterCard = () => (
     <React.Fragment>
         <meta name="twitter:card" content="Behelit" />
-        <meta name="twitter:image" content={`${PATHS_BASE}${SERVER_PREFIX}`} />
+        <meta name="twitter:image" content={`${config.PATHS_BASE}${config.SERVER_PREFIX}`} />
         <meta name="twitter:image:alt" content="Behelit homepage" />
         <meta name="twitter:description" content="" />
     </React.Fragment>
@@ -80,12 +72,12 @@ export const injectFonts = (nonce) => (
 )
 
 export const injectLanguageLinks = (page, locale, nonce) => {
-    const alternateLinks = keys(supportedLanguages).map(language => (
-        <link nonce={nonce} key={language} rel="alternate" hrefLang={language} href={localizeUrl(`${PATHS_BASE}${page}`, language)} />
+    const alternateLinks = keys(config.supportedLanguages).map(language => (
+        <link nonce={nonce} key={language} rel="alternate" hrefLang={language} href={localizeUrl(`${config.PATHS_BASE}${page}`, language)} />
     ))
     const otherLinks = [
-        <link nonce={nonce} key={"alternate"} rel="alternate" hrefLang="x-default" href={`${PATHS_BASE}${page}`} />,
-        <link nonce={nonce} key="canonical" rel="canonical" href={localizeUrl(`${PATHS_BASE}${page}`, locale)} />
+        <link nonce={nonce} key={"alternate"} rel="alternate" hrefLang="x-default" href={`${config.PATHS_BASE}${page}`} />,
+        <link nonce={nonce} key="canonical" rel="canonical" href={localizeUrl(`${config.PATHS_BASE}${page}`, locale)} />
     ]
     return concat(alternateLinks, otherLinks)
 }
@@ -98,7 +90,7 @@ export const injectGoogleAnalytics = (nonce) => (
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-                ga('create', '${SETTINGS_GOOGLE_ANALYTICS_ID}', 'auto');
+                ga('create', '${config.SETTINGS_GOOGLE_ANALYTICS_ID}', 'auto');
                 var page = document.location.pathname;
                 // Strip language path
                 page = page.replace(/^(\\/[a-z]{2}|\\/zh-cn)?\\/(.*)$/, "/$2")
@@ -120,7 +112,7 @@ export const injectLocaleData = (localeDataScript, nonce) => (
     />
 )
 
-export const injectStyleTags = (styleTags, nonce) => CONFIG_SET === 'local'
+export const injectStyleTags = (styleTags, nonce) => config.CONFIG_SET === 'local'
     ? styleTags
     : map(assocPath(['props', 'nonce'], nonce), styleTags)
 

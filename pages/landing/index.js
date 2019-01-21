@@ -6,7 +6,7 @@ import { assoc, merge, path } from 'ramda'
 import { fetchData } from 'services/utils'
 import { getArticles } from 'services/api/public'
 import Layout from 'layouts/Public'
-import { GradientCrimsonSection } from 'components/Sections'
+import BlogList from 'features/landing/BlogList'
 
 const Wrapper = styled.section`
   display: flex;
@@ -39,20 +39,17 @@ const ColumnRight = styled.div`
   }
 `
 
-
-const Landing = ({ currency, stats, rate }) => (
-    <Layout>
-      <GradientCrimsonSection>
-        <Wrapper>
-          <ColumnLeft>
-            Column left
-          </ColumnLeft>
-          <ColumnRight>
-            Column right
-          </ColumnRight>
-        </Wrapper>
-      </GradientCrimsonSection>
-    </Layout>
+const Landing = ({ articles }) => (
+  <Layout>
+    <Wrapper>
+      <ColumnLeft>
+        <BlogList articles={articles} />
+      </ColumnLeft>
+      <ColumnRight>
+        Column right
+      </ColumnRight>
+    </Wrapper>
+  </Layout>
 )
 
 Landing.getInitialProps = (context) => fetchData(context, {

@@ -14,7 +14,7 @@ import {
   injectTwitterCard
 } from 'services/dom'
 
-class ExplorerDocument extends Document {
+class BehelitDocument extends Document {
   static async getInitialProps(context) {
     const props = await super.getInitialProps(context)
     const {
@@ -70,4 +70,4 @@ class ExplorerDocument extends Document {
   }
 }
 
-export default ExplorerDocument
+export default BehelitDocument
