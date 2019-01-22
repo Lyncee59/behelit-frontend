@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { palette, theme } from '@behelit/components'
 import { DefaultLink } from './Links'
 
-export const GrayCartridge = styled(DefaultLink)`
+export const GrayCartridge = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -14,6 +14,7 @@ export const GrayCartridge = styled(DefaultLink)`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
+  transition: 0.3s;
 
   & > :first-child {
     margin-right: 0.3rem;

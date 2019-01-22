@@ -45,19 +45,19 @@ class Header extends React.PureComponent {
             <NavbarMenu toggled={menuToggled}>
               <NavbarNav width="35rem">
                 <NavbarNavItem>
-                  <HeaderLink href={`${config.PATHS_BASE}`}>Blog</HeaderLink>
+                  <HeaderLink href='/'>Blog</HeaderLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href={`${config.PATHS_BASE}/projects`}>Projects</HeaderLink>
+                  <HeaderLink href='/projects'>Projects</HeaderLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href={`${config.PATHS_BASE}/reviews`}>Reviews</HeaderLink>
+                  <HeaderLink href='/reviews'>Reviews</HeaderLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href={`${config.PATHS_BASE}/contact`}>Contact</HeaderLink>
+                  <HeaderLink href='contact'>Contact</HeaderLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href={`${config.PATHS_BASE}/about`}>About</HeaderLink>
+                  <HeaderLink href='/about'>About</HeaderLink>
                 </NavbarNavItem>
               </NavbarNav>
               <NavbarNav width="6rem">

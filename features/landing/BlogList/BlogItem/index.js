@@ -4,7 +4,9 @@ import styled from 'styled-components'
 
 import { FarFileAlt, Text, palette, theme } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
+import { ReadToggler } from 'components/Togglers'
 import { ArticleTitle, ArticleDescription } from 'components/Typography'
+
 
 const Wrapper = styled.div`
   position: relative;
@@ -42,16 +44,11 @@ const Content = styled.div`
     width: calc(100% - 150px);
   }
 `
-const Toggler = styled(GrayCartridge)`
+const Toggler = styled(ReadToggler)`
   position: absolute;
   bottom: -5px;
   right: -5px;
 `
-const TogglerIcon = styled(FarFileAlt).attrs({ size: "16px", selectable: true })`
-  fill: ${palette('black80')};
-`
-
-const TogglerText = styled(Text).attrs({ weight: 400 })``
 
 const BlogItem = ({ article }) => (
   <Wrapper>
@@ -62,10 +59,7 @@ const BlogItem = ({ article }) => (
       <ArticleTitle>{article.title}</ArticleTitle>
       <ArticleDescription size='14px' weight={300}>{article.description}</ArticleDescription>
     </Content>
-    <Toggler href={`/blog/${article._id}`}>
-      <TogglerIcon />
-      <TogglerText>Read</TogglerText>
-    </Toggler>
+    <Toggler href={`/blog/${article._id}`} />
   </Wrapper>
 )
 
