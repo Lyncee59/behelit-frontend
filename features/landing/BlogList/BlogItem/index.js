@@ -2,15 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FarFileAlt, Text, theme } from '@behelit/components'
+import { FarFileAlt, Text, palette, theme } from '@behelit/components'
+import { GrayCartridge } from 'components/Cartridges'
+import { ArticleTitle, ArticleDescription } from 'components/Typography'
 
 const Wrapper = styled.div`
   position: relative;
   display: flex;
   width: 100%;
   margin-bottom: 10px;
-  background-color: ${theme('white')};
-  border: 1px solid ${theme('red')};
+  background-color: ${theme('xslightgray')};
+  border: 1px solid ${palette('silver')}
 `
 const Category = styled.a`
   display: none;
@@ -40,27 +42,16 @@ const Content = styled.div`
     width: calc(100% - 150px);
   }
 `
-const ReadToggler = styled.a`
+const Toggler = styled(GrayCartridge)`
   position: absolute;
   bottom: -5px;
   right: -5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 90px;
-  height: 30px;
-  padding: 5px;
-  box-sizing: border-box;
-  background-color: ${theme('white')};
-  border: 1px solid ${theme('red')};
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover { 
-    & > * { color: ${theme('red')}!important; }
-  }
 `
+const TogglerIcon = styled(FarFileAlt).attrs({ size: "16px", selectable: true })`
+  fill: ${palette('black80')};
+`
+
+const TogglerText = styled(Text).attrs({ weight: 400 })``
 
 const BlogItem = ({ article }) => (
   <Wrapper>
@@ -68,13 +59,13 @@ const BlogItem = ({ article }) => (
       {/* <Devicon name={article.category} cursor /> */}
     </Category>
     <Content>
-      <Text size='18px' weight={500} color='brand-primary'>{article.title}</Text>
-      <Text size='14px' weight={300}>{article.description}</Text>
+      <ArticleTitle>{article.title}</ArticleTitle>
+      <ArticleDescription size='14px' weight={300}>{article.description}</ArticleDescription>
     </Content>
-    <ReadToggler href={`/blog/${article._id}`}>
-      <FarFileAlt size='16px' selectable />
-      <Text size='16px' color='black'>Read</Text>
-    </ReadToggler>
+    <Toggler href={`/blog/${article._id}`}>
+      <TogglerIcon />
+      <TogglerText>Read</TogglerText>
+    </Toggler>
   </Wrapper>
 )
 

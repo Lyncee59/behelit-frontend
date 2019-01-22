@@ -12,15 +12,14 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const BlogList = ({ articles, handleClick }) => (
+const BlogList = ({ articles }) => (
     <Wrapper>
-      {articles.map((article, index) => <BlogItem key={index} article={article} handleClick={handleClick} />)}
+      {articles.map((article, index) => <BlogItem key={index} article={article} />)}
     </Wrapper>
   )
 
 BlogList.propTypes = {
   articles: PropTypes.array,
-  handleClick: PropTypes.func.isRequired
 }
 
 BlogList.defaultProps = {

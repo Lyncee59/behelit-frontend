@@ -6,12 +6,16 @@ import Head from 'next/head'
 
 import Header from './Header'
 // import Footer from './Footer'
-import { Container, theme } from '@behelit/components'
+import { Container as BhContainer, theme } from '@behelit/components'
 
 const Wrapper = styled.div`
   height: 100%;
   background-color: ${theme('silver')};
   background-image: url('/static/img/fresh_snow.png');
+`
+const Container = styled(BhContainer)`
+  padding: 0 1rem;
+  box-sizing: border-box;
 `
 
 class Public extends React.PureComponent {

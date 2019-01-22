@@ -67,7 +67,7 @@ class Header extends React.PureComponent {
               </NavbarNav>
             </NavbarMenu>
             <NavbarToggler
-              onToggle={this.handleToggleMenu}
+              onClick={this.handleToggleMenu}
               toggled={menuToggled}
             />
           </Navbar>
