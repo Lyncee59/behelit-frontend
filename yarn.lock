@@ -713,10 +713,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@behelit/components@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@behelit/components/-/components-0.0.2.tgz#4ebef5abb967f14268a0d9e3e6edf0a056f8b1f2"
-  integrity sha512-Zf7WZhlUO/BLSHCnv8+QWbdFnwBjpPUicnMMOjjOhQX/GOY9BNva53kDaYBuJXohz6xQ6mw4/dj7SI0hI5VRgg==
+"@behelit/components@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@behelit/components/-/components-0.0.4.tgz#fc379814c6ec2c274cc4c788778d56c78b42e511"
+  integrity sha512-vXhGKjLEs/IKKbd5he0H45y0+hCu8YRUvGCDJp4lq8JmpLKMPsKeOawTjnjcC4417/eQV9xCCRD5ToHUQCI8Cg==
   dependencies:
     "@babel/runtime" "7.1.5"
 

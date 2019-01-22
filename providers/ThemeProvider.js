@@ -5,6 +5,7 @@ import { DefaultTheme, ThemeProvider } from '@behelit/components'
 
 const customTheme = merge(DefaultTheme, {
   fontPrimary: "Roboto,sans-serif",
+  
 })
 
 export default ({ children }) => (

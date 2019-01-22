@@ -2,38 +2,24 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import getConfig from 'next/config'
+import { lighten } from 'polished'
 
-import { Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarNav, NavbarToggler, palette } from '@behelit/components'
-import { DefaultLink } from 'components/Links'
-import { GradientCrimsonSection } from 'components/Sections'
-import ButtonBarItem from './ButtonBarItem'
-import SearchBarItem from './SearchBarItem'
+import { config } from 'services/config'
+import { BrandName, FabLinkedin, Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarNav, NavbarNavItem, NavbarToggler, palette } from '@behelit/components'
+import { DefaultLink, HeaderLink } from 'components/Links'
+import { DarkGraySection } from 'components/Sections'
 import StickyContainer from './StickyContainer'
 
-const { publicRuntimeConfig: { PATHS_BASE } } = getConfig()
-
-const Logo = styled.div`
-  width: auto;
-  height: 1.2rem;
-  fill: #456312;
+const LinkedInIcon = styled(FabLinkedin)`
+  fill: ${palette('cerulean')};
+  &:hover { fill: ${(props) => lighten(0.1, props.theme.palette['cerulean'])}; }
 `
 
 class Header extends React.PureComponent {
   constructor(props) {
     super(props)
-    this.state = { menuToggled: false, searchToggled: false }
+    this.state = { menuToggled: false }
     this.handleToggleMenu = this.handleToggleMenu.bind(this)
-    this.handleToggleSearch = this.handleToggleSearch.bind(this)
-    this.updateSearchReference = this.updateSearchReference.bind(this)
-  }
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleToggleSearch)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleToggleSearch)
   }
 
   handleToggleMenu() {
@@ -41,46 +27,43 @@ class Header extends React.PureComponent {
     this.setState({ menuToggled: !menuToggled })
   }
 
-  handleToggleSearch(e) {
-    // Toggle bar
-    const search = ReactDOM.findDOMNode(this.search)
-    if (search && search.contains(e.target) && !this.state.searchToggled) {
-      return this.setState({ searchToggled: true })
-    }
-    if (search && !search.contains(e.target) && this.state.searchToggled) {
-      return this.setState({ searchToggled: false })
-    }
-  }
-
-  updateSearchReference(node) {
-    this.search = node
-  }
-
   render() {
-    const { menuToggled, searchToggled } = this.state
+    const { menuToggled } = this.state
     const { nature, sticky } = this.props
 
     return (
-      <GradientCrimsonSection height="4.5rem" nature={nature}>
+      <DarkGraySection>
         <StickyContainer enabled={sticky}>
-          <Navbar height="4.5rem">
+          <Navbar>
             <NavbarHeader>
               <NavbarBrand>
-                <DefaultLink href={PATHS_BASE}>
-                  <Logo />
+                <DefaultLink href={config.PATHS_BASE}>
+                  <BrandName />
                 </DefaultLink>
               </NavbarBrand>
             </NavbarHeader>
-            <NavbarMenu toggled={menuToggled} width="calc(100% - 12rem)">
-              <NavbarNav>
-                <SearchBarItem
-                  ref={this.updateSearchReference}
-                  onToggle={this.handleToggleSearch}
-                  toggled={searchToggled}
-                />
+            <NavbarMenu toggled={menuToggled}>
+              <NavbarNav width="35rem">
+                <NavbarNavItem>
+                  <HeaderLink href={`${config.PATHS_BASE}`}>Blog</HeaderLink>
+                </NavbarNavItem>
+                 <NavbarNavItem>
+                  <HeaderLink href={`${config.PATHS_BASE}/projects`}>Projects</HeaderLink>
+                </NavbarNavItem>
+                 <NavbarNavItem>
+                  <HeaderLink href={`${config.PATHS_BASE}/reviews`}>Reviews</HeaderLink>
+                </NavbarNavItem>
+                <NavbarNavItem>
+                  <HeaderLink href={`${config.PATHS_BASE}/contact`}>Contact</HeaderLink>
+                </NavbarNavItem>
+                <NavbarNavItem>
+                  <HeaderLink href={`${config.PATHS_BASE}/about`}>About</HeaderLink>
+                </NavbarNavItem>
               </NavbarNav>
-              <NavbarNav toggled={!searchToggled} width="12rem">
-                <ButtonBarItem />
+              <NavbarNav width="6rem">
+                <NavbarNavItem>
+                  <LinkedInIcon selectable size="32px" />
+                </NavbarNavItem>
               </NavbarNav>
             </NavbarMenu>
             <NavbarToggler
@@ -89,18 +72,13 @@ class Header extends React.PureComponent {
             />
           </Navbar>
         </StickyContainer>
-      </GradientCrimsonSection>
+        </DarkGraySection>
     )
   }
 }
 
 Header.propTypes = {
-  nature: PropTypes.oneOf(["blocks", "none"]),
   sticky: PropTypes.bool.isRequired,
-}
-
-Header.defaultProps = {
-  nature: "blocks"
 }
 
 export default Header

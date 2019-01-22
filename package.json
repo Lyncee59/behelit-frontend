@@ -40,7 +40,7 @@
     "url-parse": "1.4.4"
   },
   "devDependencies": {
-    "@behelit/components": "0.0.2",
+    "@behelit/components": "0.0.4",
     "babel-eslint": "10.0.1",
     "babel-plugin-module-resolver": "3.1.2",
     "babel-plugin-react-intl": "3.0.1",

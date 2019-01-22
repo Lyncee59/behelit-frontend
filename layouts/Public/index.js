@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { injectIntl } from 'react-intl'
 import Head from 'next/head'
 
-// import Header from './Header'
+import Header from './Header'
 // import Footer from './Footer'
 import { Container, theme } from '@behelit/components'
 
@@ -48,7 +48,7 @@ class Public extends React.PureComponent {
           <title>Behelit</title>
         </Head>
         <Wrapper>
-          {/* <Header sticky={sticky} /> */}
+          <Header sticky={sticky} />
           <Container>
           {this.props.children}
           </Container>

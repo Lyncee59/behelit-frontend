@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from '@behelit/components'
+import { Link, palette } from '@behelit/components'
 
 export const DefaultLink = styled(Link)`
   text-decoration: none;
@@ -7,11 +7,9 @@ export const DefaultLink = styled(Link)`
     text-decoration: none;
   }
 `
-export const WhiteLink = styled(Link).attrs({ weight: 400 })`
-  color: ${(props) => props.theme.palette['white']};
-  text-decoration: underline;
-  &:hover {
-    color: ${(props) => props.theme.palette['white']};
-    text-decoration: underline;
-  }
+export const HeaderLink = styled(DefaultLink).attrs({ size: '20px', weight: 500 })`
+  color: ${palette('white')};
+  transition: 0.5s;
+
+  &:hover { color: ${palette('crimson')}; }
 `
