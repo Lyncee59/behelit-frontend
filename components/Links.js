@@ -8,7 +8,7 @@ export const DefaultLink = styled(Link)`
   }
 `
 export const HeaderLink = styled(DefaultLink).attrs({ size: '20px', underline: true, weight: 500 })`
-  color: ${palette('white')};
+  color: ${(props) => props.selected ? palette('crimson') : palette('white')};
   transition: 0.5s;
 
   &:hover { color: ${palette('crimson')}; }

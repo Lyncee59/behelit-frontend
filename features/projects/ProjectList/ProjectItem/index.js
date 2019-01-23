@@ -4,10 +4,9 @@ import styled from 'styled-components'
 
 import { FasArrowUp, FasArrowDown, Text, palette, theme } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
+import { Markdown } from 'components/Markdown'
 import { ExpandToggler } from 'components/Togglers'
 import { ProjectSummary, ProjectTag, ProjectTitle, ProjectYear } from 'components/Typography'
-
-// import { Color, Icon, Markdown, Text } from 'behelit-components'
 
 const Wrapper = styled.div`
   position: relative;
@@ -72,6 +71,7 @@ const Toggler = styled(ExpandToggler)`
   position: absolute;
   bottom: -1rem;
   right: -1rem;
+  z-index: 10;
 `
 
 class ProjectItem extends React.PureComponent {
@@ -106,7 +106,7 @@ class ProjectItem extends React.PureComponent {
       { toggled &&
         <Container>
           <Details>
-            {/* <Markdown content={project.description} /> */}
+            <Markdown content={project.description} />
           </Details>
         </Container>
       }

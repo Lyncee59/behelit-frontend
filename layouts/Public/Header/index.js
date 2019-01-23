@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 import { config } from 'services/config'
+import { getRouterPathname } from 'services/url'
 import { BrandName, FabLinkedin, Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarNav, NavbarNavItem, NavbarToggler, palette } from '@behelit/components'
 import { DefaultLink, HeaderLink } from 'components/Links'
 import { DarkGraySection } from 'components/Sections'
@@ -30,6 +31,7 @@ class Header extends React.PureComponent {
   render() {
     const { menuToggled } = this.state
     const { nature, sticky } = this.props
+    const pathname = getRouterPathname()
 
     return (
       <DarkGraySection>
@@ -45,19 +47,19 @@ class Header extends React.PureComponent {
             <NavbarMenu toggled={menuToggled}>
               <NavbarNav width="35rem">
                 <NavbarNavItem>
-                  <HeaderLink href='/'>Blog</HeaderLink>
+                  <HeaderLink href='/' selected={pathname === '/landing'}>Blog</HeaderLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href='/projects'>Projects</HeaderLink>
+                  <HeaderLink href='/projects' selected={pathname === '/projects'}>Projects</HeaderLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href='/reviews'>Reviews</HeaderLink>
+                  <HeaderLink href='/reviews' selected={pathname === '/reviews'}>Reviews</HeaderLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href='contact'>Contact</HeaderLink>
+                  <HeaderLink href='/contact' selected={pathname === '/contact'}>Contact</HeaderLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href='/about'>About</HeaderLink>
+                  <HeaderLink href='/about' selected={pathname === '/about'}>About</HeaderLink>
                 </NavbarNavItem>
               </NavbarNav>
               <NavbarNav width="6rem">

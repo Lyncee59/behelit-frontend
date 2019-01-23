@@ -7,7 +7,6 @@ import { GrayCartridge } from 'components/Cartridges'
 import { ReadToggler } from 'components/Togglers'
 import { ArticleTitle, ArticleDescription } from 'components/Typography'
 
-
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -48,6 +47,7 @@ const Toggler = styled(ReadToggler)`
   position: absolute;
   bottom: -5px;
   right: -5px;
+  z-index: 10;
 `
 
 const BlogItem = ({ article }) => (

@@ -14,7 +14,6 @@ const Wrapper = styled.section`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  margin-top: 1rem;
 `
 const Column = styled.div`
   display: flex;

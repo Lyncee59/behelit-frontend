@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   background-image: url('/static/img/fresh_snow.png');
 `
 const Container = styled(BhContainer)`
-  padding: 0 1rem;
+  padding: 2rem 1rem 0 1rem;
   box-sizing: border-box;
 `
 
