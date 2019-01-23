@@ -13,7 +13,6 @@ export const GrayCartridge = styled.div`
   border: 1px solid ${palette('silver')};
   border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
   transition: 0.3s;
 
   & > :first-child {

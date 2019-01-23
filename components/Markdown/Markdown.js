@@ -14,12 +14,12 @@ const inlineCodeRenderer = props => <PrismCode language={props.language} code={p
 
 const headingRenderer = props => {
   switch (props.level) {
-    case 1: return <CrimsonText as='h1' size='32px' weight={300} uppercase>{props.children}</CrimsonText>
-    case 2: return <CrimsonText as='h2' size='24px' weight={300} uppercase underline>{props.children}</CrimsonText>
-    case 3: return <GrayText as='h3' size='20.8px' weight={300}>{props.children}</GrayText>
-    case 4: return <GrayText as='h4' size='16px' weight={300}>{props.children}</GrayText>
-    case 5: return <GrayText as='h5' size='12.8px' weight={300}>{props.children}</GrayText>
-    case 6: return <GrayText as='h6' size='11.2px' weight={300}>{props.children}</GrayText>
+    case 1: return <CrimsonText as='h1' size='2rem' weight={300} uppercase>{props.children}</CrimsonText>
+    case 2: return <CrimsonText as='h2' size='1.5rem' weight={300} uppercase underline>{props.children}</CrimsonText>
+    case 3: return <GrayText as='h3' size='1.3rem' weight={300}>{props.children}</GrayText>
+    case 4: return <GrayText as='h4' size='1rem' weight={300}>{props.children}</GrayText>
+    case 5: return <GrayText as='h5' size='0.8rem' weight={300}>{props.children}</GrayText>
+    case 6: return <GrayText as='h6' size='0.7rem' weight={300}>{props.children}</GrayText>
     default: return <span>{props.children.join(' ')}</span>
   }
 }

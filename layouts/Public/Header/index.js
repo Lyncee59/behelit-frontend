@@ -7,7 +7,7 @@ import { lighten } from 'polished'
 import { config } from 'services/config'
 import { getRouterPathname } from 'services/url'
 import { BrandName, FabLinkedin, Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarNav, NavbarNavItem, NavbarToggler, palette } from '@behelit/components'
-import { DefaultLink, HeaderLink } from 'components/Links'
+import { DefaultLink, WhiteLink } from 'components/Links'
 import { DarkGraySection } from 'components/Sections'
 import StickyContainer from './StickyContainer'
 
@@ -47,19 +47,19 @@ class Header extends React.PureComponent {
             <NavbarMenu toggled={menuToggled}>
               <NavbarNav width="35rem">
                 <NavbarNavItem>
-                  <HeaderLink href='/' selected={pathname === '/landing'}>Blog</HeaderLink>
+                  <WhiteLink href='/' selected={pathname === '/landing'} size='1.2rem'>Blog</WhiteLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href='/projects' selected={pathname === '/projects'}>Projects</HeaderLink>
+                  <WhiteLink href='/projects' selected={pathname === '/projects'} size='1.2rem'>Projects</WhiteLink>
                 </NavbarNavItem>
                  <NavbarNavItem>
-                  <HeaderLink href='/reviews' selected={pathname === '/reviews'}>Reviews</HeaderLink>
+                  <WhiteLink href='/reviews' selected={pathname === '/reviews'} size='1.2rem'>Reviews</WhiteLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href='/contact' selected={pathname === '/contact'}>Contact</HeaderLink>
+                  <WhiteLink href='/contact' selected={pathname === '/contact'} size='1.2rem'>Contact</WhiteLink>
                 </NavbarNavItem>
                 <NavbarNavItem>
-                  <HeaderLink href='/about' selected={pathname === '/about'}>About</HeaderLink>
+                  <WhiteLink href='/about' selected={pathname === '/about'} size='1.2rem'>About</WhiteLink>
                 </NavbarNavItem>
               </NavbarNav>
               <NavbarNav width="6rem">

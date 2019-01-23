@@ -3,20 +3,24 @@ const handlePublicRoutes = (app, server) => {
     app.render(req, res, '/landing')
   })
 
-  server.get(`/projects`, async (req, res) => {
-    app.render(req, res, '/projects')
+  server.get(`/about`, async (req, res) => {
+    app.render(req, res, '/about')
   })
 
-  server.get(`/reviews`, async (req, res) => {
-    app.render(req, res, '/reviews')
+  server.get(`/article/:id`, async (req, res) => {
+    app.render(req, res, '/article')
   })
 
   server.get(`/contact`, async (req, res) => {
     app.render(req, res, '/contact')
   })
 
-  server.get(`/about`, async (req, res) => {
-    app.render(req, res, '/about')
+  server.get(`/projects`, async (req, res) => {
+    app.render(req, res, '/projects')
+  })
+
+  server.get(`/reviews`, async (req, res) => {
+    app.render(req, res, '/reviews')
   })
 }
 

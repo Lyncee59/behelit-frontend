@@ -10,11 +10,12 @@ import { Container as BhContainer, theme } from '@behelit/components'
 
 const Wrapper = styled.div`
   height: 100%;
+  overflow-y: auto;
   background-color: ${theme('silver')};
   background-image: url('/static/img/fresh_snow.png');
 `
 const Container = styled(BhContainer)`
-  padding: 2rem 1rem 0 1rem;
+  padding: 2rem 1rem;
   box-sizing: border-box;
 `
 

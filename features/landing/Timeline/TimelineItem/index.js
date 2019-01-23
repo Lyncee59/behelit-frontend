@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { palette } from '@behelit/components'
-import { CategoryLink, ArticleLink } from 'components/Links'
+import { DefaultLink, BlackLink } from 'components/Links'
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,9 +47,9 @@ class TimelineItem extends React.PureComponent {
 
     return (
     <Wrapper>
-        <CategoryLink onClick={this.handleToggle}>{category}</CategoryLink>
+        <DefaultLink size='1.2rem' uppercase weight={700} onClick={this.handleToggle}>{category}</DefaultLink>
         <Articles toggled={toggled}>
-          {articles.map((article, index) => <ArticleLink key={index} size='16px' weight={300} onClick={() => handleClick(article._id)}>{article.title}</ArticleLink>)}
+          {articles.map((article, index) => <BlackLink key={index} size='1rem' weight={400} onClick={() => handleClick(article._id)}>{article.title}</BlackLink>)}
         </Articles>
       </Wrapper>
     )

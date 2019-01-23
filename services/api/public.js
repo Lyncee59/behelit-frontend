@@ -4,7 +4,7 @@ const createComment = comment => post({ endpoint: '/comments', data: comment })
 
 const createReview = review => post({ endpoint: '/reviews', data: review })
 
-const getArticle = (id) => get({ endpoint: `/articles/${id}` })
+const getArticle = (articleId) => get({ endpoint: `/articles/${articleId}` })
 
 const getArticles = () => get({ endpoint: '/articles' })
 

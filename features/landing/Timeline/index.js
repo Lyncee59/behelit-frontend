@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { keys, prop } from 'ramda'
 
-import { Text, palette, theme } from '@behelit/components'
+import { palette, theme } from '@behelit/components'
 import { groupByCategory } from './services'
 import TimelineItem from './TimelineItem'
-import { SectionTitle } from 'components/Typography'
+import { GrayText } from 'components/Typography'
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ const Timeline = ({ articles }) => {
   return (
     <Wrapper>
       <Header>
-        <SectionTitle>Articles</SectionTitle>
+        <GrayText size='1.2rem' uppercase weight={700}>Articles</GrayText>
       </Header>
      <Content>
          {categories.map((category, index) => <TimelineItem key={index} category={category} articles={prop(category, groupedArticles)} />)}

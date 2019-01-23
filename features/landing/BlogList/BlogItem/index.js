@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FarFileAlt, Text, palette, theme } from '@behelit/components'
+import { FarFileAlt, palette, theme } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
 import { ReadToggler } from 'components/Togglers'
-import { ArticleTitle, ArticleDescription } from 'components/Typography'
+import { GrayText, CrimsonText } from 'components/Typography'
 
 const Wrapper = styled.div`
   position: relative;
@@ -52,14 +52,14 @@ const Toggler = styled(ReadToggler)`
 
 const BlogItem = ({ article }) => (
   <Wrapper>
-    <Category href={`/blog/${article._id}`}>
+    <Category href={`/article/${article._id}`}>
       {/* <Devicon name={article.category} cursor /> */}
     </Category>
     <Content>
-      <ArticleTitle>{article.title}</ArticleTitle>
-      <ArticleDescription size='14px' weight={300}>{article.description}</ArticleDescription>
+      <CrimsonText size='1.2rem' uppercase weight={700}>{article.title}</CrimsonText>
+      <GrayText size='0.9rem' weight={300}>{article.description}</GrayText>
     </Content>
-    <Toggler href={`/blog/${article._id}`} />
+    <Toggler href={`/article/${article._id}`} />
   </Wrapper>
 )
 

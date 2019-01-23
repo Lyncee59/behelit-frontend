@@ -24,7 +24,7 @@ const BulletPoint = styled.div`
 const ListItem = props => (
   <Wrapper>
     <BulletPoint />
-    <GrayText size='16px' weight={300}>{props.children}</GrayText>
+    <GrayText size='1rem' weight={400}>{props.children}</GrayText>
   </Wrapper>
 )
 

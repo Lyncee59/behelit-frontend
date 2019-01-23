@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FasArrowUp, FasArrowDown, Text, palette, theme } from '@behelit/components'
+import { FasArrowUp, FasArrowDown, palette, theme } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
 import { Markdown } from 'components/Markdown'
 import { ExpandToggler } from 'components/Togglers'
-import { ProjectSummary, ProjectTag, ProjectTitle, ProjectYear } from 'components/Typography'
+import { CrimsonText, GrayText, OddEvenText } from 'components/Typography'
 
 const Wrapper = styled.div`
   position: relative;
@@ -94,12 +94,12 @@ class ProjectItem extends React.PureComponent {
     <Wrapper>
       <Container>
         <Description>
-          <ProjectTitle>{project.title}</ProjectTitle>
-          <ProjectYear weight={700} color='gray-6' capitalize>{`${project.company} - ${project.year}`}</ProjectYear>
-          <ProjectSummary>{project.summary}</ProjectSummary>
+          <CrimsonText size='1.2rem' uppercase weight={700}>{project.title}</CrimsonText>
+          <GrayText weight={700} capitalize>{`${project.company} - ${project.year}`}</GrayText>
+          <GrayText>{project.summary}</GrayText>
         </Description>
         <Tags>
-          { project.tags.map((tag, index) => <ProjectTag key={index} odd={index % 2 !== 0}>{tag}</ProjectTag>)}
+          { project.tags.map((tag, index) => <OddEvenText capitalize key={index} odd={index % 2 !== 0} size='1rem' weight={400}>{tag}</OddEvenText>)}
         </Tags>
         <Toggler onClick={this.handleToggle} toggled={toggled} />
       </Container>
