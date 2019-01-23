@@ -5,6 +5,8 @@ const Wrapper = styled.ul`
   list-style-type: none;
   margin: 0;
   padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `
 
 const List = ({ children }) => (

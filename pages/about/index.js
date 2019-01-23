@@ -1,35 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { assoc, merge, path } from 'ramda'
 
-import { fetchData } from 'services/utils'
-import { getArticles } from 'services/api/public'
 import Layout from 'layouts/Public'
+import History from 'features/about/History'
+import Software from 'features/about/Software'
+import Website from 'features/about/Website'
+import Workstation from 'features/about/Workstation'
 
 const Wrapper = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  margin-top: 1rem;
+
+  @media(min-width: 992px) {
+    flex-direction: row;
+  }
+`
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  & > :last-child:not(:first-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  @media(min-width: 992px) {
+    margin-left: ${(props) => props.position === 'left' ? '0' : '1rem'};
+    margin-right: ${(props) => props.position === 'left' ? '1rem' : '0'};
+    width: ${(props) => props.position === 'left' ? '55%' : '45%'};
+  }
 `
 
-const About = ({ articles }) => (
+const About = () => (
   <Layout>
     <Wrapper>
-      About
+      <Column position='left'>
+        <History />
+      </Column>
+      <Column>
+        <Website />
+        <Software />
+        <Workstation />
+      </Column>
     </Wrapper>
   </Layout>
 )
-
-About.getInitialProps = (context) => fetchData(context, {
-  articles: getArticles(),
-})
-
-About.propTypes = {
-  articles: PropTypes.array,
-}
 
 export default About
