@@ -11,14 +11,14 @@ const Wrapper = styled(GrayCartridge)`
   cursor: pointer;
 `
 
-const TogglerIcon = styled(FarFileAlt).attrs({ size: "16px", selectable: true })`
+const TogglerIcon = styled(FarFileAlt)`
   fill: ${palette('black80')};
 `
 
 const ReadToggler = (props) => (
   <Wrapper as={DefaultLink} {...props}>
     <TogglerIcon />
-    <GrayText size="1rem" weight={400}>Read</GrayText>
+    <GrayText selectable size="1rem" weight={400}>Read</GrayText>
   </Wrapper>
 ) 
 

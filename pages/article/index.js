@@ -7,6 +7,7 @@ import { fetchData } from 'services/utils'
 import { getArticle, getComments } from 'services/api/public'
 import Layout from 'layouts/Public'
 import ArticleDetails from 'features/article/ArticleDetails'
+import CommentForm from 'features/article/CommentForm'
 import CommentList from 'features/article/CommentList'
 
 const Wrapper = styled.section`
@@ -25,10 +26,15 @@ const Column = styled.div`
   margin-left: ${(props) => props.position === 'left' ? '0' : '1rem'};
   margin-right: ${(props) => props.position === 'left' ? '1rem' : '0'};
   
+  & > :last-child:not(:first-child) {
+    margin-bottom: 0.5rem;
+  }
+
   @media(min-width: 992px) {
     width: ${(props) => props.position === 'left' ? '70%' : '30%'};
   }
 `
+
 const Article = ({ article, comments }) => (
   <Layout>
     <Wrapper>
@@ -36,6 +42,7 @@ const Article = ({ article, comments }) => (
         <ArticleDetails article={article} />
       </Column>
       <Column>
+        <CommentForm />
         <CommentList comments={comments} />
       </Column>
     </Wrapper>
