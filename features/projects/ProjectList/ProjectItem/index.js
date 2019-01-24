@@ -91,27 +91,26 @@ class ProjectItem extends React.PureComponent {
     const { project } = this.props
 
     return (
-    <Wrapper>
-      <Container>
-        <Description>
-          <CrimsonText size='1.2rem' uppercase weight={700}>{project.title}</CrimsonText>
-          <GrayText weight={700} capitalize>{`${project.company} - ${project.year}`}</GrayText>
-          <GrayText>{project.summary}</GrayText>
-        </Description>
-        <Tags>
-          { project.tags.map((tag, index) => <OddEvenText capitalize key={index} odd={index % 2 !== 0} size='1rem' weight={400}>{tag}</OddEvenText>)}
-        </Tags>
-        <Toggler onClick={this.handleToggle} toggled={toggled} />
-      </Container>
-      { toggled &&
+      <Wrapper>
         <Container>
-          <Details>
-            <Markdown content={project.description} />
-          </Details>
+          <Description>
+            <CrimsonText size='1.2rem' uppercase weight={700}>{project.title}</CrimsonText>
+            <GrayText weight={700} capitalize>{`${project.company} - ${project.year}`}</GrayText>
+            <GrayText>{project.summary}</GrayText>
+          </Description>
+          <Tags>
+            { project.tags.map((tag, index) => <OddEvenText capitalize key={index} odd={index % 2 !== 0} size='1rem' weight={400}>{tag}</OddEvenText>)}
+          </Tags>
+          <Toggler onClick={this.handleToggle} toggled={toggled} />
         </Container>
-      }
-    </Wrapper>
-
+        { toggled &&
+          <Container>
+            <Details>
+              <Markdown content={project.description} />
+            </Details>
+          </Container>
+        }
+      </Wrapper>
     )
   }
 }
