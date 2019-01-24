@@ -1,6 +1,7 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+
 import { 
   injectGlobalStyle,
   injectFonts,
@@ -13,6 +14,7 @@ import {
   injectFacebookOpenGraph,
   injectTwitterCard
 } from 'services/dom'
+import { PrismStyle } from 'components/Prism'
 
 class BehelitDocument extends Document {
   static async getInitialProps(context) {
@@ -61,6 +63,7 @@ class BehelitDocument extends Document {
           {injectStyleTags(styleTags, nonce)}
         </Head>
         <body>
+          <PrismStyle />
           <Main />
           <NextScript nonce={nonce} />
           <div id="modal-root"></div>

@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 
-import { List, ListItem, Separator } from '@behelit/components'
-import PrismCode from './PrismCode'
-import { DefaultLink } from '../Links'
-import { CrimsonText, GrayText } from '../Typography'
+import { List, ListItem, Separator, TextGroup } from '@behelit/components'
+import { DefaultLink } from 'components/Links'
+import { PrismCode } from 'components/Prism'
+import { CrimsonText, GrayText } from 'components/Typography'
 
 const codeRenderer = props => <PrismCode language={props.language} code={props.value} />
 
@@ -31,8 +31,11 @@ const listReference = props => <List>{props.children}</List>
 
 const listItemReference = props => <ListItem>{props.children}</ListItem>
 
-const paragraphRenderer = props => <GrayText as='p'>{props.children}</GrayText>
-
+const paragraphRenderer = props => (
+  <TextGroup inline={false}>
+    <GrayText>{props.children}</GrayText>
+  </TextGroup>
+)
 const rootRenderer = props => props.children
 
 const thematicBreakRenderer = props => <Separator />

@@ -24,8 +24,8 @@ const ErrorLabel = styled(CrimsonText)`
 `
 
 const InputField = ({ input, meta, ...rest }) => (
-  <Wrapper {...rest}>
-    <TextArea {...input} />
+  <Wrapper>
+    <TextArea {...input} {...rest} />
     {meta.error && meta.touched && <ErrorLabel size='0.9rem'>{meta.error}</ErrorLabel>}
   </Wrapper>
 )

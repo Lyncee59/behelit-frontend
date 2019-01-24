@@ -11,6 +11,10 @@ const handlePublicRoutes = (app, server) => {
     app.render(req, res, '/article')
   })
 
+  server.get(`/login`, async (req, res) => {
+    app.render(req, res, '/login')
+  })
+
   server.get(`/projects`, async (req, res) => {
     app.render(req, res, '/projects')
   })

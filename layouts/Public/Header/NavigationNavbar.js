@@ -10,7 +10,7 @@ const NavigationNavbar = () => {
   const pathname = getRouterPathname()
 
   return (
-    <NavbarNav width="35rem">
+    <NavbarNav width="25rem">
       <NavbarNavItem>
         <WhiteLink href='/' selected={pathname === '/landing'} size='1.2rem'>Blog</WhiteLink>
       </NavbarNavItem>
@@ -19,9 +19,6 @@ const NavigationNavbar = () => {
       </NavbarNavItem>
         <NavbarNavItem>
         <WhiteLink href='/reviews' selected={pathname === '/reviews'} size='1.2rem'>Reviews</WhiteLink>
-      </NavbarNavItem>
-      <NavbarNavItem>
-        <WhiteLink href='/contact' selected={pathname === '/contact'} size='1.2rem'>Contact</WhiteLink>
       </NavbarNavItem>
       <NavbarNavItem>
         <WhiteLink href='/about' selected={pathname === '/about'} size='1.2rem'>About</WhiteLink>
