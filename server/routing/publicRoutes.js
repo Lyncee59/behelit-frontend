@@ -11,10 +11,6 @@ const handlePublicRoutes = (app, server) => {
     app.render(req, res, '/article')
   })
 
-  server.get(`/contact`, async (req, res) => {
-    app.render(req, res, '/contact')
-  })
-
   server.get(`/projects`, async (req, res) => {
     app.render(req, res, '/projects')
   })

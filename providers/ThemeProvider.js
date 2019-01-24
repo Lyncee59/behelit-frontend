@@ -4,7 +4,8 @@ import { merge } from 'ramda'
 import { DefaultTheme, DefaultPalette, ThemeProvider } from '@behelit/components'
 
 const customPalette = merge(DefaultPalette, {
-  cerulean: '#007BA7'
+  cerulean: '#007BA7',
+  gold: '#FFD700'
 })
 
 const customTheme = merge(DefaultTheme, {

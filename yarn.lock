@@ -720,10 +720,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@behelit/components@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@behelit/components/-/components-0.0.8.tgz#ef83a49b139b325992f32c15bbfb58c6a8469cf5"
-  integrity sha512-dhv782BjKGPBaRvayqEAf2pPn4FtK3Mas46uKaz9GBW7Yzc1agNJ1V4FVDaKHhTBjVSC7aaaQonW5eZfRNGvSg==
+"@behelit/components@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@behelit/components/-/components-0.0.9.tgz#b8d0dd014b39b28bf9711eac18c769810513cc4b"
+  integrity sha512-jecirEfTpWZZmRUFVG71jw0LthpJKEgmCzA4cjPjkfbha3Xigtji7/G2fZ9T5tRcX9Q+axf86+PrLcAKHFmzhA==
   dependencies:
     "@babel/runtime" "7.1.5"
 

@@ -19,11 +19,10 @@
           "module-resolver",
           {
             "alias": {
-              "api": "./api",
-              "assets": "./assets",
               "components": "./components",
               "features": "./features",
               "layouts": "./layouts",
+              "modals": "./modals",
               "providers": "./providers",
               "scenes": "./scenes",
               "services": "./services"
@@ -48,11 +47,10 @@
           "module-resolver",
           {
             "alias": {
-              "api": "./api",
-              "assets": "./assets",
               "components": "./components",
               "features": "./features",
               "layouts": "./layouts",
+              "modals": "./modals",
               "providers": "./providers",
               "scenes": "./scenes",
               "services": "./services"
