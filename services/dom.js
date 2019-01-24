@@ -8,6 +8,8 @@ import { localizeUrl } from 'services/url'
 export const injectGlobalStyle = (nonce) => (
     <style nonce={nonce}>
         {`
+            ${normalize()};
+
             html {
                 height: 100%;
                 width: 100%;

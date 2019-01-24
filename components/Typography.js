@@ -3,14 +3,19 @@ import styled from 'styled-components'
 
 import { Text, palette } from '@behelit/components'
 
-export const CrimsonText = styled(Text)`
+export const DefaultText = styled(Text)`
+  display: ${(props) => props.paragraph ? 'block': 'inline-block'};
+  padding: ${(props) => props.paragraph ? '0.5rem 0': '0'};
+`
+export const CrimsonText = styled(DefaultText)`
   color: ${palette('red10')};
 `
-export const GrayText = Text
-
-export const RedText = styled(Text)`
+export const GrayText = styled(DefaultText)`
+  color: ${palette('gray8')};
+`
+export const RedText = styled(DefaultText)`
   color: ${palette('red10')};
 `
-export const OddEvenText = styled(Text)`
+export const OddEvenText = styled(DefaultText)`
   color: ${(props) => props.odd ? palette('gray8') : palette('red10')};
 `
