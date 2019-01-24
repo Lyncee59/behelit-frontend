@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 
+import { List, ListItem, Separator } from '@behelit/components'
 import PrismCode from './PrismCode'
 import { DefaultLink } from '../Links'
-import { List, ListItem } from '../Lists'
-import { Separator } from '../Separators'
 import { CrimsonText, GrayText } from '../Typography'
 
 const codeRenderer = props => <PrismCode language={props.language} code={props.value} />

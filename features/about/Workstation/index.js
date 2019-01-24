@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { TextGroup, palette, theme } from '@behelit/components'
-import { List, ListItem } from 'components/Lists'
+import { List, ListItem, TextGroup, palette } from '@behelit/components'
 import { CrimsonText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -15,14 +14,14 @@ const Wrapper = styled.div`
   padding: 1rem;
   margin-bottom: 0.5rem;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')};
   border-radius: 5px;
 `
 const Title = styled(CrimsonText)`
   width: 100%;
   margin-bottom: 15px;
-  border-bottom: 1px solid ${palette('crimson')};
+  border-bottom: 1px solid ${palette('red10')};
 `
 
 const Workstation = () => (

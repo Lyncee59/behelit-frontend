@@ -13,7 +13,7 @@ import StickyContainer from './StickyContainer'
 
 const LinkedInIcon = styled(FabLinkedin)`
   fill: ${palette('cerulean')};
-  &:hover { fill: ${(props) => lighten(0.1, props.theme.palette['cerulean'])}; }
+  &:hover { fill: ${props => lighten(0.1, props.theme.palette['cerulean'])}; }
 `
 
 class Header extends React.PureComponent {

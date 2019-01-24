@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   opacity: 1;
   transform: translateZ(0);
   transition: transform 0.4s ease 0s;
-  background-color: ${palette('black90')};
+  background: ${palette('gray9')};
 `
 
 const StickyContainer = ({ children, enabled }) => {

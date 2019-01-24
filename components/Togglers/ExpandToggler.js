@@ -11,15 +11,15 @@ const Wrapper = styled(GrayCartridge)`
   cursor: pointer;
 `
 const TogglerIconCollapse = styled(FasArrowUp)`
-  fill: ${palette('black80')};
+  fill: ${palette('gray8')};
 `
 const TogglerIconExpand = styled(FasArrowDown)`
-  fill: ${palette('black80')};
+  fill: ${palette('gray8')};
 `
 
 const ExpandToggler = ({ toggled, ...rest }) => (
   <Wrapper as={DefaultLink} {...rest}>
-    {toggled ? <TogglerIconCollapse size='1rem' selectable /> : <TogglerIconExpand size='1rem' selectable />}
+    {toggled ? <TogglerIconCollapse size='16px' selectable /> : <TogglerIconExpand size='16px' selectable />}
     <GrayText size="1rem" weight={400}>{toggled ? 'Collapse' : 'Expand'}</GrayText>
   </Wrapper>
 )

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FasArrowUp, FasArrowDown, palette, theme } from '@behelit/components'
+import { FasArrowUp, FasArrowDown, palette } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
 import { Markdown } from 'components/Markdown'
 import { ExpandToggler } from 'components/Togglers'
@@ -14,8 +14,8 @@ const Wrapper = styled.div`
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')};
 `
 const Container = styled.div`
   position: relative;

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette, theme } from '@behelit/components'
+import { palette } from '@behelit/components'
 import { CrimsonText, GrayText, OddEvenText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')};
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   overflow: hidden;
@@ -24,11 +24,15 @@ const Category = styled.div`
   align-items: center;
   width: 150px;
   height: 150px;
-  background-color: ${theme('xslightgray')};
+  background: ${palette('gray2')};
 
   @media(min-width: 768px) {
     display: flex;
   }
+`
+const CategoryImage = styled.img`
+  width: 8rem;
+  height: 8rem;
 `
 const Description = styled.div`
   display: flex;
@@ -64,7 +68,7 @@ const Tags = styled.div`
 const Header = ({ article }) => (
   <Wrapper>
     <Category>
-      {/* <Devicon name={article.category} /> */}
+      <CategoryImage src={`/static/icons/${article.category}.svg`} />
     </Category>
     <Description>
       <Title>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette, theme } from '@behelit/components'
+import { palette } from '@behelit/components'
 import { Markdown } from 'components/Markdown'
 import { GrayText } from 'components/Typography'
 
@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   padding: 1rem;
   margin-bottom: 0.5rem;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')};
   border-radius: 5px;
 `
 const Content = styled.div`

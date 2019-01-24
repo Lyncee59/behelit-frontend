@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { BrandLogo, palette, theme } from '@behelit/components'
+import { BrandLogo, palette } from '@behelit/components'
 import { CrimsonText, GrayText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray2')};
+  border: 1px solid ${palette('gray2')};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 `

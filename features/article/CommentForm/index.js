@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Form as ReactForm, Field } from 'react-final-form'
 
 import { required, isEmail } from 'services/formHelper'
-import { Button, palette, theme } from '@behelit/components'
+import { Button, palette } from '@behelit/components'
 import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
 import { GrayText } from 'components/Typography'
 import ToggleButton from './ToggleButton'
@@ -18,8 +18,8 @@ const Wrapper = styled.div`
   padding: 1rem;
   margin-bottom: 0.5rem;
   box-sizing: border-box;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')};
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')};
   border-radius: 5px;
 `
 class CommentForm extends React.PureComponent {
@@ -46,7 +46,6 @@ class CommentForm extends React.PureComponent {
 
   render () {
     const { toggled } = this.state
-    console.log('toggled', toggled)
 
     return (
       <Wrapper>

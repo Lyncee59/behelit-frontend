@@ -12,13 +12,13 @@ const Wrapper = styled(GrayCartridge)`
 `
 
 const TogglerIcon = styled(FarFileAlt)`
-  fill: ${palette('black80')};
+  fill: ${palette('gray8')};
 `
 
 const ReadToggler = (props) => (
   <Wrapper as={DefaultLink} {...props}>
-    <TogglerIcon />
-    <GrayText selectable size="1rem" weight={400}>Read</GrayText>
+    <TogglerIcon size="16px" />
+    <GrayText size="1rem" weight={400}>Read</GrayText>
   </Wrapper>
 ) 
 

@@ -10,16 +10,16 @@ export const DefaultLink = styled(Link)`
   }
 `
 export const BlackLink = styled(DefaultLink)`
-  color: ${palette('black90')};
+  color: ${palette('gray9')};
 
   &:hover {
-    color: ${palette('crimson')};
+    color: ${palette('red10')};
   }
 `
 export const WhiteLink = styled(DefaultLink)`
-  color: ${(props) => props.selected ? palette('crimson') : palette('white')};
+  color: ${(props) => props.selected ? palette('red10') : palette('white')};
 
   &:hover {
-    color: ${palette('crimson')};
+    color: ${palette('red10')};
   }
 ` 

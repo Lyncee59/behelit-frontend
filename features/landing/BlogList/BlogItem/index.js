@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FarFileAlt, palette, theme } from '@behelit/components'
+import { FarFileAlt, palette } from '@behelit/components'
 import { GrayCartridge } from 'components/Cartridges'
 import { ReadToggler } from 'components/Togglers'
 import { GrayText, CrimsonText } from 'components/Typography'
@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 10px;
-  background-color: ${theme('xslightgray')};
-  border: 1px solid ${palette('silver')}
+  background: ${palette('gray1')};
+  border: 1px solid ${palette('gray2')}
 `
 const Category = styled.a`
   display: none;
@@ -22,11 +22,15 @@ const Category = styled.a`
   align-items: center;
   width: 150px;
   height: 150px;
-  cursor: pointer;
+  background: ${palette('gray2')};
 
   @media(min-width: 768px) {
     display: flex;
   }
+`
+const CategoryImage = styled.img`
+  width: 8rem;
+  height: 8rem;
 `
 const Content = styled.div`
   display: flex;
@@ -53,13 +57,13 @@ const Toggler = styled(ReadToggler)`
 const BlogItem = ({ article }) => (
   <Wrapper>
     <Category href={`/article/${article._id}`}>
-      {/* <Devicon name={article.category} cursor /> */}
+      <CategoryImage src={`/static/icons/${article.category}.svg`} />
     </Category>
     <Content>
       <CrimsonText size='1.2rem' uppercase weight={700}>{article.title}</CrimsonText>
       <GrayText size='0.9rem' weight={300}>{article.description}</GrayText>
     </Content>
-    <Toggler href={`/article/${article._id}`} />
+    <Toggler href={`/article/${article._id}`} size="" />
   </Wrapper>
 )
 

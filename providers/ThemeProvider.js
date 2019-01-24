@@ -1,11 +1,15 @@
 import React from 'react'
 import { merge } from 'ramda'
 
-import { DefaultTheme, ThemeProvider } from '@behelit/components'
+import { DefaultTheme, DefaultPalette, ThemeProvider } from '@behelit/components'
+
+const customPalette = merge(DefaultPalette, {
+  cerulean: '#007BA7'
+})
 
 const customTheme = merge(DefaultTheme, {
   fontPrimary: "Roboto,sans-serif",
-  xslightgray: '#F3F3F3'
+  palette: customPalette
 })
 
 export default ({ children }) => (
