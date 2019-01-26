@@ -4,10 +4,10 @@ const { uniq } = require('ramda')
 const parse = require('url-parse')
 const settings = require('../../settings')
 
-const { NODE_CONFIG_SET } = settings
+const { NODE_CONFIG_SET, NODE_API_PUBLIC } = settings
 const extractDomain = (url) => parse(url, true).origin
 const filterDuplicates = (domains) => uniq(domains)
-const urls = []
+const urls = [NODE_API_PUBLIC]
 const domains = filterDuplicates(urls.map(extractDomain))
 
 const handleCsp = (app) => {

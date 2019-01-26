@@ -9,7 +9,7 @@ const {
 } = require('./handlers')
 const {
   handlePublicRoutes,
-  // handlePrivateRoutes,
+  handlePrivateRoutes,
   // handleSystemRoutes
 } = require('./routing')
 
@@ -45,7 +45,7 @@ app
     handlePublicRoutes(app, server)
 
     // Handle private routes
-    // handlePrivateRoutes(app, server)
+    handlePrivateRoutes(app, server)
 
     // Handle System routes
     // handleSystemRoutes(app, server)

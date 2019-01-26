@@ -10,8 +10,8 @@ const Wrapper = styled.form`
   padding: 1rem 0;
 `
 
-const Form = ({ children }) => (
-  <Wrapper>
+const Form = ({ children, ...rest }) => (
+  <Wrapper {...rest}>
     {children}
   </Wrapper>
 )

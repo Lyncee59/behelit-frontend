@@ -10,8 +10,8 @@ const LinkedInIcon = styled(FabLinkedin)`
   &:hover { fill: ${props => darken(0.1, props.theme.palette['cerulean'])}; }
 `
 const MailIcon = styled(FasEnvelope)`
-  fill: ${palette('gold')};
-  &:hover { fill: ${props => darken(0.1, props.theme.palette['gold'])}; }
+  fill: ${palette('cerulean')};
+  &:hover { fill: ${props => darken(0.1, props.theme.palette['cerulean'])}; }
 `
 
 class ContactNavbar extends React.PureComponent {

@@ -10,6 +10,7 @@ import { Container as BhContainer, palette } from '@behelit/components'
 
 const Wrapper = styled.div`
   height: 100%;
+  min-height: 100%;
   overflow-y: auto;
   background: ${palette('gray1')};
   background-image: url('/static/img/fresh_snow.png');

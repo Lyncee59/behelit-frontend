@@ -1,28 +1,35 @@
 
 import fetch from 'isomorphic-fetch'
 import 'es6-promise'
-import { isNil } from 'ramda'
 import { config } from 'services/config'
 
-const query = ({ method, endpoint, data, token }) => {
-  const { API_PUBLIC, API_INTERNAL } = config
-  const path = typeof window !== 'undefined' ? API_PUBLIC : API_INTERNAL
-  const headers = !isNil(token)
-    ? { 'Content-Type': 'application/json', 'x-access-token': token }
-    : { 'Content-Type': 'application/json' }
+const query = ({ method, endpoint, data }) => {
+  const path = typeof window !== 'undefined' ? config.API_PUBLIC : config.API_INTERNAL
 
-  return fetch(`${path}${endpoint}`, { method, headers })
+  let fetchOptions = {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method
+  }
+
+  if (data) {
+    fetchOptions.body = JSON.stringify(data)
+  }
+
+  return fetch(`${path}${endpoint}`, fetchOptions)
     .then((r) => (r.ok ? Promise.resolve(r) : Promise.reject(r)))
+    .then(r => { console.log('r', r); return r })
     .then((r) => r.json())
 }
 
-const get = ({ endpoint, data, token }) => query({ method: 'GET', endpoint, token })
+const get = ({ endpoint }) => query({ method: 'GET', endpoint })
 
-const post = ({ endpoint, data, token }) => query({ method: 'POST', endpoint, data, token })
+const post = ({ endpoint, data }) => query({ method: 'POST', endpoint, data })
 
-const put = ({ endpoint, data, token }) => query({ method: 'PUT', endpoint, data, token })
+const put = ({ endpoint, data }) => query({ method: 'PUT', endpoint, data })
 
-const del = ({ endpoint, data, token }) => query({ method: 'DELETE', endpoint, token })
+const del = ({ endpoint }) => query({ method: 'DELETE', endpoint })
 
 export {
   get,
