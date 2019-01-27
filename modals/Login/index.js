@@ -4,16 +4,16 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
 import {
-  FasEnvelope,
+  FasSignInAlt,
   Modal,
   ModalHeader,
   ModalBody,
   ModalToggler,
 } from '@behelit/components'
 import { GrayText } from 'components/Typography'
-import EditArticleForm from './EditArticleForm'
+import LoginForm from './LoginForm'
 
-const MailIcon = styled(FasEnvelope)`
+const LoginIcon = styled(FasSignInAlt)`
   fill: ${(props) => props.theme.palette['gray8']};
   &:hover { ${(props) => props.theme.palette['gray8']}; }
 `
@@ -23,23 +23,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const EditArticle = ({ handleClose }) =>  (
-  <Modal padding="0" width="600px">
+const Login = ({ handleClose }) => (
+  <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
-        <MailIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Edit Article</GrayText>
+        <LoginIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Sign in</GrayText>
       </TitleContainer>
       <ModalToggler onClick={handleClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <EditArticleForm />
+      <LoginForm />
     </ModalBody>
   </Modal>
 )
 
-EditArticle.propTypes = {
+Login.propTypes = {
   handleClose: PropTypes.func.isRequired,
 }
 
-export default EditArticle
+export default Login

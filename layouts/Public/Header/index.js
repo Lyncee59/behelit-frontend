@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import { BrandName, Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarToggler } from '@behelit/components'
 import { DefaultLink, WhiteLink } from 'components/Links'
 import { DarkGraySection } from 'components/Sections'
-import StickyContainer from './StickyContainer'
+import StickyContainer from 'components/StickyContainer'
+import MenuNavbar from './MenuNavbar'
 import NavigationNavbar from './NavigationNavbar'
-import ContactNavbar from './ContactNavbar'
 
 class Header extends React.PureComponent {
   constructor(props) {
@@ -31,14 +31,14 @@ class Header extends React.PureComponent {
           <Navbar>
             <NavbarHeader>
               <NavbarBrand>
-                <DefaultLink href='/landing'>
+                <DefaultLink href='/'>
                   <BrandName />
                 </DefaultLink>
               </NavbarBrand>
             </NavbarHeader>
             <NavbarMenu toggled={menuToggled}>
               <NavigationNavbar />
-              <ContactNavbar />
+              <MenuNavbar />
             </NavbarMenu>
             <NavbarToggler
               onClick={this.handleToggleMenu}

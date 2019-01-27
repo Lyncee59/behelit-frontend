@@ -7,7 +7,6 @@ const Wrapper = styled.form`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  padding: 1rem 0;
 `
 
 const Form = ({ children, ...rest }) => (

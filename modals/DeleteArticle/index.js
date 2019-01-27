@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl'
 import {
   FasEnvelope,
   Modal,
-  ModalBackground,
   ModalHeader,
   ModalBody,
   ModalToggler,
@@ -25,20 +24,18 @@ const TitleContainer = styled.div`
 `
 
 const Contact = ({ handleClose }) =>  (
-  <ModalBackground>
-    <Modal padding="0" width="600px">
-      <ModalHeader>
-        <TitleContainer>
-          <MailIcon size="24px" />
-          <GrayText size="1.5rem" weight={400}>Delete Article</GrayText>
-        </TitleContainer>
-        <ModalToggler onClick={handleClose} selectable />
-      </ModalHeader>
-      <ModalBody>
-        <DeleteArticleForm />
-      </ModalBody>
-    </Modal>
-  </ModalBackground>
+  <Modal padding="0" width="600px">
+    <ModalHeader>
+      <TitleContainer>
+        <MailIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Delete Article</GrayText>
+      </TitleContainer>
+      <ModalToggler onClick={handleClose} selectable />
+    </ModalHeader>
+    <ModalBody>
+      <DeleteArticleForm />
+    </ModalBody>
+  </Modal>
 )
 
 Contact.propTypes = {

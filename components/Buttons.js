@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { darken } from 'polished'
 import { Button, palette } from '@behelit/components'
 
 export const CrimsonButton = Button
@@ -9,6 +10,13 @@ export const GrayButton = styled(Button)`
   color: ${palette('white')};
 
   &:hover { 
-    background: ${palette('gray7')};
+    background: ${(props) => darken(0.1, props.theme.palette['gray2'])};
+  }
+`
+export const GreenButton = styled(Button)`
+  background: ${(props) => props.theme.palette['green']};
+
+  &:hover { 
+    background: ${(props) => darken(0.1, props.theme.palette['green'])};
   }
 `

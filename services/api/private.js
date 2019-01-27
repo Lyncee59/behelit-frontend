@@ -1,29 +1,29 @@
 import { get, post, put } from './fetch'
 
 export const createArticle = (article) => post({
-  endpoint: '/articles',
+  endpoint: '/admin/articles',
   data: article
 })
 
 export const deleteArticle = (id) => del({
-  endpoint: `/articles/${id}`
+  endpoint: `/admin/articles/${id}`
 })
 
 export const editArticle = (article) => put({
-  endpoint: '/articles',
+  endpoint: '/admin/articles',
   data: article
 })
 
 export const getArticles = () => get({
-  endpoint: '/articles',
+  endpoint: '/admin/articles',
 })
 
 export const publishArticle = (article) => post({
-  endpoint: '/articles/publish',
+  endpoint: '/admin/articles/publish',
   data: article
 })
 
 export const unpublishArticle = (article) => post({
-  endpoint: '/articles/unpublish',
+  endpoint: '/admin/articles/unpublish',
   data: article
 })

@@ -4,18 +4,19 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
 import {
-  FasEnvelope,
+  FasSignOutAlt,
   Modal,
   ModalHeader,
   ModalBody,
   ModalToggler,
+  palette,
 } from '@behelit/components'
 import { GrayText } from 'components/Typography'
-import EditArticleForm from './EditArticleForm'
+import LogoutForm from './LogoutForm'
 
-const MailIcon = styled(FasEnvelope)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
+const LogoutIcon = styled(FasSignOutAlt)`
+  fill: ${palette('gray8')};
+  &:hover { fill: ${palette('gray8')}; }
 `
 const TitleContainer = styled.div`
   display: flex;
@@ -23,23 +24,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const EditArticle = ({ handleClose }) =>  (
-  <Modal padding="0" width="600px">
+const Logout = ({ handleClose }) => (
+  <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
-        <MailIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Edit Article</GrayText>
+        <LogoutIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Sign out</GrayText>
       </TitleContainer>
       <ModalToggler onClick={handleClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <EditArticleForm />
+      <LogoutForm handleClose={handleClose} />
     </ModalBody>
   </Modal>
 )
 
-EditArticle.propTypes = {
+Logout.propTypes = {
   handleClose: PropTypes.func.isRequired,
 }
 
-export default EditArticle
+export default Logout

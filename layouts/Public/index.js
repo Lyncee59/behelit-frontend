@@ -4,9 +4,8 @@ import styled from 'styled-components'
 import { injectIntl } from 'react-intl'
 import Head from 'next/head'
 
-import Header from './Header'
-// import Footer from './Footer'
 import { Container as BhContainer, palette } from '@behelit/components'
+import Header from './Header'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -56,9 +55,8 @@ class Public extends React.PureComponent {
         <Wrapper>
           <Header sticky={sticky} />
           <Container>
-          {this.props.children}
+            {this.props.children}
           </Container>
-          {/* <Footer /> */}
         </Wrapper>
       </React.Fragment>
     )

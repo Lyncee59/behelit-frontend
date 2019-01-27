@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Layout from 'layouts/Public'
+import Layout from 'layouts/Admin'
 import { palette } from '@behelit/components'
 import Menu from 'features/admin/Menu'
 

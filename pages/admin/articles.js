@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { fetchData } from 'services/utils'
 import { getArticles } from 'services/api/private'
-import Layout from 'layouts/Public'
+import { fetchData } from 'services/utils'
+import Layout from 'layouts/Admin'
 import ArticleList from 'features/admin/ArticleList'
 
 const Wrapper = styled.section`
