@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { FarEdit, FarThumbsDown, FarThumbsUp, FarTrashAlt, palette } from '@behelit/components'
+import Modal from 'providers/Modal'
 
 const PublishButton = styled(FarThumbsUp)`
   fill: ${(props) => props.toggled === 1 ? props.theme.palette['green'] : palette('gray8')};
@@ -41,8 +42,12 @@ const ArticleMenu = ({ isPublished }) => (
   <Wrapper>
     <PublishButton selectable size="24px" toggled={isPublished ? 1 : 0} />
     <UnpublishButton selectable size="24px" toggled={!isPublished ? 1 : 0} />
-    <EditButton selectable size="24px" />
-    <DeleteButton selectable size="24px" />
+    <Modal name="editArticle">
+      <EditButton selectable size="24px" />
+    </Modal>
+    <Modal name="deleteArticle">
+      <DeleteButton selectable size="24px" />
+    </Modal>
   </Wrapper>
 )
 

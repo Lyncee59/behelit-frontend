@@ -13,6 +13,8 @@ class ModalPortal extends React.PureComponent {
   }
 
   componentWillUnmount() {
+    const { callback } = this.props
+    if (callback) { callback() }
     document.getElementById('modal-root').removeChild(this.el)
   }
 
@@ -23,6 +25,7 @@ class ModalPortal extends React.PureComponent {
 
 ModalPortal.propTypes = {
   children: PropTypes.node.isRequired,
+  callback: PropTypes.func
 }
 
 export default ModalPortal

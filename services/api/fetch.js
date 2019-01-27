@@ -19,7 +19,6 @@ const query = ({ method, endpoint, data }) => {
 
   return fetch(`${path}${endpoint}`, fetchOptions)
     .then((r) => (r.ok ? Promise.resolve(r) : Promise.reject(r)))
-    .then(r => { console.log('r', r); return r })
     .then((r) => r.json())
 }
 

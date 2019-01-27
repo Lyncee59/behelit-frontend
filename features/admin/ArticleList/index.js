@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-import {
-  DataCell,
-  DataMenu,
-  DataRow,
-  DataTable
-} from 'components/DataTables'
+import Modal from 'providers/Modal'
+import { CrimsonButton } from 'components/Buttons'
+import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
 import ArticleMenu from './ArticleMenu'
 
@@ -24,7 +20,9 @@ const ArticleList = ({ articles }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
-        <CrimsonText weight={700} uppercase>Actions</CrimsonText>
+        <Modal name="createArticle">
+          <CrimsonButton width="100%">Create</CrimsonButton>
+        </Modal>
       </DataCell>
     </DataRow>
     { articles.map((article) => (
