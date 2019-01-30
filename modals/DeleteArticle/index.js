@@ -23,23 +23,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Contact = ({ handleClose }) =>  (
+const Contact = ({ onClose }) =>  (
   <Modal padding="0" width="600px">
     <ModalHeader>
       <TitleContainer>
         <MailIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Delete Article</GrayText>
       </TitleContainer>
-      <ModalToggler onClick={handleClose} selectable />
+      <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <DeleteArticleForm />
+      <DeleteArticleForm onClose={onClose} />
     </ModalBody>
   </Modal>
 )
 
 Contact.propTypes = {
-  handleClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Contact

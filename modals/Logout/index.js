@@ -24,17 +24,17 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Logout = ({ handleClose }) => (
+const Logout = ({ onClose }) => (
   <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
         <LogoutIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Sign out</GrayText>
       </TitleContainer>
-      <ModalToggler onClick={handleClose} selectable />
+      <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LogoutForm handleClose={handleClose} />
+      <LogoutForm onClose={onClose} />
     </ModalBody>
   </Modal>
 )

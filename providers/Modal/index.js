@@ -24,12 +24,12 @@ class Modal extends React.PureComponent {
 
   renderModals () {
     switch (this.props.name) {
-      case 'contact': return <Contact handleClose={this.handleClose} />
-      case 'createArticle': return <CreateArticle handleClose={this.handleClose} />
-      case 'editArticle': return <EditArticle handleClose={this.handleClose} />
-      case 'deleteArticle': return <DeleteArticle handleClose={this.handleClose} />
-      case 'login': return <Login handleClose={this.handleClose} />
-      case 'logout': return <Logout handleClose={this.handleClose} />
+      case 'contact': return <Contact onClose={this.handleClose} />
+      case 'createArticle': return <CreateArticle onClose={this.handleClose} />
+      case 'editArticle': return <EditArticle onClose={this.handleClose} />
+      case 'deleteArticle': return <DeleteArticle onClose={this.handleClose} />
+      case 'login': return <Login onClose={this.handleClose} />
+      case 'logout': return <Logout onClose={this.handleClose} />
     }
   }
 

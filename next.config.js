@@ -1,7 +1,14 @@
+const fs = require('fs')
 const path = require('path')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 const version = require('./package.json').version
 const settings = require('./settings.js')
+
+
+const supportedCategories = () => {
+  const files = fs.readdirSync(__dirname + '/static/icons')
+  return files.map(file => file.slice(0, -4))
+}
 
 const buildVersionName = () => {
   const configSet = settings.NODE_CONFIG_SET
@@ -59,6 +66,7 @@ const nextConfig = {
       SETTINGS_LANGUAGE_COOKIE_NAME: settings.NODE_SETTINGS_LANGUAGE_COOKIE_NAME,
       SETTINGS_LANGUAGE_HEADER_NAME: settings.NODE_SETTINGS_LANGUAGE_HEADER_NAME
     },
+    supportedCategories: supportedCategories(),
     supportedLanguages,
     version: buildVersionName()
   },

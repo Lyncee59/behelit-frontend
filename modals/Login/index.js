@@ -23,23 +23,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Login = ({ handleClose }) => (
+const Login = ({ onClose }) => (
   <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
         <LoginIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Sign in</GrayText>
       </TitleContainer>
-      <ModalToggler onClick={handleClose} selectable />
+      <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LoginForm />
+      <LoginForm onClose={onClose} />
     </ModalBody>
   </Modal>
 )
 
 Login.propTypes = {
-  handleClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Login

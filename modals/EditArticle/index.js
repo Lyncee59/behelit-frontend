@@ -23,23 +23,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const EditArticle = ({ handleClose }) =>  (
+const EditArticle = ({ onClose }) =>  (
   <Modal padding="0" width="600px">
     <ModalHeader>
       <TitleContainer>
         <MailIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Edit Article</GrayText>
       </TitleContainer>
-      <ModalToggler onClick={handleClose} selectable />
+      <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <EditArticleForm />
+      <EditArticleForm onClose={onClose} />
     </ModalBody>
   </Modal>
 )
 
 EditArticle.propTypes = {
-  handleClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default EditArticle

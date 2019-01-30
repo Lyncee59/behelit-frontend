@@ -10,15 +10,8 @@ import { GrayText } from 'components/Typography'
 class ContactForm extends React.PureComponent {
   constructor (props) {
     super(props)
-    this.state = { toggled: false }
-    this.handleToggle = this.handleToggle.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = this.validate.bind(this)
-  }
-
-  handleToggle () {
-    const { toggled } = this.state
-    this.setState({ toggled: !toggled })
   }
 
   onSubmit () {
@@ -30,8 +23,6 @@ class ContactForm extends React.PureComponent {
   }
 
   render () {
-    const { toggled } = this.state
-
     return (
       <ReactForm
         onSubmit={this.onSubmit}
