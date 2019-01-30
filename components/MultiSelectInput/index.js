@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { equals, prop } from 'ramda'
 
 import { palette } from '@behelit/components'
-import { addValue, removeValue, getSelectedItem, getAvailableItems } from './services'
+import { addValue, removeValue, getSelectedItems, getAvailableItems } from './services'
 
 const Input = styled.div`
   position: relative;
@@ -29,6 +29,28 @@ const Display = styled.div`
   box-sizing: border-box;
   background-color: ${palette('white')};
   border: 1px solid ${palette('gray2')};
+`
+const DisplayItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 30px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+  background-color: ${palette('white')};
+  border: 1px solid ${palette('gray2')};
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: ${palette('gray8')};
+  cursor: pointer;
+
+  &:hover { background-color: ${palette('gray1')}; }
 `
 const Dropdown = styled.div`
   display: ${props => props.toggled ? 'flex' : 'none'};
@@ -94,6 +116,7 @@ class MultiSelectField extends React.Component {
     }
     this.dropdownRef = React.createRef()
     this.searchRef = React.createRef()
+    this.handleRemove = this.handleRemove.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
@@ -117,22 +140,31 @@ class MultiSelectField extends React.Component {
   }
 
   handleSelect (tag) {
-    const selectedItem = getSelectedItem(this.props.items, this.state.value)
-    const value = prop('value', selectedItem)
+    const selectedItems = getSelectedItems(this.props.items, this.state.value)
+    const items = addValue(tag, selectedItems)
+    const value = items.map(prop('value'))
     this.setState({ toggled: false })
+    if (this.props.onChange) { this.props.onChange(value) }
+  }
+
+  handleRemove (tag) {
+    const selectedItems = getSelectedItems(this.props.items, this.state.value)
+    const items = removeValue(tag, selectedItems)
+    const value = items.map(prop('value'))
     if (this.props.onChange) { this.props.onChange(value) }
   }
 
   render () {
     const { search, toggled, value } = this.state
     const { items } = this.props
-    const selectedItem = getSelectedItem(items, value) || { text: 'Select a value' }
-    console.log('selectedItem', selectedItem)
+    const selectedItems = getSelectedItems(items, value)
     const availableItems = getAvailableItems(items, value, search)
 
     return (
       <Input ref={this.dropdownRef}>
-        <Display onClick={this.handleToggle}>{selectedItem.text}</Display>
+        <Display onClick={this.handleToggle}>
+          {selectedItems.map((item, index) => <DisplayItem key={index} onClick={() => this.handleRemove(item)}>{item.text}</DisplayItem>)}
+        </Display>
         <Dropdown toggled={toggled}>
           <Search ref={this.searchRef} onChange={this.handleSearch} value={search} />
           <Result>

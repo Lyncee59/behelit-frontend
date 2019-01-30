@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { config, categories } from 'services/config'
+import SelectInput from 'components/SelectInput'
 import { CrimsonText } from 'components/Typography'
-import { Select, Option } from 'components/SelectInput'
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,9 +26,7 @@ const ErrorLabel = styled(CrimsonText)`
 
 const SelectField = ({ input, meta, items, ...rest }) => (
   <Wrapper>
-    <Select {...input} {...rest}>
-      {items.map((item, index) => <Option value={item.value}>{item.text}</Option>)}
-    </Select>
+    <SelectInput {...input} items={items} {...rest} />
     {meta.error && meta.touched && <ErrorLabel size='0.9rem'>{meta.error}</ErrorLabel>}
   </Wrapper>
 )

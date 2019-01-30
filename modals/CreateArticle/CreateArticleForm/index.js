@@ -22,7 +22,6 @@ class CreateArticleForm extends React.PureComponent {
     this.showMetadata = this.showMetadata.bind(this)
     this.showContent = this.showContent.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.validate = this.validate.bind(this)
   }
 
   showMetadata () {
@@ -37,10 +36,6 @@ class CreateArticleForm extends React.PureComponent {
     console.log('onSubmit')
   }
 
-  validate () {
-    console.log('validate')
-  }
-
   render () {
     const { onClose, tags } = this.props
     const { screen } = this.state
@@ -53,10 +48,9 @@ class CreateArticleForm extends React.PureComponent {
         </TabMenu>
         <ReactForm
           onSubmit={this.onSubmit}
-          validate={this.validate}
           render={({ handleSubmit, pristine, invalid, values, ...rest }) => (
             <Form onSubmit={handleSubmit}>
-              {/* <span>{JSON.stringify({ invalid, ...rest })}</span> */}
+              {/* <span>{JSON.stringify({ pristine,invalid, ...rest })}</span> */}
               <MetadataScreen tags={tags} toggled={screen === 'metadata'} />
               <ContentScreen content={values.content} toggled={screen === 'content'} />
               <ButtonGroup>

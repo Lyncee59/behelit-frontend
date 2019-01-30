@@ -1,4 +1,5 @@
 import { get, post, put } from './fetch'
+import { sortBy, prop } from 'ramda'
 
 // =================================================
 // ==================== ARTICLE ====================
@@ -50,4 +51,4 @@ export const editTag = (tag) => put({
 
 export const getTags = () => get({
   endpoint: '/admin/tags'
-})
+}).then(tags => sortBy(prop('title'), tags))

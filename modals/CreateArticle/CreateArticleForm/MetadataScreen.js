@@ -21,7 +21,7 @@ const MetadataScreen = ({ tags, toggled }) => (
     </FormGroup>
     <FormGroup>
       <GrayText>Tags</GrayText>
-      <Field name="tags" component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} validate={required} />
+      <Field name="tags" component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} />
     </FormGroup>
     <FormGroup>
       <GrayText>Title</GrayText>
@@ -33,7 +33,7 @@ const MetadataScreen = ({ tags, toggled }) => (
     </FormGroup>
     <FormGroup>
       <GrayText>Author</GrayText>
-      <Field name="content" component={InputField} validate={required} />
+      <Field name="author" component={InputField} validate={required} />
     </FormGroup>
   </Wrapper>
 )
