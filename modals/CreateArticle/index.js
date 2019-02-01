@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 
-import { getTags } from 'services/api/private'
+import { getTags, getUsers } from 'services/api/private'
 import {
   FasEnvelope,
   Modal,
@@ -30,17 +29,20 @@ class CreateArticle extends React.PureComponent {
     super(props)
     this.state = {
       loading: true,
-      tags: []
+      tags: [],
+      users: []
     }
   }
 
   componentDidMount () {
-    getTags().then(r => this.setState({ tags: r, loading: false }))
+    Promise.all([getTags(), getUsers()]).then(r => {
+      this.setState({ loading: false, tags: r[0], users: r[1] })
+    })
   }
 
   render () {
-    const { onClose } = this.props
-    const { loading, tags } = this.state
+    const { onClose, ...rest } = this.props
+    const { loading, tags, users } = this.state
 
     return (
       <Modal padding="0" width="600px">
@@ -54,7 +56,7 @@ class CreateArticle extends React.PureComponent {
         <ModalBody>
           {loading 
             ? <LoadingScreen height="300px" />
-            : <CreateArticleForm tags={tags} onClose={onClose} />
+            : <CreateArticleForm tags={tags} users={users} onClose={onClose} {...rest} />
           }
         </ModalBody>
       </Modal>

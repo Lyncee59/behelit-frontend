@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { equals, prop } from 'ramda'
 
-import { palette } from '@behelit/components'
-import { addValue, removeValue, getSelectedItem, getAvailableItems } from './services'
+import { palette, theme } from '@behelit/components'
+import { getSelectedItem, getAvailableItems } from './services'
 
 const Input = styled.div`
   position: relative;
@@ -23,9 +23,10 @@ const Display = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  height: auto;
-  min-height: 40px;
-  padding: 5px;
+  height: 2.7rem;
+  padding: 0 1.4rem;
+  font-family: ${theme('fontPrimary')};
+  font-size: 1rem;
   box-sizing: border-box;
   background-color: ${palette('white')};
   border: 1px solid ${palette('gray2')};
@@ -117,8 +118,7 @@ class MultiSelectField extends React.Component {
   }
 
   handleSelect (tag) {
-    const selectedItem = getSelectedItem(this.props.items, this.state.value)
-    const value = prop('value', selectedItem)
+    const value = prop('value', tag)
     this.setState({ toggled: false })
     if (this.props.onChange) { this.props.onChange(value) }
   }
@@ -126,8 +126,7 @@ class MultiSelectField extends React.Component {
   render () {
     const { search, toggled, value } = this.state
     const { items } = this.props
-    const selectedItem = getSelectedItem(items, value) || { text: 'Select a value' }
-    console.log('selectedItem', selectedItem)
+    const selectedItem = getSelectedItem(items, value) || { text: '' }
     const availableItems = getAvailableItems(items, value, search)
 
     return (

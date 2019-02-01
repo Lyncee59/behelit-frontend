@@ -37,7 +37,7 @@ const ArticleList = ({ articles }) => (
           <GrayText>{article.createdAt}</GrayText>
         </DataCell>
         <DataCell width="15%">
-          <ArticleMenu isPublished={article.isPublished} />
+          <ArticleMenu id={article._id} isPublished={article.isPublished} />
         </DataCell>
       </DataRow>
     ))}

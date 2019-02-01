@@ -56,7 +56,11 @@ const renderers = {
 const Markdown = props => <ReactMarkdown source={props.content} renderers={renderers} />
 
 Markdown.propTypes = {
-  content: PropTypes.string.isRequired
+  content: PropTypes.string
+}
+
+Markdown.defaultProps = {
+  content: ''
 }
 
 export default Markdown

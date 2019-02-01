@@ -13,8 +13,12 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const MetadataScreen = ({ tags, toggled }) => (
+const MetadataScreen = ({ tags, users, toggled }) => (
   <Wrapper toggled={toggled}>
+    <FormGroup>
+      <GrayText>Author</GrayText>
+      <Field name="author" component={SelectField} items={users.map((user) => ({ text: user.username, value: user._id }))} validate={required} />
+    </FormGroup>
     <FormGroup>
       <GrayText>Category</GrayText>
       <Field name="category" component={SelectField} items={categories.map((category) => ({ text: category, value: category }))} validate={required} />
@@ -31,16 +35,14 @@ const MetadataScreen = ({ tags, toggled }) => (
       <GrayText>Description</GrayText>
       <Field name="description" component={TextAreaField} validate={required} />
     </FormGroup>
-    <FormGroup>
-      <GrayText>Author</GrayText>
-      <Field name="author" component={InputField} validate={required} />
-    </FormGroup>
+
   </Wrapper>
 )
 
 MetadataScreen.propTypes = {
   tags: PropTypes.array.isRequired,
   toggled: PropTypes.bool.isRequired,
+  users: PropTypes.array.isRequired,
 }
 
 export default MetadataScreen

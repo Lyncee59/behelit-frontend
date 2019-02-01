@@ -19,7 +19,7 @@ const query = ({ method, endpoint, data }) => {
 
   return fetch(`${path}${endpoint}`, fetchOptions)
     .then((r) => (r.ok ? Promise.resolve(r) : Promise.reject(r)))
-    .then((r) => r.json())
+    .then((r) => r.json().catch(() => {}))
 }
 
 const get = ({ endpoint }) => query({ method: 'GET', endpoint })

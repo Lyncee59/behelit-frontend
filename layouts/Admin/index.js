@@ -15,8 +15,12 @@ const Wrapper = styled.div`
   background-image: url('/static/img/fresh_snow.png');
 `
 const Container = styled(BhContainer)`
-  padding: 2rem 1rem;
+  padding: 1rem;
   box-sizing: border-box;
+
+  @media(min-width: 48rem) {
+    padding: 1rem 0;
+  }
 `
 
 class Admin extends React.PureComponent {

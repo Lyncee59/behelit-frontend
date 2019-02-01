@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 
 import {
   FasEnvelope,
@@ -23,7 +22,7 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const EditArticle = ({ onClose }) =>  (
+const EditArticle = ({ onClose, ...rest }) =>  (
   <Modal padding="0" width="600px">
     <ModalHeader>
       <TitleContainer>
@@ -33,7 +32,7 @@ const EditArticle = ({ onClose }) =>  (
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <EditArticleForm onClose={onClose} />
+      <EditArticleForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )

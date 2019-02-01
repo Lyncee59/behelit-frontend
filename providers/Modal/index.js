@@ -1,8 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { ModalBackground } from '@behelit/components'
-import { Contact, CreateArticle, EditArticle, DeleteArticle, Login, Logout } from 'modals'
+import {
+  Contact,
+  CreateArticle,
+  EditArticle,
+  DeleteArticle,
+  Login,
+  Logout,
+  PublishArticle,
+  UnpublishArticle
+} from 'modals'
 import ModalPortal from './ModalPortal'
 
 class Modal extends React.PureComponent {
@@ -22,21 +30,21 @@ class Modal extends React.PureComponent {
     this.setState({ opened: false })
   }
 
-  renderModals () {
-    switch (this.props.name) {
-      case 'contact': return <Contact onClose={this.handleClose} />
-      case 'createArticle': return <CreateArticle onClose={this.handleClose} />
-      case 'editArticle': return <EditArticle onClose={this.handleClose} />
-      case 'deleteArticle': return <DeleteArticle onClose={this.handleClose} />
-      case 'login': return <Login onClose={this.handleClose} />
-      case 'logout': return <Logout onClose={this.handleClose} />
+  renderModals ({ name, data }) {
+    switch (name) {
+      case 'contact': return <Contact onClose={this.handleClose} {...data} />
+      case 'createArticle': return <CreateArticle onClose={this.handleClose} {...data} />
+      case 'editArticle': return <EditArticle onClose={this.handleClose} {...data} />
+      case 'deleteArticle': return <DeleteArticle onClose={this.handleClose} {...data} />
+      case 'login': return <Login onClose={this.handleClose} {...data} />
+      case 'logout': return <Logout onClose={this.handleClose} {...data} />
+      case 'publishArticle': return <PublishArticle onClose={this.handleClose} {...data} />
+      case 'unpublishArticle': return <UnpublishArticle onClose={this.handleClose} {...data} />
     }
   }
 
   render() {
-    const { opened } = this.props
     const { children, ...rest } = this.props
-
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, { onClick: this.handleOpen, ...rest })
     )
@@ -48,7 +56,7 @@ class Modal extends React.PureComponent {
           <ModalPortal>
             {this.state.opened &&
               <ModalBackground>
-                {this.renderModals()}
+                {this.renderModals(rest)}
               </ModalBackground>
             }
           </ModalPortal>

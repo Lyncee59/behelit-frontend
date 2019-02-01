@@ -1,4 +1,4 @@
-import { get, post, put } from './fetch'
+import { del, get, post, put } from './fetch'
 import { sortBy, prop } from 'ramda'
 
 // =================================================
@@ -22,14 +22,14 @@ export const getArticles = () => get({
   endpoint: '/admin/articles',
 })
 
-export const publishArticle = (article) => post({
+export const publishArticle = (id) => post({
   endpoint: '/admin/articles/publish',
-  data: article
+  data: { id }
 })
 
-export const unpublishArticle = (article) => post({
+export const unpublishArticle = (id) => post({
   endpoint: '/admin/articles/unpublish',
-  data: article
+  data: { id }
 })
 
 // =================================================
@@ -52,3 +52,25 @@ export const editTag = (tag) => put({
 export const getTags = () => get({
   endpoint: '/admin/tags'
 }).then(tags => sortBy(prop('title'), tags))
+
+// =================================================
+// ===================== USER ======================
+// =================================================
+
+export const createUser = (user) => post({
+  endpoint: '/admin/users',
+  data: user
+})
+
+export const deleteUser = (id) => del({
+  endpoint: `/admin/users/${id}`
+})
+
+export const editUser = (user) => put({
+  endpoint: '/admin/users',
+  data: user
+})
+
+export const getUsers = () => get({
+  endpoint: '/admin/users'
+})

@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasSignInAlt,
+  FasGlobe,
   Modal,
   ModalHeader,
   ModalBody,
   ModalToggler,
+  palette,
 } from '@behelit/components'
 import { GrayText } from 'components/Typography'
-import LoginForm from './LoginForm'
+import UnpublishArticleForm from './UnpublishArticleForm'
 
-const LoginIcon = styled(FasSignInAlt)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
+const UnpublishIcon = styled(FasGlobe)`
+  fill: ${palette('red10')};
+  &:hover { fill: ${palette('red10')}; }
 `
 const TitleContainer = styled.div`
   display: flex;
@@ -22,23 +23,24 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Login = ({ onClose, ...rest }) => (
+const UnpublishArticle = ({ onClose, ...rest }) => (
   <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
-        <LoginIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Sign in</GrayText>
+        <UnpublishIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Unpublish Article</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LoginForm onClose={onClose} {...rest} />
+      <UnpublishArticleForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-Login.propTypes = {
+UnpublishArticle.propTypes = {
+  id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 }
 
-export default Login
+export default UnpublishArticle

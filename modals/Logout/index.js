@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 
 import {
   FasSignOutAlt,
@@ -24,7 +23,7 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Logout = ({ onClose }) => (
+const Logout = ({ onClose, ...rest }) => (
   <Modal padding="0" width="400px">
     <ModalHeader>
       <TitleContainer>
@@ -34,13 +33,13 @@ const Logout = ({ onClose }) => (
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LogoutForm onClose={onClose} />
+      <LogoutForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
 Logout.propTypes = {
-  handleClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Logout
