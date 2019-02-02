@@ -9,6 +9,7 @@ import {
   ModalBody,
   ModalToggler,
 } from '@behelit/components'
+import { DeleteIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import DeleteArticleForm from './DeleteArticleForm'
 
@@ -23,10 +24,10 @@ const TitleContainer = styled.div`
 `
 
 const Contact = ({ onClose, ...rest }) =>  (
-  <Modal padding="0" width="600px">
+  <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
-        <MailIcon size="24px" />
+        <DeleteIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Delete Article</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />

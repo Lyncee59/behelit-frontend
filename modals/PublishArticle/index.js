@@ -10,13 +10,10 @@ import {
   ModalToggler,
   palette,
 } from '@behelit/components'
+import { PublishIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import PublishArticleForm from './PublishArticleForm'
 
-const PublishIcon = styled(FasGlobe)`
-  fill: ${palette('green')};
-  &:hover { fill: ${palette('green')}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -24,7 +21,7 @@ const TitleContainer = styled.div`
 `
 
 const PublishArticle = ({ onClose, ...rest }) => (
-  <Modal padding="0" width="400px">
+  <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
         <PublishIcon size="24px" />

@@ -10,13 +10,10 @@ import {
   ModalToggler,
   palette,
 } from '@behelit/components'
+import { PublishIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import UnpublishArticleForm from './UnpublishArticleForm'
 
-const UnpublishIcon = styled(FasGlobe)`
-  fill: ${palette('red10')};
-  &:hover { fill: ${palette('red10')}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -24,10 +21,10 @@ const TitleContainer = styled.div`
 `
 
 const UnpublishArticle = ({ onClose, ...rest }) => (
-  <Modal padding="0" width="400px">
+  <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
-        <UnpublishIcon size="24px" />
+        <PublishIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Unpublish Article</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />

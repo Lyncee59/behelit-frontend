@@ -9,13 +9,10 @@ import {
   ModalBody,
   ModalToggler,
 } from '@behelit/components'
+import { LoginIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import LoginForm from './LoginForm'
 
-const LoginIcon = styled(FasSignInAlt)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -23,7 +20,7 @@ const TitleContainer = styled.div`
 `
 
 const Login = ({ onClose, ...rest }) => (
-  <Modal padding="0" width="400px">
+  <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
         <LoginIcon size="24px" />

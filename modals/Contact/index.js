@@ -9,13 +9,10 @@ import {
   ModalBody,
   ModalToggler,
 } from '@behelit/components'
+import { ContactIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import ContactForm from './ContactForm'
 
-const MailIcon = styled(FasEnvelope)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -23,10 +20,10 @@ const TitleContainer = styled.div`
 `
 
 const Contact = ({ onClose, ...rest }) => (
-  <Modal padding="0" width="600px">
+  <Modal width="600px">
     <ModalHeader>
       <TitleContainer>
-        <MailIcon size="24px" />
+        <ContactIcon size="24px" />
         <GrayText size="1.5rem" weight={400}>Contact request</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />

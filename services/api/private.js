@@ -18,6 +18,10 @@ export const editArticle = (article) => put({
   data: article
 })
 
+export const getArticle = (id) => get({
+  endpoint: `/admin/articles/${id}`,
+})
+
 export const getArticles = () => get({
   endpoint: '/admin/articles',
 })

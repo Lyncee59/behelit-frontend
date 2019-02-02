@@ -4,26 +4,22 @@ import styled from 'styled-components'
 
 import { getTags, getUsers } from 'services/api/private'
 import {
-  FasEnvelope,
+  FasPlusSquare,
   Modal,
   ModalHeader,
   ModalBody,
   ModalToggler,
 } from '@behelit/components'
+import { CreateIcon } from 'components/Icons'
 import LoadingScreen from 'components/LoadingScreen'
 import { GrayText } from 'components/Typography'
 import CreateArticleForm from './CreateArticleForm'
 
-const MailIcon = styled(FasEnvelope)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
-
 class CreateArticle extends React.PureComponent {
   constructor (props) {
     super(props)
@@ -45,10 +41,10 @@ class CreateArticle extends React.PureComponent {
     const { loading, tags, users } = this.state
 
     return (
-      <Modal padding="0" width="600px">
+      <Modal width="600px">
         <ModalHeader>
           <TitleContainer>
-            <MailIcon size="24px" />
+            <CreateIcon size="24px" />
             <GrayText size="1.5rem" weight={400}>Create Article</GrayText>
           </TitleContainer>
           <ModalToggler onClick={onClose} selectable />

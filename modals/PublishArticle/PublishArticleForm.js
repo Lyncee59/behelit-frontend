@@ -32,7 +32,7 @@ class PublishArticleForm extends React.PureComponent {
           <Form onSubmit={handleSubmit}>
             <ButtonGroup>
               <GrayButton onClick={onClose} width='50%'>Cancel</GrayButton>
-              <GreenButton type="submit" width='50%'>Publish</GreenButton>
+              <GreenButton type="submit" width='50%'>Publish Article</GreenButton>
             </ButtonGroup>
           </Form>
         )}

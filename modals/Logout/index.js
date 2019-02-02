@@ -10,13 +10,10 @@ import {
   ModalToggler,
   palette,
 } from '@behelit/components'
+import { LogoutIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import LogoutForm from './LogoutForm'
 
-const LogoutIcon = styled(FasSignOutAlt)`
-  fill: ${palette('gray8')};
-  &:hover { fill: ${palette('gray8')}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -24,7 +21,7 @@ const TitleContainer = styled.div`
 `
 
 const Logout = ({ onClose, ...rest }) => (
-  <Modal padding="0" width="400px">
+  <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
         <LogoutIcon size="24px" />

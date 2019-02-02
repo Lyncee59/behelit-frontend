@@ -26,7 +26,7 @@ const ArticleList = ({ articles }) => (
       </DataCell>
     </DataRow>
     { articles.map((article) => (
-      <DataRow key={article.title}>
+      <DataRow key={article._id}>
         <DataCell width="25%">
           <GrayText>{article.title}</GrayText>
         </DataCell>
