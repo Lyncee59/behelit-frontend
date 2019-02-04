@@ -37,6 +37,90 @@ export const unpublishArticle = (id) => post({
 })
 
 // =================================================
+// ==================== COMMENT ====================
+// =================================================
+export const deleteComment = (id) => del({
+  endpoint: `/admin/comments/${id}`
+})
+
+export const getComments = () => get({
+  endpoint: '/admin/comments'
+})
+
+export const publishComment = (comment) => post({
+  endpoint: '/admin/comments/publish',
+  data: comment
+})
+
+export const unpublishComment = (comment) => post({
+  endpoint: '/admin/comments/unpublish',
+  data: comment
+})
+
+// =================================================
+// ==================== PROJECT ====================
+// =================================================
+export const createProject = (project) => post({
+  endpoint: '/admin/projects',
+  data: project
+})
+
+export const deleteProject = (id) => del({
+  endpoint: `/admin/projects/${id}`
+})
+
+export const editProject = (project) => put({
+  endpoint: '/admin/projects',
+  data: project
+})
+
+export const getProjects = () => get({
+  endpoint: '/admin/projects'
+})
+
+export const publishProject = (project) => post({
+  endpoint: '/admin/projects/publish',
+  data: project
+})
+
+export const unpublishProject = (project) => post({
+  endpoint: '/admin/projects/unpublish',
+  data: project
+})
+
+// =================================================
+// ==================== REVIEW =====================
+// =================================================
+
+export const createReview = (review) => post({
+  endpoint: '/admin/reviews',
+  data: review
+})
+
+export const deleteReview = (id) => del({
+  endpoint: `/admin/reviews/${id}`
+})
+
+export const editReview = (review) => put({
+  endpoint: '/admin/reviews',
+  data: review
+})
+
+export const getReviews = () => get({
+  endpoint: '/admin/reviews'
+})
+
+export const publishReview = (review) => post({
+  endpoint: '/admin/reviews/publish',
+  data: review
+})
+
+export const unpublishReview = (review) => post({
+  endpoint: '/admin/reviews/unpublish',
+  data: review
+})
+
+// =================================================
 // ====================== TAG ======================
 // =================================================
 export const createTag = (tag) => post({

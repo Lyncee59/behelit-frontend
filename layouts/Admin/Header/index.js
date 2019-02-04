@@ -7,7 +7,7 @@ import { DefaultLink, WhiteLink } from 'components/Links'
 import { DarkGraySection } from 'components/Sections'
 import StickyContainer from 'components/StickyContainer'
 import AuthNavbar from './AuthNavbar'
-import BreadcrumbNavbar from './BreadcrumbNavbar'
+import NavigationNavbar from './NavigationNavbar'
 
 class Header extends React.PureComponent {
   constructor(props) {
@@ -37,7 +37,7 @@ class Header extends React.PureComponent {
               </NavbarBrand>
             </NavbarHeader>
             <NavbarMenu toggled={menuToggled}>
-              <BreadcrumbNavbar />
+              <NavigationNavbar />
               <AuthNavbar />
             </NavbarMenu>
             <NavbarToggler

@@ -9,7 +9,7 @@ import { CrimsonText } from 'components/Typography'
 const AuthNavbar = () => (
   <NavbarNav width="10rem">
     <NavbarNavItem>
-      <CrimsonText>
+      <CrimsonText size='1.2rem' weight={700}>
         Lyncee
       </CrimsonText>
     </NavbarNavItem>
