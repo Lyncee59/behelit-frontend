@@ -16,10 +16,10 @@ const Wrapper = styled.div`
 
 const UserMenu = ({ id }) => (
   <Wrapper>
-    <Modal name="editUser" data={{ id }}>
+    <Modal name="userEdit" data={{ id }}>
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="deleteUser" data={{ id }}>
+    <Modal name="userDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>

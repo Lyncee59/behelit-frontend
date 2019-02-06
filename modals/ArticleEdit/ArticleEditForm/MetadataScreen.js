@@ -35,7 +35,6 @@ const MetadataScreen = ({ tags, users, toggled }) => (
       <GrayText>Description</GrayText>
       <Field name="description" component={TextAreaField} validate={required} />
     </FormGroup>
-
   </Wrapper>
 )
 

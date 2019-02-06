@@ -20,7 +20,7 @@ const ProjectList = ({ projects }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
-        <Modal name="createProject">
+        <Modal name="projectCreate">
           <CrimsonButton width="100%">Create</CrimsonButton>
         </Modal>
       </DataCell>

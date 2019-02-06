@@ -23,19 +23,19 @@ const CustomPublishIcon = styled(PublishIcon)`
 const ReviewMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="publishReview" data={{ id }}>
+      <Modal name="reviewPublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
     {isPublished &&
-      <Modal name="unpublishReview" data={{ id }}>
+      <Modal name="reviewUnpublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
-    <Modal name="editReview" data={{ id }}>
+    <Modal name="reviewEdit" data={{ id }}>
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="deleteReview" data={{ id }}>
+    <Modal name="reviewDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>

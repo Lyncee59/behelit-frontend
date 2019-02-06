@@ -20,7 +20,7 @@ const ArticleList = ({ articles }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
-        <Modal name="createArticle">
+        <Modal name="articleCreate">
           <CrimsonButton width="100%">Create</CrimsonButton>
         </Modal>
       </DataCell>

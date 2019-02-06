@@ -3,41 +3,43 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasGlobe,
+  FasEnvelope,
   Modal,
   ModalHeader,
   ModalBody,
   ModalToggler,
-  palette,
 } from '@behelit/components'
-import { PublishIcon } from 'components/Icons'
+import { DeleteIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import PublishArticleForm from './PublishArticleForm'
+import CommentDeleteForm from './CommentDeleteForm'
 
+const MailIcon = styled(FasEnvelope)`
+  fill: ${(props) => props.theme.palette['gray8']};
+  &:hover { ${(props) => props.theme.palette['gray8']}; }
+`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const PublishArticle = ({ onClose, ...rest }) => (
+const CommentDelete = ({ onClose, ...rest }) =>  (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
-        <PublishIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Publish Article</GrayText>
+        <DeleteIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Delete Comment</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <PublishArticleForm onClose={onClose} {...rest} />
+      <CommentDeleteForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-PublishArticle.propTypes = {
-  id: PropTypes.string.isRequired,
+CommentDelete.propTypes = {
   onClose: PropTypes.func.isRequired,
 }
 
-export default PublishArticle
+export default CommentDelete

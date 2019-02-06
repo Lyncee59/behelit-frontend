@@ -11,7 +11,7 @@ import {
 } from '@behelit/components'
 import { DeleteIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import DeleteArticleForm from './DeleteArticleForm'
+import ProjectDeleteForm from './ProjectDeleteForm'
 
 const MailIcon = styled(FasEnvelope)`
   fill: ${(props) => props.theme.palette['gray8']};
@@ -23,23 +23,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Contact = ({ onClose, ...rest }) =>  (
+const ProjectDelete = ({ onClose, ...rest }) =>  (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
         <DeleteIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Delete Article</GrayText>
+        <GrayText size="1.5rem" weight={400}>Delete Project</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <DeleteArticleForm onClose={onClose} {...rest} />
+      <ProjectDeleteForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-Contact.propTypes = {
+ProjectDelete.propTypes = {
   onClose: PropTypes.func.isRequired,
 }
 
-export default Contact
+export default ProjectDelete

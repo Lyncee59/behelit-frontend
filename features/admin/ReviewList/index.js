@@ -20,7 +20,7 @@ const ReviewList = ({ reviews }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
-        <Modal name="createReview">
+        <Modal name="reviewCreate">
           <CrimsonButton width="100%">Create</CrimsonButton>
         </Modal>
       </DataCell>

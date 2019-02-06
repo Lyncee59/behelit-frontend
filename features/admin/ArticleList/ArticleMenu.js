@@ -23,19 +23,19 @@ const Wrapper = styled.div`
 const ArticleMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="publishArticle" data={{ id }}>
+      <Modal name="articlePublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
     {isPublished &&
-      <Modal name="unpublishArticle" data={{ id }}>
+      <Modal name="articleUnpublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
-    <Modal name="editArticle" data={{ id }}>
+    <Modal name="articleEdit" data={{ id }}>
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="deleteArticle" data={{ id }}>
+    <Modal name="articleDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>

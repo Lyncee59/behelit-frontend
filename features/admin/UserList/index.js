@@ -23,7 +23,7 @@ const UserList = ({ users }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="10%">
-        <Modal name="createUser">
+        <Modal name="userCreate">
           <CrimsonButton width="100%">Create</CrimsonButton>
         </Modal>
       </DataCell>

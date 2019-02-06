@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Form as ReactForm } from 'react-final-form'
 
-import { editArticle } from 'services/api/private'
+import { createProject } from 'services/api/private'
 import { ButtonGroup, Button } from '@behelit/components'
 import { GrayButton } from 'components/Buttons'
 import { Form } from 'components/Forms'
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-class EditArticleForm extends React.PureComponent {
+class ProjectCreateForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = { screen: 'metadata' }
@@ -26,8 +26,8 @@ class EditArticleForm extends React.PureComponent {
   }
 
   async onSubmit (values) {
-    const { article, onClose } = this.props
-    editArticle({ id: article._id, ...values }).then(() => {
+    const { onClose } = this.props
+    createProject(values).then(() => {
       onClose()
       location.reload()
     })
@@ -42,7 +42,7 @@ class EditArticleForm extends React.PureComponent {
   }
 
   render () {
-    const { article, onClose, tags, users } = this.props
+    const { onClose, tags } = this.props
     const { screen } = this.state
 
     return (
@@ -52,15 +52,14 @@ class EditArticleForm extends React.PureComponent {
           <TabMenuItem onClick={this.showContent} selected={screen === 'content'}>Content</TabMenuItem>
         </TabMenu>
         <ReactForm
-          initialValues={article}
           onSubmit={this.onSubmit}
           render={({ handleSubmit, pristine, invalid, values }) => (
             <Form onSubmit={handleSubmit}>
-              <MetadataScreen tags={tags} toggled={screen === 'metadata'} users={users} />
-              <ContentScreen content={values.content} toggled={screen === 'content'} />
+              <MetadataScreen tags={tags} toggled={screen === 'metadata'} />
+              <ContentScreen description={values.description} toggled={screen === 'content'} />
               <ButtonGroup>
                 <GrayButton onClick={onClose}>Cancel</GrayButton>
-                <Button type="submit" disabled={pristine || invalid}>Edit Article</Button>
+                <Button type="submit" disabled={pristine || invalid}>Create</Button>
               </ButtonGroup>
             </Form>
             )}
@@ -70,11 +69,9 @@ class EditArticleForm extends React.PureComponent {
   }
 }
 
-EditArticleForm.propTypes = {
-  article: PropTypes.object.isRequired,
+ProjectCreateForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   tags: PropTypes.array.isRequired,
-  users: PropTypes.array.isRequired,
 }
 
-export default EditArticleForm
+export default ProjectCreateForm

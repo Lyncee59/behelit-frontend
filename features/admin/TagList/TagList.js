@@ -14,19 +14,19 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const ReviewMenu = ({ id }) => (
+const TagMenu = ({ id }) => (
   <Wrapper>
-    <Modal name="editReview" data={{ id }}>
+    <Modal name="tagEdit" data={{ id }}>
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="deleteReview" data={{ id }}>
+    <Modal name="tagDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>
 )
 
-ReviewMenu.propTypes = {
+TagMenu.propTypes = {
   id: PropTypes.string.isRequired
 }
 
-export default ReviewMenu
+export default TagMenu

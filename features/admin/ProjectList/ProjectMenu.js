@@ -23,19 +23,19 @@ const CustomPublishIcon = styled(PublishIcon)`
 const ProjectMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="publishProject" data={{ id }}>
+      <Modal name="projectPublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
     {isPublished &&
-      <Modal name="unpublishProject" data={{ id }}>
+      <Modal name="projectUnpublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
-    <Modal name="editProject" data={{ id }}>
+    <Modal name="projectEdit" data={{ id }}>
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="deleteProject" data={{ id }}>
+    <Modal name="projectDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>

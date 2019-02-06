@@ -23,16 +23,16 @@ const CustomPublishIcon = styled(PublishIcon)`
 const CommentMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="publishComment" data={{ id }}>
+      <Modal name="commentPublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
     {isPublished &&
-      <Modal name="unpublishComment" data={{ id }}>
+      <Modal name="commentUnpublish" data={{ id }}>
         <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
       </Modal>
     }
-    <Modal name="deleteComment" data={{ id }}>
+    <Modal name="commentDelete" data={{ id }}>
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>

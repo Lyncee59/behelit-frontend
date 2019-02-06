@@ -17,7 +17,7 @@ const TagList = ({ tags }) => (
         <CrimsonText weight={700} uppercase>Created at</CrimsonText>
       </DataCell>
       <DataCell width="10%">
-        <Modal name="createTag">
+        <Modal name="tagCreate">
           <CrimsonButton width="100%">Create</CrimsonButton>
         </Modal>
       </DataCell>

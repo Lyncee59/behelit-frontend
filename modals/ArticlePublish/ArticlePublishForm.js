@@ -7,7 +7,7 @@ import { ButtonGroup } from '@behelit/components'
 import { GrayButton, GreenButton } from 'components/Buttons'
 import { Form } from 'components/Forms'
 
-class PublishArticleForm extends React.PureComponent {
+class ArticlePublishForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
@@ -32,7 +32,7 @@ class PublishArticleForm extends React.PureComponent {
           <Form onSubmit={handleSubmit}>
             <ButtonGroup>
               <GrayButton onClick={onClose} width='50%'>Cancel</GrayButton>
-              <GreenButton type="submit" width='50%'>Publish Article</GreenButton>
+              <GreenButton type="submit" width='50%'>Publish</GreenButton>
             </ButtonGroup>
           </Form>
         )}
@@ -41,9 +41,9 @@ class PublishArticleForm extends React.PureComponent {
   }
 }
 
-PublishArticleForm.propTypes = {
+ArticlePublishForm.propTypes = {
   id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 }
 
-export default PublishArticleForm
+export default ArticlePublishForm

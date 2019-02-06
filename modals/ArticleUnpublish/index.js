@@ -12,7 +12,7 @@ import {
 } from '@behelit/components'
 import { PublishIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import UnpublishArticleForm from './UnpublishArticleForm'
+import ArticleUnpublishForm from './ArticleUnpublishForm'
 
 const TitleContainer = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const UnpublishArticle = ({ onClose, ...rest }) => (
+const ArticleUnpublish = ({ onClose, ...rest }) => (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
@@ -30,14 +30,14 @@ const UnpublishArticle = ({ onClose, ...rest }) => (
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <UnpublishArticleForm onClose={onClose} {...rest} />
+      <ArticleUnpublishForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-UnpublishArticle.propTypes = {
+ArticleUnpublish.propTypes = {
   id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 }
 
-export default UnpublishArticle
+export default ArticleUnpublish

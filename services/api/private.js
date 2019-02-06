@@ -47,14 +47,14 @@ export const getComments = () => get({
   endpoint: '/admin/comments'
 })
 
-export const publishComment = (comment) => post({
+export const publishComment = (id) => post({
   endpoint: '/admin/comments/publish',
-  data: comment
+  data: { id }
 })
 
-export const unpublishComment = (comment) => post({
+export const unpublishComment = (id) => post({
   endpoint: '/admin/comments/unpublish',
-  data: comment
+  data: { id }
 })
 
 // =================================================
@@ -74,18 +74,22 @@ export const editProject = (project) => put({
   data: project
 })
 
+export const getProject = (id) => get({
+  endpoint: `/admin/projects/${id}`
+})
+
 export const getProjects = () => get({
   endpoint: '/admin/projects'
 })
 
-export const publishProject = (project) => post({
+export const publishProject = (id) => post({
   endpoint: '/admin/projects/publish',
-  data: project
+  data: { id }
 })
 
-export const unpublishProject = (project) => post({
+export const unpublishProject = (id) => post({
   endpoint: '/admin/projects/unpublish',
-  data: project
+  data: { id }
 })
 
 // =================================================
@@ -110,14 +114,14 @@ export const getReviews = () => get({
   endpoint: '/admin/reviews'
 })
 
-export const publishReview = (review) => post({
+export const publishReview = (id) => post({
   endpoint: '/admin/reviews/publish',
-  data: review
+  data: { id }
 })
 
-export const unpublishReview = (review) => post({
+export const unpublishReview = (id) => post({
   endpoint: '/admin/reviews/unpublish',
-  data: review
+  data: { id }
 })
 
 // =================================================

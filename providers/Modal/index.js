@@ -2,14 +2,23 @@ import React from 'react'
 
 import { ModalBackground } from '@behelit/components'
 import {
+  ArticleCreate,
+  ArticleDelete,
+  ArticleEdit,
+  ArticlePublish,
+  ArticleUnpublish,
+  CommentDelete,
+  CommentPublish,
+  CommentUnpublish,
+  ProjectCreate,
+  ProjectDelete,
+  ProjectEdit,
+  ProjectPublish,
+  ProjectUnpublish,
   Contact,
-  CreateArticle,
-  EditArticle,
-  DeleteArticle,
   Login,
   Logout,
-  PublishArticle,
-  UnpublishArticle
+
 } from 'modals'
 import ModalPortal from './ModalPortal'
 
@@ -33,13 +42,21 @@ class Modal extends React.PureComponent {
   renderModals ({ name, data }) {
     switch (name) {
       case 'contact': return <Contact onClose={this.handleClose} {...data} />
-      case 'createArticle': return <CreateArticle onClose={this.handleClose} {...data} />
-      case 'editArticle': return <EditArticle onClose={this.handleClose} {...data} />
-      case 'deleteArticle': return <DeleteArticle onClose={this.handleClose} {...data} />
+      case 'articleCreate': return <ArticleCreate onClose={this.handleClose} {...data} />
+      case 'articleDelete': return <ArticleDelete onClose={this.handleClose} {...data} />
+      case 'articleEdit': return <ArticleEdit onClose={this.handleClose} {...data} />
+      case 'articlePublish': return <ArticlePublish onClose={this.handleClose} {...data} />
+      case 'articleUnpublish': return <ArticleUnpublish onClose={this.handleClose} {...data} />
+      case 'commentDelete': return <CommentDelete onClose={this.handleClose} {...data} />
+      case 'commentPublish': return <CommentPublish onClose={this.handleClose} {...data} />
+      case 'commentUnpublish': return <CommentUnpublish onClose={this.handleClose} {...data} />
+      case 'projectCreate': return <ProjectCreate onClose={this.handleClose} {...data} />
+      case 'projectDelete': return <ProjectDelete onClose={this.handleClose} {...data} />
+      case 'projectEdit': return <ProjectEdit onClose={this.handleClose} {...data} />
+      case 'projectPublish': return <ProjectPublish onClose={this.handleClose} {...data} />
+      case 'projectUnpublish': return <ProjectUnpublish onClose={this.handleClose} {...data} />
       case 'login': return <Login onClose={this.handleClose} {...data} />
       case 'logout': return <Logout onClose={this.handleClose} {...data} />
-      case 'publishArticle': return <PublishArticle onClose={this.handleClose} {...data} />
-      case 'unpublishArticle': return <UnpublishArticle onClose={this.handleClose} {...data} />
     }
   }
 
