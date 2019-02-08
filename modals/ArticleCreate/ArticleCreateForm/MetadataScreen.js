@@ -17,23 +17,23 @@ const MetadataScreen = ({ tags, users, toggled }) => (
   <Wrapper toggled={toggled}>
     <FormGroup>
       <GrayText>Author</GrayText>
-      <Field name="author" component={SelectField} items={users.map((user) => ({ text: user.username, value: user._id }))} validate={required} />
+      <Field component={SelectField} items={users.map((user) => ({ text: user.username, value: user._id }))} name="author" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Category</GrayText>
-      <Field name="category" component={SelectField} items={categories.map((category) => ({ text: category, value: category }))} validate={required} />
+      <Field component={SelectField} items={categories.map((category) => ({ text: category, value: category }))} name="category" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Tags</GrayText>
-      <Field name="tags" component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} />
+      <Field component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} name="tags" />
     </FormGroup>
     <FormGroup>
       <GrayText>Title</GrayText>
-      <Field name="title" component={InputField} validate={required} />
+      <Field component={InputField} name="title" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Description</GrayText>
-      <Field name="description" component={TextAreaField} validate={required} />
+      <Field component={TextAreaField} name="description" validate={required} />
     </FormGroup>
   </Wrapper>
 )
@@ -41,7 +41,7 @@ const MetadataScreen = ({ tags, users, toggled }) => (
 MetadataScreen.propTypes = {
   tags: PropTypes.array.isRequired,
   toggled: PropTypes.bool.isRequired,
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired
 }
 
 export default MetadataScreen

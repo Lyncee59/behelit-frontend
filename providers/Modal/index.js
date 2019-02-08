@@ -21,7 +21,10 @@ import {
   Logout,
   ReviewDelete,
   ReviewPublish,
-  ReviewUnpublish
+  ReviewUnpublish,
+  TagCreate,
+  TagDelete,
+  TagEdit
 } from 'modals'
 import ModalPortal from './ModalPortal'
 
@@ -63,6 +66,9 @@ class Modal extends React.PureComponent {
       case 'reviewDelete': return <ReviewDelete onClose={this.handleClose} {...data} />
       case 'reviewPublish': return <ReviewPublish onClose={this.handleClose} {...data} />
       case 'reviewUnpublish': return <ReviewUnpublish onClose={this.handleClose} {...data} />
+      case 'tagCreate': return <TagCreate onClose={this.handleClose} {...data} />
+      case 'tagDelete': return <TagDelete onClose={this.handleClose} {...data} />
+      case 'tagEdit': return <TagEdit onClose={this.handleClose} {...data} />
     }
   }
 

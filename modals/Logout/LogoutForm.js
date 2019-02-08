@@ -8,9 +8,9 @@ import { GrayButton } from 'components/Buttons'
 import { Form } from 'components/Forms'
 
 const onSubmit = async ({ username }) => {
-  logout(username).then(() => {
+  // logout(username).then(() => {
     // window.location = '/admin'
-  })
+  // })
 }
 
 const LogoutForm = ({ onClose }) => (

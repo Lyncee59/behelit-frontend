@@ -8,33 +8,32 @@ import {
   ModalBody,
   ModalToggler
 } from '@behelit/components'
-import { DeleteIcon } from 'components/Icons'
+import { CreateIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import ProjectDeleteForm from './ProjectDeleteForm'
+import TagCreateForm from './TagCreateForm'
 
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
-
-const ProjectDelete = ({ onClose, ...rest }) => (
-  <Modal width="400px">
+const TagCreate = ({ onClose, ...rest }) => (
+  <Modal width="600px">
     <ModalHeader>
       <TitleContainer>
-        <DeleteIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Delete Project</GrayText>
+        <CreateIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Create Tag</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <ProjectDeleteForm onClose={onClose} {...rest} />
+      <TagCreateForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-ProjectDelete.propTypes = {
+TagCreate.propTypes = {
   onClose: PropTypes.func.isRequired
 }
 
-export default ProjectDelete
+export default TagCreate

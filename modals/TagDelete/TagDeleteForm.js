@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Form as ReactForm } from 'react-final-form'
 
-import { deleteProject } from 'services/api/private'
+import { deleteTag } from 'services/api/private'
 import { Button, ButtonGroup } from '@behelit/components'
 import { GrayButton } from 'components/Buttons'
 import { Form } from 'components/Forms'
 
-class ProjectDeleteForm extends React.PureComponent {
+class TagDeleteForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
@@ -16,7 +16,7 @@ class ProjectDeleteForm extends React.PureComponent {
   async onSubmit (values) {
     const { id, onClose } = this.props
 
-    deleteProject(id).then(() => {
+    deleteTag(id).then(() => {
       onClose()
       window.location.reload()
     })
@@ -41,9 +41,9 @@ class ProjectDeleteForm extends React.PureComponent {
   }
 }
 
-ProjectDeleteForm.propTypes = {
+TagDeleteForm.propTypes = {
   id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
-export default ProjectDeleteForm
+export default TagDeleteForm

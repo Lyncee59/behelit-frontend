@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { del, get, post, put } from './fetch'
 import { sortBy, prop } from 'ramda'
 
@@ -110,6 +111,10 @@ export const editReview = (review) => put({
   data: review
 })
 
+export const getReview = (id) => get({
+  endpoint: `/admin/reviews/${id}`
+})
+
 export const getReviews = () => get({
   endpoint: '/admin/reviews'
 })
@@ -141,6 +146,10 @@ export const editTag = (tag) => put({
   data: tag
 })
 
+export const getTag = (id) => get({
+  endpoint: `/admin/tags/${id}`
+})
+
 export const getTags = () => get({
   endpoint: '/admin/tags'
 }).then(tags => sortBy(prop('title'), tags))
@@ -166,3 +175,4 @@ export const editUser = (user) => put({
 export const getUsers = () => get({
   endpoint: '/admin/users'
 })
+/* eslint-enable */

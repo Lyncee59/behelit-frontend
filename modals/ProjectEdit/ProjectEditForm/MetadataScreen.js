@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Field } from 'react-final-form'
 
-import { categories } from 'services/config'
 import { required } from 'services/formHelper'
-import { FormGroup, InputField, MultiSelectField, SelectField, TextAreaField } from 'components/Forms'
+import { FormGroup, InputField, MultiSelectField, TextAreaField } from 'components/Forms'
 import { GrayText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -13,34 +12,34 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const MetadataScreen = ({ tags, users, toggled }) => (
+const MetadataScreen = ({ tags, toggled }) => (
   <Wrapper toggled={toggled}>
     <FormGroup>
       <GrayText>Tags</GrayText>
-      <Field name="tags" component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} />
+      <Field component={MultiSelectField} items={tags.map((tag) => ({ text: tag.title, value: tag._id }))} name="tags" />
     </FormGroup>
     <FormGroup>
       <GrayText>Title</GrayText>
-      <Field name="title" component={InputField} validate={required} />
+      <Field component={InputField} name="title" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Summary</GrayText>
-      <Field name="summary" component={TextAreaField} validate={required} />
+      <Field component={TextAreaField} name="summary" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Company</GrayText>
-      <Field name="company" component={InputField} validate={required} />
+      <Field component={InputField} name="company" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Year</GrayText>
-      <Field name="year" component={InputField} validate={required} />
+      <Field component={InputField} name="year" validate={required} />
     </FormGroup>
   </Wrapper>
 )
 
 MetadataScreen.propTypes = {
   tags: PropTypes.array.isRequired,
-  toggled: PropTypes.bool.isRequired,
+  toggled: PropTypes.bool.isRequired
 }
 
 export default MetadataScreen

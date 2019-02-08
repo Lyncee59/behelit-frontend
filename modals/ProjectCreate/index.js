@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { getTags, getUsers } from 'services/api/private'
+import { getTags } from 'services/api/private'
 import {
-  FasPlusSquare,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
+  ModalToggler
 } from '@behelit/components'
 import { CreateIcon } from 'components/Icons'
 import LoadingScreen from 'components/LoadingScreen'
@@ -49,9 +48,9 @@ class ProjectCreate extends React.PureComponent {
           <ModalToggler onClick={onClose} selectable />
         </ModalHeader>
         <ModalBody>
-          {loading 
+          {loading
             ? <LoadingScreen height="300px" />
-            : <ProjectCreateForm tags={tags} onClose={onClose} {...rest} />
+            : <ProjectCreateForm onClose={onClose} tags={tags} {...rest} />
           }
         </ModalBody>
       </Modal>
@@ -60,7 +59,7 @@ class ProjectCreate extends React.PureComponent {
 }
 
 ProjectCreate.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default ProjectCreate

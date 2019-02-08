@@ -4,11 +4,10 @@ import styled from 'styled-components'
 
 import { getProject, getTags } from 'services/api/private'
 import {
-  FasEnvelope,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
+  ModalToggler
 } from '@behelit/components'
 import { EditIcon } from 'components/Icons'
 import LoadingScreen from 'components/LoadingScreen'
@@ -22,23 +21,23 @@ const TitleContainer = styled.div`
 `
 
 class ProjectEdit extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       loading: true,
       project: {},
-      tags: [],
+      tags: []
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { id } = this.props
     Promise.all([getProject(id), getTags()]).then(r => {
       this.setState({ loading: false, project: r[0], tags: r[1] })
     })
   }
 
-  render() {
+  render () {
     const { onClose, ...rest } = this.props
     const { project, loading, tags } = this.state
 
@@ -54,7 +53,7 @@ class ProjectEdit extends React.PureComponent {
         <ModalBody>
           {loading
             ? <LoadingScreen height="300px" />
-            : <ProjectEditForm project={project} tags={tags} onClose={onClose} {...rest} />
+            : <ProjectEditForm onClose={onClose} project={project} tags={tags} {...rest} />
           }
         </ModalBody>
       </Modal>
@@ -63,7 +62,8 @@ class ProjectEdit extends React.PureComponent {
 }
 
 ProjectEdit.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default ProjectEdit

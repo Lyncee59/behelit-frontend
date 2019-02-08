@@ -30,7 +30,7 @@ const ContentScreen = ({ content, toggled }) => (
   <Wrapper toggled={toggled}>
     <FormGroup>
       <GrayText>Content</GrayText>
-      <Field name="content" component={TextAreaField} validate={required} height="200px" />
+      <Field component={TextAreaField} height="200px" name="content" validate={required} />
     </FormGroup>
     <FormGroup>
       <GrayText>Preview</GrayText>
