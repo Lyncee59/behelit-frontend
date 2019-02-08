@@ -35,8 +35,8 @@ const CommentItem = ({ comment }) => (
       <Markdown content={comment.message} />
     </Content>
     <Footer>
-      <GrayText size='0.9rem' weight={700}>{comment.name}</GrayText>
-      <GrayText size='0.9rem' weight={400} italic>{comment.createdAt}</GrayText>
+      <GrayText size="0.9rem" weight={700}>{comment.name}</GrayText>
+      <GrayText italic size="0.9rem" weight={400}>{comment.createdAt}</GrayText>
     </Footer>
   </Wrapper>
 )
@@ -44,9 +44,9 @@ const CommentItem = ({ comment }) => (
 CommentItem.propTypes = {
   comment: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   })
 }
 

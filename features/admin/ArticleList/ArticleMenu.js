@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
 import { DeleteIcon, EditIcon, PublishIcon } from 'components/Icons'
 import Modal from 'providers/Modal'
 
@@ -23,19 +22,19 @@ const Wrapper = styled.div`
 const ArticleMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="articlePublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="articlePublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
     {isPublished &&
-      <Modal name="articleUnpublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="articleUnpublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
-    <Modal name="articleEdit" data={{ id }}>
+    <Modal data={{ id }} name="articleEdit">
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="articleDelete" data={{ id }}>
+    <Modal data={{ id }} name="articleDelete">
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>
@@ -43,7 +42,7 @@ const ArticleMenu = ({ id, isPublished }) => (
 
 ArticleMenu.propTypes = {
   id: PropTypes.string.isRequired,
-  isPublished: PropTypes.bool.isRequired,
+  isPublished: PropTypes.bool.isRequired
 }
 
 export default ArticleMenu

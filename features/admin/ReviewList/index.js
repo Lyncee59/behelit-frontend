@@ -1,42 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Modal from 'providers/Modal'
-import { CrimsonButton } from 'components/Buttons'
 import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
-import ReviewMenu from './ReviewList'
+import ReviewMenu from './ReviewMenu'
 
 const ReviewList = ({ reviews }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="25%">
-        <CrimsonText weight={700} uppercase>Name</CrimsonText>
+        <CrimsonText uppercase weight={700}>Name</CrimsonText>
       </DataCell>
-      <DataCell width="40%">
-        <CrimsonText weight={700} uppercase>Message</CrimsonText>
+      <DataCell width="45%">
+        <CrimsonText uppercase weight={700}>Message</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
-      <DataCell width="15%">
-        <Modal name="reviewCreate">
-          <CrimsonButton width="100%">Create</CrimsonButton>
-        </Modal>
-      </DataCell>
+      <DataCell width="10%" />
     </DataRow>
     {reviews.map((review) => (
       <DataRow key={review._id}>
         <DataCell width="25%">
           <GrayText>{review.name}</GrayText>
         </DataCell>
-        <DataCell width="40%">
+        <DataCell width="45%">
           <GrayText>{review.message}</GrayText>
         </DataCell>
         <DataCell width="20%">
           <GrayText>{review.createdAt}</GrayText>
         </DataCell>
-        <DataCell width="15%">
+        <DataCell width="10%">
           <ReviewMenu id={review._id} isPublished={review.isPublished} />
         </DataCell>
       </DataRow>
@@ -49,6 +43,3 @@ ReviewList.propTypes = {
 }
 
 export default ReviewList
-
-
-

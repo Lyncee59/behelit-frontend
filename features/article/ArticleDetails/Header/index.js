@@ -72,12 +72,12 @@ const Header = ({ article }) => (
     </Category>
     <Description>
       <Title>
-        <CrimsonText size='1.5rem' weight={400} uppercase>{article.title}</CrimsonText>
-        <GrayText size='1rem' weight={700}>{article.description}</GrayText>
-        <GrayText italic size='0.9rem' weight={400}>{`Published: ${article.createdAt}`}</GrayText>
+        <CrimsonText size="1.5rem" uppercase weight={400}>{article.title}</CrimsonText>
+        <GrayText size="1rem" weight={700}>{article.description}</GrayText>
+        <GrayText italic size="0.9rem" weight={400}>{`Published: ${article.createdAt}`}</GrayText>
       </Title>
       <Tags>
-        {article.tags.map((tag, index) => <OddEvenText capitalize key={index} odd={index % 2 !== 0} size='1rem' weight={400} >{tag}</OddEvenText>)}
+        {article.tags.map((tag, index) => <OddEvenText capitalize key={tag._id} odd={index % 2 !== 0} size="1rem" weight={400}>{tag}</OddEvenText>)}
       </Tags>
     </Description>
   </Wrapper>

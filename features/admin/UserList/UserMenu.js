@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
 import { DeleteIcon, EditIcon } from 'components/Icons'
 import Modal from 'providers/Modal'
 
@@ -14,19 +13,19 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const TagMenu = ({ id }) => (
+const UserMenu = ({ id }) => (
   <Wrapper>
-    <Modal name="tagEdit" data={{ id }}>
+    <Modal data={{ id }} name="userEdit">
       <EditIcon selectable size="24px" />
     </Modal>
-    <Modal name="tagDelete" data={{ id }}>
+    <Modal data={{ id }} name="userDelete">
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>
 )
 
-TagMenu.propTypes = {
+UserMenu.propTypes = {
   id: PropTypes.string.isRequired
 }
 
-export default TagMenu
+export default UserMenu

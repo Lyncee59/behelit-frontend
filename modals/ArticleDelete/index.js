@@ -3,27 +3,22 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasEnvelope,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
+  ModalToggler
 } from '@behelit/components'
 import { DeleteIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
 import ArticleDeleteForm from './ArticleDeleteForm'
 
-const MailIcon = styled(FasEnvelope)`
-  fill: ${(props) => props.theme.palette['gray8']};
-  &:hover { ${(props) => props.theme.palette['gray8']}; }
-`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const ArticleDelete = ({ onClose, ...rest }) =>  (
+const ArticleDelete = ({ onClose, ...rest }) => (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
@@ -39,7 +34,7 @@ const ArticleDelete = ({ onClose, ...rest }) =>  (
 )
 
 ArticleDelete.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default ArticleDelete

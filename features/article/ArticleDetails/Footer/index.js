@@ -28,17 +28,17 @@ const Description = styled.div`
 `
 
 const Footer = ({ article }) => (
-    <Wrapper>
-      <BrandLogo size="100px" />
-      <Description>
-        <CrimsonText size='20px' weight={300} color='brand-primary' capitalize>{article.author}</CrimsonText>
-        <GrayText italic>
-          I'm a full stack developer with over 9 years of experience working in .NET, HTML5, CSS3, Javascript (React & Node.js).
-          I love programming, playing videogames and learning new things !
-        </GrayText>
-      </Description>
-    </Wrapper>
-  )
+  <Wrapper>
+    <BrandLogo size="100px" />
+    <Description>
+      <CrimsonText capitalize size="20px" weight={300}>{article.author}</CrimsonText>
+      <GrayText italic>
+        I am a full stack developer with over 9 years of experience working in .NET, HTML5, CSS3, Javascript (React & Node.js).
+        I love programming, playing videogames and learning new things !
+      </GrayText>
+    </Description>
+  </Wrapper>
+)
 
 Footer.propTypes = {
   article: PropTypes.object

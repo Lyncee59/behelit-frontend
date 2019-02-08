@@ -5,16 +5,16 @@ import Modal from 'providers/Modal'
 import { CrimsonButton } from 'components/Buttons'
 import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
-import TagMenu from './TagList'
+import TagMenu from './TagMenu'
 
 const TagList = ({ tags }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="70%">
-        <CrimsonText weight={700} uppercase>Title</CrimsonText>
+        <CrimsonText uppercase weight={700}>Title</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
       <DataCell width="10%">
         <Modal name="tagCreate">
@@ -43,6 +43,3 @@ TagList.propTypes = {
 }
 
 export default TagList
-
-
-

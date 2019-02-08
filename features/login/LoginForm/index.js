@@ -22,14 +22,13 @@ const Wrapper = styled.div`
   border-radius: 5px;
 `
 
-
 const onSubmit = async ({ username, password }) => {
   login(username, password).then(() => {
     // window.location = '/admin'
   })
 }
 
-const ReviewForm  = () => (
+const ReviewForm = () => (
   <Wrapper>
     <ReactForm
       onSubmit={onSubmit}
@@ -37,13 +36,13 @@ const ReviewForm  = () => (
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <GrayText>Username</GrayText>
-            <Field name="username" component={InputField} validate={required} />
+            <Field component={InputField} name="username" validate={required} />
           </FormGroup>
           <FormGroup>
             <GrayText>Password</GrayText>
-            <Field name="password" component={InputField} validate={required} type='password' />
+            <Field component={InputField} name="password" type="password" validate={required} />
           </FormGroup>
-          <Button disabled={pristine || invalid} type="submit">Sign in</Button>
+          <Button disabled={invalid || pristine} type="submit">Sign in</Button>
         </Form>
       )}
     />

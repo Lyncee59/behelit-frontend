@@ -13,13 +13,13 @@ const Wrapper = styled.div`
 `
 
 const ProjectList = ({ projects }) => (
-    <Wrapper>
-      {projects.map((project, index) => <ProjectItem key={index} project={project} />)}
-    </Wrapper>
-  )
+  <Wrapper>
+    {projects.map((project, index) => <ProjectItem key={project._id} project={project} />)}
+  </Wrapper>
+)
 
 ProjectList.propTypes = {
-  articles: PropTypes.array,
+  projects: PropTypes.array
 }
 
 ProjectList.defaultProps = {

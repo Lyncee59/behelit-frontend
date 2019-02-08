@@ -11,13 +11,13 @@ const ProjectList = ({ projects }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="25%">
-        <CrimsonText weight={700} uppercase>Title</CrimsonText>
+        <CrimsonText uppercase weight={700}>Title</CrimsonText>
       </DataCell>
       <DataCell width="40%">
-        <CrimsonText weight={700} uppercase>Summary</CrimsonText>
+        <CrimsonText uppercase weight={700}>Summary</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
         <Modal name="projectCreate">
@@ -49,6 +49,3 @@ ProjectList.propTypes = {
 }
 
 export default ProjectList
-
-
-

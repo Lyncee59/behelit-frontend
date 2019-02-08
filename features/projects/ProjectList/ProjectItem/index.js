@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FasArrowUp, FasArrowDown, palette } from '@behelit/components'
-import { GrayCartridge } from 'components/Cartridges'
+import { palette } from '@behelit/components'
 import { Markdown } from 'components/Markdown'
 import { ExpandToggler } from 'components/Togglers'
 import { CrimsonText, GrayText, OddEvenText } from 'components/Typography'
@@ -81,7 +80,7 @@ class ProjectItem extends React.PureComponent {
     this.handleToggle = this.handleToggle.bind(this)
   }
 
-  handleToggle() {
+  handleToggle () {
     const { toggled } = this.state
     this.setState({ toggled: !toggled })
   }
@@ -94,12 +93,12 @@ class ProjectItem extends React.PureComponent {
       <Wrapper>
         <Container>
           <Description>
-            <CrimsonText size='1.2rem' uppercase weight={700}>{project.title}</CrimsonText>
-            <GrayText weight={700} capitalize>{`${project.company} - ${project.year}`}</GrayText>
+            <CrimsonText size="1.2rem" uppercase weight={700}>{project.title}</CrimsonText>
+            <GrayText capitalize weight={700}>{`${project.company} - ${project.year}`}</GrayText>
             <GrayText>{project.summary}</GrayText>
           </Description>
           <Tags>
-            { project.tags.map((tag, index) => <OddEvenText capitalize key={index} odd={index % 2 !== 0} size='1rem' weight={400}>{tag}</OddEvenText>)}
+            { project.tags.map((tag, index) => <OddEvenText capitalize key={tag._id} odd={index % 2 !== 0} size="1rem" weight={400}>{tag}</OddEvenText>)}
           </Tags>
           <Toggler onClick={this.handleToggle} toggled={toggled} />
         </Container>
@@ -117,14 +116,13 @@ class ProjectItem extends React.PureComponent {
 
 ProjectItem.propTypes = {
   project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    tags: PropTypes.array.isRequired
+    summary: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired
   }).isRequired
-
 }
 
 export default ProjectItem

@@ -8,9 +8,9 @@ import {
   ModalBody,
   ModalToggler
 } from '@behelit/components'
-import { LoginIcon } from 'components/Icons'
+import { PublishIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import LoginForm from './LoginForm'
+import ReviewUnpublishForm from './ReviewUnpublishForm'
 
 const TitleContainer = styled.div`
   display: flex;
@@ -18,23 +18,24 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Login = ({ onClose, ...rest }) => (
+const ReviewUnpublish = ({ onClose, ...rest }) => (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
-        <LoginIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Sign in</GrayText>
+        <PublishIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Unpublish Review</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LoginForm onClose={onClose} {...rest} />
+      <ReviewUnpublishForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-Login.propTypes = {
+ReviewUnpublish.propTypes = {
+  id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
-export default Login
+export default ReviewUnpublish

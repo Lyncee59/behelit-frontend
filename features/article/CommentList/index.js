@@ -14,12 +14,12 @@ const Wrapper = styled.div`
 
 const CommentList = ({ comments }) => (
   <Wrapper>
-    {comments.map((comment, index) => <CommentItem key={index} comment={comment} />)}
+    {comments.map((comment, index) => <CommentItem comment={comment} key={comment._id} />)}
   </Wrapper>
 )
 
 CommentList.propTypes = {
-  comments: PropTypes.array,
+  comments: PropTypes.array
 }
 
 CommentList.defaultProps = {

@@ -13,13 +13,13 @@ const Wrapper = styled.div`
 `
 
 const BlogList = ({ articles }) => (
-    <Wrapper>
-      {articles.map((article, index) => <BlogItem key={index} article={article} />)}
-    </Wrapper>
-  )
+  <Wrapper>
+    {articles.map((article, index) => <BlogItem article={article} key={article._id} />)}
+  </Wrapper>
+)
 
 BlogList.propTypes = {
-  articles: PropTypes.array,
+  articles: PropTypes.array
 }
 
 BlogList.defaultProps = {

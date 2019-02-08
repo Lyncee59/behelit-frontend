@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Modal from 'providers/Modal'
 import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
 import CommentMenu from './CommentMenu'
@@ -10,13 +9,13 @@ const CommentList = ({ comments }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="25%">
-        <CrimsonText weight={700} uppercase>Name</CrimsonText>
+        <CrimsonText uppercase weight={700}>Name</CrimsonText>
       </DataCell>
       <DataCell width="45%">
-        <CrimsonText weight={700} uppercase>Message</CrimsonText>
+        <CrimsonText uppercase weight={700}>Message</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
       <DataCell width="10%" />
     </DataRow>
@@ -44,6 +43,3 @@ CommentList.propTypes = {
 }
 
 export default CommentList
-
-
-

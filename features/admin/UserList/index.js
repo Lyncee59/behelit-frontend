@@ -5,22 +5,22 @@ import Modal from 'providers/Modal'
 import { CrimsonButton } from 'components/Buttons'
 import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
-import UserMenu from './UserList'
+import UserMenu from './UserMenu'
 
 const UserList = ({ users }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="25%">
-        <CrimsonText weight={700} uppercase>Id</CrimsonText>
+        <CrimsonText uppercase weight={700}>Id</CrimsonText>
       </DataCell>
       <DataCell width="15%">
-        <CrimsonText weight={700} uppercase>Username</CrimsonText>
+        <CrimsonText uppercase weight={700}>Username</CrimsonText>
       </DataCell>
       <DataCell width="30%">
-        <CrimsonText weight={700} uppercase>Email</CrimsonText>
+        <CrimsonText uppercase weight={700}>Email</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
       <DataCell width="10%">
         <Modal name="userCreate">
@@ -55,6 +55,3 @@ UserList.propTypes = {
 }
 
 export default UserList
-
-
-

@@ -11,13 +11,13 @@ const ArticleList = ({ articles }) => (
   <DataTable>
     <DataRow disableHightlight>
       <DataCell width="25%">
-        <CrimsonText weight={700} uppercase>Title</CrimsonText>
+        <CrimsonText uppercase weight={700}>Title</CrimsonText>
       </DataCell>
       <DataCell width="40%">
-        <CrimsonText weight={700} uppercase>Description</CrimsonText>
+        <CrimsonText uppercase weight={700}>Description</CrimsonText>
       </DataCell>
       <DataCell width="20%">
-        <CrimsonText weight={700} uppercase>Created at</CrimsonText>
+        <CrimsonText uppercase weight={700}>Created at</CrimsonText>
       </DataCell>
       <DataCell width="15%">
         <Modal name="articleCreate">
@@ -49,6 +49,3 @@ ArticleList.propTypes = {
 }
 
 export default ArticleList
-
-
-

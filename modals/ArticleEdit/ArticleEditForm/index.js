@@ -29,7 +29,7 @@ class ArticleEditForm extends React.PureComponent {
     const { article, onClose } = this.props
     editArticle({ id: article._id, ...values }).then(() => {
       onClose()
-      location.reload()
+      window.location.reload()
     })
   }
 
@@ -60,10 +60,10 @@ class ArticleEditForm extends React.PureComponent {
               <ContentScreen content={values.content} toggled={screen === 'content'} />
               <ButtonGroup>
                 <GrayButton onClick={onClose}>Cancel</GrayButton>
-                <Button type="submit" disabled={pristine || invalid}>Edit</Button>
+                <Button disabled={invalid || pristine} type="submit">Edit</Button>
               </ButtonGroup>
             </Form>
-            )}
+          )}
         />
       </Wrapper>
     )
@@ -74,7 +74,7 @@ ArticleEditForm.propTypes = {
   article: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
   tags: PropTypes.array.isRequired,
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired
 }
 
 export default ArticleEditForm

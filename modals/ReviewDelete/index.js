@@ -8,9 +8,9 @@ import {
   ModalBody,
   ModalToggler
 } from '@behelit/components'
-import { LoginIcon } from 'components/Icons'
+import { DeleteIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
-import LoginForm from './LoginForm'
+import ReviewDeleteForm from './ReviewDeleteForm'
 
 const TitleContainer = styled.div`
   display: flex;
@@ -18,23 +18,23 @@ const TitleContainer = styled.div`
   & > :not(:first-child) { margin-left: 0.5rem; }
 `
 
-const Login = ({ onClose, ...rest }) => (
+const ReviewDelete = ({ onClose, ...rest }) => (
   <Modal width="400px">
     <ModalHeader>
       <TitleContainer>
-        <LoginIcon size="24px" />
-        <GrayText size="1.5rem" weight={400}>Sign in</GrayText>
+        <DeleteIcon size="24px" />
+        <GrayText size="1.5rem" weight={400}>Delete Review</GrayText>
       </TitleContainer>
       <ModalToggler onClick={onClose} selectable />
     </ModalHeader>
     <ModalBody>
-      <LoginForm onClose={onClose} {...rest} />
+      <ReviewDeleteForm onClose={onClose} {...rest} />
     </ModalBody>
   </Modal>
 )
 
-Login.propTypes = {
+ReviewDelete.propTypes = {
   onClose: PropTypes.func.isRequired
 }
 
-export default Login
+export default ReviewDelete

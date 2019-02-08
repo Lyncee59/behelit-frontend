@@ -14,4 +14,6 @@ export { default as ProjectUnpublish } from './ProjectUnpublish'
 export { default as Contact } from './Contact'
 export { default as Login } from './Login'
 export { default as Logout } from './Logout'
-
+export { default as ReviewDelete } from './ReviewDelete'
+export { default as ReviewPublish } from './ReviewPublish'
+export { default as ReviewUnpublish } from './ReviewUnpublish'

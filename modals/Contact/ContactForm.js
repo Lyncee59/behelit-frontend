@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Form as ReactForm, Field } from 'react-final-form'
 
 import { required, isEmail } from 'services/formHelper'
-import { Button, palette } from '@behelit/components'
+import { Button } from '@behelit/components'
 import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
 import { GrayText } from 'components/Typography'
 
@@ -26,24 +25,24 @@ class ContactForm extends React.PureComponent {
     return (
       <ReactForm
         onSubmit={this.onSubmit}
-        validate={this.validate}
-        render={({ handleSubmit, pristine, invalid }) => (
+        render={({ handleSubmit, invalid, pristine }) => (
           <Form onSubmit={handleSubmit}>
             <FormGroup>
               <GrayText>Name</GrayText>
-              <Field name="name" component={InputField} validate={required} />
+              <Field component={InputField} name="name" validate={required} />
             </FormGroup>
             <FormGroup>
               <GrayText>Email</GrayText>
-              <Field name="email" component={InputField} validate={isEmail} />
+              <Field component={InputField} name="email" validate={isEmail} />
             </FormGroup>
             <FormGroup>
               <GrayText>Message</GrayText>
-              <Field name="message" component={TextAreaField} validate={required} />
+              <Field component={TextAreaField} name="message"validate={required} />
             </FormGroup>
-            <Button disabled={pristine || invalid}>Send message</Button>
+            <Button disabled={invalid || pristine}>Send message</Button>
           </Form>
         )}
+        validate={this.validate}
       />
     )
   }

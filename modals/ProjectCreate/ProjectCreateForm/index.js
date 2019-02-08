@@ -29,7 +29,7 @@ class ProjectCreateForm extends React.PureComponent {
     const { onClose } = this.props
     createProject(values).then(() => {
       onClose()
-      location.reload()
+      window.location.reload()
     })
   }
 
@@ -59,10 +59,10 @@ class ProjectCreateForm extends React.PureComponent {
               <ContentScreen description={values.description} toggled={screen === 'content'} />
               <ButtonGroup>
                 <GrayButton onClick={onClose}>Cancel</GrayButton>
-                <Button type="submit" disabled={pristine || invalid}>Create</Button>
+                <Button disabled={invalid || pristine} type="submit">Create</Button>
               </ButtonGroup>
             </Form>
-            )}
+          )}
         />
       </Wrapper>
     )
@@ -71,7 +71,7 @@ class ProjectCreateForm extends React.PureComponent {
 
 ProjectCreateForm.propTypes = {
   onClose: PropTypes.func.isRequired,
-  tags: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired
 }
 
 export default ProjectCreateForm

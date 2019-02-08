@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
-import { DeleteIcon, EditIcon, PublishIcon } from 'components/Icons'
+import { DeleteIcon, PublishIcon } from 'components/Icons'
 import Modal from 'providers/Modal'
 
 const Wrapper = styled.div`
@@ -23,19 +22,16 @@ const CustomPublishIcon = styled(PublishIcon)`
 const ReviewMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="reviewPublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="reviewPublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
     {isPublished &&
-      <Modal name="reviewUnpublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="reviewUnpublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
-    <Modal name="reviewEdit" data={{ id }}>
-      <EditIcon selectable size="24px" />
-    </Modal>
-    <Modal name="reviewDelete" data={{ id }}>
+    <Modal data={{ id }} name="reviewDelete">
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>
@@ -43,7 +39,7 @@ const ReviewMenu = ({ id, isPublished }) => (
 
 ReviewMenu.propTypes = {
   id: PropTypes.string.isRequired,
-  isPublished: PropTypes.bool.isRequired,
+  isPublished: PropTypes.bool.isRequired
 }
 
 export default ReviewMenu

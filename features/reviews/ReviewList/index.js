@@ -13,13 +13,13 @@ const Wrapper = styled.div`
 `
 
 const ReviewList = ({ reviews }) => (
-    <Wrapper>
-      {reviews.map((review, index) => <ReviewItem key={index} review={review} />)}
-    </Wrapper>
-  )
+  <Wrapper>
+    {reviews.map((review, index) => <ReviewItem key={review._id} review={review} />)}
+  </Wrapper>
+)
 
 ReviewList.propTypes = {
-  reviews: PropTypes.array,
+  reviews: PropTypes.array
 }
 
 ReviewList.defaultProps = {

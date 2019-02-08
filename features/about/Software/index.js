@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { List, ListItem, TextGroup, palette } from '@behelit/components'
+import { List, ListItem, palette } from '@behelit/components'
 import { CrimsonText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -26,7 +25,7 @@ const Title = styled(CrimsonText)`
 
 const Software = () => (
   <Wrapper>
-    <Title size='1.2rem' uppercase weight={700}>Beloved Software</Title>
+    <Title size="1.2rem" uppercase weight={700}>Beloved Software</Title>
     <List>
       <ListItem>Microsoft Visual Studio Code</ListItem>
       <ListItem>Microsoft Visual Studio 2015 Update 3</ListItem>

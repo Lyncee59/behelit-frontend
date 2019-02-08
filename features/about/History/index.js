@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { TextGroup, palette } from '@behelit/components'
@@ -26,13 +25,13 @@ const Title = styled(CrimsonText)`
 
 const History = () => (
   <Wrapper>
-    <Title size='1.2rem' uppercase weight={700}>Professional History</Title>
+    <Title size="1.2rem" uppercase weight={700}>Professional History</Title>
     <TextGroup inline={false}>
       <GrayText>
         I started working in France in 2008 for <strong>Scotler</strong>, a Computer Services Company, as a consultant specialising in SharePoint solutions.
         This experience allowed me to gain great experience in SharePoint as well as .NET & front-end development.
         You could say it really began my love affair with tech.
-        Most importantly, I worked with customers who weren't tech literate and so forced me to learn how to translate their requirements into software solutions.
+        Most importantly, I worked with customers who were not tech literate and so forced me to learn how to translate their requirements into software solutions.
       </GrayText>
       <GrayText>
         In 2011, I moved to Hong Kong for a long-term mission.

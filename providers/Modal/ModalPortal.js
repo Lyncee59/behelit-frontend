@@ -3,29 +3,29 @@ import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 
 class ModalPortal extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.el = document.createElement('div')
   }
 
-  componentDidMount() {
+  componentDidMount () {
     document.getElementById('modal-root').appendChild(this.el)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     const { callback } = this.props
     if (callback) { callback() }
     document.getElementById('modal-root').removeChild(this.el)
   }
 
-  render() {
+  render () {
     return ReactDOM.createPortal(this.props.children, this.el)
   }
 }
 
 ModalPortal.propTypes = {
-  children: PropTypes.node.isRequired,
-  callback: PropTypes.func
+  callback: PropTypes.func,
+  children: PropTypes.node.isRequired
 }
 
 export default ModalPortal

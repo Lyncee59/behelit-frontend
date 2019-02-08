@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { ModalBackground } from '@behelit/components'
 import {
@@ -18,12 +19,14 @@ import {
   Contact,
   Login,
   Logout,
-
+  ReviewDelete,
+  ReviewPublish,
+  ReviewUnpublish
 } from 'modals'
 import ModalPortal from './ModalPortal'
 
 class Modal extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = { opened: false }
     this.handleOpen = this.handleOpen.bind(this)
@@ -57,10 +60,13 @@ class Modal extends React.PureComponent {
       case 'projectUnpublish': return <ProjectUnpublish onClose={this.handleClose} {...data} />
       case 'login': return <Login onClose={this.handleClose} {...data} />
       case 'logout': return <Logout onClose={this.handleClose} {...data} />
+      case 'reviewDelete': return <ReviewDelete onClose={this.handleClose} {...data} />
+      case 'reviewPublish': return <ReviewPublish onClose={this.handleClose} {...data} />
+      case 'reviewUnpublish': return <ReviewUnpublish onClose={this.handleClose} {...data} />
     }
   }
 
-  render() {
+  render () {
     const { children, ...rest } = this.props
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, { onClick: this.handleOpen, ...rest })
@@ -81,6 +87,10 @@ class Modal extends React.PureComponent {
       </React.Fragment>
     )
   }
+}
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Modal

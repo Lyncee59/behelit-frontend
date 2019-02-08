@@ -29,7 +29,7 @@ class ArticleCreateForm extends React.PureComponent {
     const { onClose } = this.props
     createArticle(values).then(() => {
       onClose()
-      location.reload()
+      window.window.location.reload()
     })
   }
 
@@ -59,10 +59,10 @@ class ArticleCreateForm extends React.PureComponent {
               <ContentScreen content={values.content} toggled={screen === 'content'} />
               <ButtonGroup>
                 <GrayButton onClick={onClose}>Cancel</GrayButton>
-                <Button type="submit" disabled={pristine || invalid}>Create</Button>
+                <Button disabled={invalid || pristine} type="submit">Create</Button>
               </ButtonGroup>
             </Form>
-            )}
+          )}
         />
       </Wrapper>
     )
@@ -72,7 +72,7 @@ class ArticleCreateForm extends React.PureComponent {
 ArticleCreateForm.propTypes = {
   onClose: PropTypes.func.isRequired,
   tags: PropTypes.array.isRequired,
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired
 }
 
 export default ArticleCreateForm

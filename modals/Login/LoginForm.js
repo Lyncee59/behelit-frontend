@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Form as ReactForm, Field } from 'react-final-form'
 
+import { login } from 'services/api/public'
 import { required } from 'services/formHelper'
-import { Button, palette } from '@behelit/components'
-import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
+import { Button } from '@behelit/components'
+import { Form, FormGroup, InputField } from 'components/Forms'
 import { GrayText } from 'components/Typography'
 
 const onSubmit = async ({ username, password }) => {
@@ -20,13 +20,13 @@ const LoginForm = () => (
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <GrayText>Username</GrayText>
-          <Field name="username" component={InputField} validate={required} />
+          <Field component={InputField} name="username" validate={required} />
         </FormGroup>
         <FormGroup>
           <GrayText>Password</GrayText>
-          <Field name="password" component={InputField} validate={required} type='password' />
+          <Field component={InputField} name="password" type="password" validate={required} />
         </FormGroup>
-        <Button disabled={pristine || invalid} type="submit">Sign in</Button>
+        <Button disabled={invalid || pristine} type="submit">Sign in</Button>
       </Form>
     )}
   />

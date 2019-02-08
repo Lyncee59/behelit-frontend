@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Form as ReactForm } from 'react-final-form'
 
-import { publishProject } from 'services/api/private'
+import { publishReview } from 'services/api/private'
 import { ButtonGroup } from '@behelit/components'
 import { GrayButton, GreenButton } from 'components/Buttons'
 import { Form } from 'components/Forms'
 
-class ProjectPublishForm extends React.PureComponent {
+class ReviewPublishForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
@@ -16,7 +16,7 @@ class ProjectPublishForm extends React.PureComponent {
   async onSubmit (values) {
     const { id, onClose } = this.props
 
-    publishProject(id).then(() => {
+    publishReview(id).then(() => {
       onClose()
       window.location.reload()
     })
@@ -41,9 +41,9 @@ class ProjectPublishForm extends React.PureComponent {
   }
 }
 
-ProjectPublishForm.propTypes = {
+ReviewPublishForm.propTypes = {
   id: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
-export default ProjectPublishForm
+export default ReviewPublishForm

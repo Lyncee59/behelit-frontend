@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FasQuoteRight, FasQuoteLeft } from '@behelit/components'
 import { Quote } from 'components/Containers'
 import { GrayText } from 'components/Typography'
 
@@ -26,14 +25,14 @@ const ReviewItem = ({ review }) => {
     <Wrapper>
       <Quote>
         <Row>
-          <GrayText size='1rem' italic>{review.message}</GrayText>
+          <GrayText italic size="1rem">{review.message}</GrayText>
         </Row>
         <Row>
-          <GrayText size='1rem' weight={700}>{review.name}</GrayText>
-          <GrayText size='1rem' italic>{review.createdAt}</GrayText>
+          <GrayText italic size="1rem" weight={700}>{review.name}</GrayText>
+          <GrayText italic size="1rem">{review.createdAt}</GrayText>
         </Row>
         <Row>
-          <GrayText size='1rem'>{description}</GrayText>
+          <GrayText italic size="1rem">{description}</GrayText>
         </Row>
       </Quote>
     </Wrapper>
@@ -42,10 +41,10 @@ const ReviewItem = ({ review }) => {
 
 ReviewItem.propTypes = {
   review: PropTypes.shape({
-    name: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     role: PropTypes.string
   }).isRequired
 }

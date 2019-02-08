@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { List, ListItem, TextGroup, palette } from '@behelit/components'
@@ -27,7 +26,7 @@ const Title = styled(CrimsonText)`
 
 const Website = () => (
   <Wrapper>
-    <Title size='1.2rem' uppercase weight={700}>About this website</Title>
+    <Title size="1.2rem" uppercase weight={700}>About this website</Title>
     <TextGroup inline>
       <GrayText>
         Early 2017, I created this website in order to promote my projects.
@@ -51,10 +50,10 @@ const Website = () => (
     </TextGroup>
     <List>
       <ListItem>
-        <DefaultLink href='https://github.com/lyncee59/behelit-components' target='_blank'>https://github.com/lyncee59/behelit-components</DefaultLink>
+        <DefaultLink href="https://github.com/lyncee59/behelit-components" target="_blank">https://github.com/lyncee59/behelit-components</DefaultLink>
       </ListItem>
       <ListItem>
-        <DefaultLink href='https://github.com/lyncee59/behelit-frontend' target='_blank'>https://github.com/lyncee59/behelit-frontend</DefaultLink>
+        <DefaultLink href="https://github.com/lyncee59/behelit-frontend" target="_blank">https://github.com/lyncee59/behelit-frontend</DefaultLink>
       </ListItem>
     </List>
   </Wrapper>

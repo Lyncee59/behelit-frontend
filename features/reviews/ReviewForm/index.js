@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Form as ReactForm, Field } from 'react-final-form'
 
-import { required, isEmail } from 'services/formHelper'
+import { required } from 'services/formHelper'
 import { Button, palette } from '@behelit/components'
 import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
 import { GrayText } from 'components/Typography'
@@ -30,17 +29,13 @@ class ReviewForm extends React.PureComponent {
     this.validate = this.validate.bind(this)
   }
 
-  handleToggle () {
-    const { toggled } = this.state
-    this.setState({ toggled: !toggled })
-  }
-
   onSubmit () {
     console.log('onSubmit')
   }
 
-  validate () {
-    console.log('validate')
+  handleToggle () {
+    const { toggled } = this.state
+    this.setState({ toggled: !toggled })
   }
 
   render () {
@@ -50,26 +45,25 @@ class ReviewForm extends React.PureComponent {
       <Wrapper>
         <ReactForm
           onSubmit={this.onSubmit}
-          validate={this.validate}
           render={({ handleSubmit, pristine, invalid }) => (
             <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <GrayText>Name</GrayText>
-                <Field name="name" component={InputField} validate={required} />
+                <Field component={InputField} name="name" validate={required} />
               </FormGroup>
               <FormGroup>
                 <GrayText>Company</GrayText>
-                <Field name="company" component={InputField} />
+                <Field component={InputField} name="company" />
               </FormGroup>
               <FormGroup>
                 <GrayText>Role</GrayText>
-                <Field name="company" component={InputField} validate={required} />
+                <Field component={InputField} name="company" validate={required} />
               </FormGroup>
               <FormGroup>
                 <GrayText>Comment</GrayText>
-                <Field name="comment" component={TextAreaField} validate={required} />
+                <Field component={TextAreaField} name="comment" validate={required} />
               </FormGroup>
-              <Button disabled={pristine || invalid}>Send review</Button>
+              <Button disabled={invalid || pristine}>Send review</Button>
             </Form>
           )}
         />

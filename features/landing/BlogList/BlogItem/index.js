@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { FarFileAlt, palette } from '@behelit/components'
-import { GrayCartridge } from 'components/Cartridges'
+import { palette } from '@behelit/components'
 import { ReadToggler } from 'components/Togglers'
 import { GrayText, CrimsonText } from 'components/Typography'
 
@@ -60,22 +59,22 @@ const BlogItem = ({ article }) => (
       <CategoryImage src={`/static/icons/${article.category}.svg`} />
     </Category>
     <Content>
-      <CrimsonText size='1.2rem' uppercase weight={700}>{article.title}</CrimsonText>
-      <GrayText size='0.9rem' weight={300}>{article.description}</GrayText>
+      <CrimsonText size="1.2rem" uppercase weight={700}>{article.title}</CrimsonText>
+      <GrayText size="0.9rem" weight={300}>{article.description}</GrayText>
     </Content>
-    <Toggler href={`/article/${article._id}`} size="" />
+    <Toggler href={`/article/${article._id}`} />
   </Wrapper>
 )
 
 BlogItem.propTypes = {
   article: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    createdAt: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired
   })
 }
 

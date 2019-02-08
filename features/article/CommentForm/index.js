@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Form as ReactForm, Field } from 'react-final-form'
 
@@ -31,13 +30,13 @@ class CommentForm extends React.PureComponent {
     this.validate = this.validate.bind(this)
   }
 
+  onSubmit () {
+    console.log('onSubmit')
+  }
+
   handleToggle () {
     const { toggled } = this.state
     this.setState({ toggled: !toggled })
-  }
-
-  onSubmit () {
-    console.log('onSubmit')
   }
 
   validate () {
@@ -49,28 +48,28 @@ class CommentForm extends React.PureComponent {
 
     return (
       <Wrapper>
-        <ToggleButton toggled={toggled} onClick={this.handleToggle} />
+        <ToggleButton onClick={this.handleToggle} toggled={toggled} />
         { toggled &&
           <ReactForm
             onSubmit={this.onSubmit}
-            validate={this.validate}
-            render={({ handleSubmit, pristine, invalid }) => (
+            render={({ handleSubmit, invalid, pristine }) => (
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
                   <GrayText>Name</GrayText>
-                  <Field name="name" component={InputField} validate={required} />
+                  <Field component={InputField} name="name" validate={required} />
                 </FormGroup>
                 <FormGroup>
                   <GrayText>Email</GrayText>
-                  <Field name="email" component={InputField} validate={isEmail} />
+                  <Field component={InputField} name="email" validate={isEmail} />
                 </FormGroup>
                 <FormGroup>
                   <GrayText>Comment</GrayText>
-                  <Field name="comment" component={TextAreaField} validate={required} />
+                  <Field component={TextAreaField} name="comment" validate={required} />
                 </FormGroup>
-                <Button disabled={pristine || invalid}>Send comment</Button>
+                <Button disabled={invalid || pristine}>Send comment</Button>
               </Form>
             )}
+            validate={this.validate}
           />
         }
       </Wrapper>

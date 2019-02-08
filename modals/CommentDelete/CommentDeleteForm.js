@@ -18,7 +18,7 @@ class CommentDeleteForm extends React.PureComponent {
 
     deleteComment(id).then(() => {
       onClose()
-      location.reload()
+      window.location.reload()
     })
   }
 
@@ -31,8 +31,8 @@ class CommentDeleteForm extends React.PureComponent {
         render={({ handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
             <ButtonGroup>
-              <GrayButton onClick={onClose} width='50%'>Cancel</GrayButton>
-              <Button type="submit" width='50%'>Delete</Button>
+              <GrayButton onClick={onClose} width="50%">Cancel</GrayButton>
+              <Button type="submit" width="50%">Delete</Button>
             </ButtonGroup>
           </Form>
         )}
@@ -43,7 +43,7 @@ class CommentDeleteForm extends React.PureComponent {
 
 CommentDeleteForm.propTypes = {
   id: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default CommentDeleteForm

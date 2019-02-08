@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { injectIntl } from 'react-intl'
 import Head from 'next/head'
 
 import { Container as BhContainer, palette } from '@behelit/components'
@@ -24,37 +23,40 @@ const Container = styled(BhContainer)`
 `
 
 class Admin extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.handleScroll = this.handleScroll.bind(this)
     this.state = { scrollDirection: 'down', scrollTop: 0 }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
     this.handleScroll()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll() {
+  handleScroll () {
+    console.log('hooo')
     const prevPosition = this.state.scrollTop
     const newPosition = window.pageYOffset || document.documentElement.scrollTop
     this.setState({
       scrollDirection: newPosition < prevPosition ? 'up' : 'down',
-      scrollTop: newPosition,
+      scrollTop: newPosition
     })
   }
 
-  render() {
-    const sticky = this.state.scrollTop > 300 
+  render () {
+    const { scrollDirection, scrollTop } = this.state
+    const sticky = scrollTop > 300
+    console.log('sticky', sticky)
 
     return (
       <React.Fragment>
         <Head>
-          <title>Behelit</title>
+          <title>Behelit - Administration</title>
         </Head>
         <Wrapper>
           <Header sticky={sticky} />
@@ -68,7 +70,7 @@ class Admin extends React.PureComponent {
 }
 
 Admin.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
-export default injectIntl(Admin)
+export default Admin

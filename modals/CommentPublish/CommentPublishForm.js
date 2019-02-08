@@ -18,7 +18,7 @@ class CommentPublishForm extends React.PureComponent {
 
     publishComment(id).then(() => {
       onClose()
-      location.reload()
+      window.location.reload()
     })
   }
 
@@ -31,8 +31,8 @@ class CommentPublishForm extends React.PureComponent {
         render={({ handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
             <ButtonGroup>
-              <GrayButton onClick={onClose} width='50%'>Cancel</GrayButton>
-              <GreenButton type="submit" width='50%'>Publish</GreenButton>
+              <GrayButton onClick={onClose} width="50%">Cancel</GrayButton>
+              <GreenButton type="submit" width="50%">Publish</GreenButton>
             </ButtonGroup>
           </Form>
         )}
@@ -43,7 +43,7 @@ class CommentPublishForm extends React.PureComponent {
 
 CommentPublishForm.propTypes = {
   id: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default CommentPublishForm

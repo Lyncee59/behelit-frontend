@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
 import { DeleteIcon, PublishIcon } from 'components/Icons'
 import Modal from 'providers/Modal'
 
@@ -23,16 +22,16 @@ const CustomPublishIcon = styled(PublishIcon)`
 const CommentMenu = ({ id, isPublished }) => (
   <Wrapper>
     {!isPublished &&
-      <Modal name="commentPublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="commentPublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
     {isPublished &&
-      <Modal name="commentUnpublish" data={{ id }}>
-        <CustomPublishIcon selectable size="24px" published={isPublished ? 1 : 0} />
+      <Modal data={{ id }} name="commentUnpublish">
+        <CustomPublishIcon published={isPublished ? 1 : 0} selectable size="24px" />
       </Modal>
     }
-    <Modal name="commentDelete" data={{ id }}>
+    <Modal data={{ id }} name="commentDelete">
       <DeleteIcon selectable size="24px" />
     </Modal>
   </Wrapper>
@@ -40,7 +39,7 @@ const CommentMenu = ({ id, isPublished }) => (
 
 CommentMenu.propTypes = {
   id: PropTypes.string.isRequired,
-  isPublished: PropTypes.bool.isRequired,
+  isPublished: PropTypes.bool.isRequired
 }
 
 export default CommentMenu
