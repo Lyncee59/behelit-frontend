@@ -10,15 +10,10 @@ class ContactForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.validate = this.validate.bind(this)
   }
 
   onSubmit () {
     console.log('onSubmit')
-  }
-
-  validate () {
-    console.log('validate')
   }
 
   render () {
@@ -42,7 +37,6 @@ class ContactForm extends React.PureComponent {
             <Button disabled={invalid || pristine}>Send message</Button>
           </Form>
         )}
-        validate={this.validate}
       />
     )
   }

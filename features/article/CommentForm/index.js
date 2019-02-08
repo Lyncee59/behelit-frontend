@@ -27,7 +27,6 @@ class CommentForm extends React.PureComponent {
     this.state = { toggled: false }
     this.handleToggle = this.handleToggle.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.validate = this.validate.bind(this)
   }
 
   onSubmit () {
@@ -37,10 +36,6 @@ class CommentForm extends React.PureComponent {
   handleToggle () {
     const { toggled } = this.state
     this.setState({ toggled: !toggled })
-  }
-
-  validate () {
-    console.log('validate')
   }
 
   render () {
@@ -69,7 +64,6 @@ class CommentForm extends React.PureComponent {
                 <Button disabled={invalid || pristine}>Send comment</Button>
               </Form>
             )}
-            validate={this.validate}
           />
         }
       </Wrapper>

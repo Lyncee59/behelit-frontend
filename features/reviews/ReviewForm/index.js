@@ -26,7 +26,6 @@ class ReviewForm extends React.PureComponent {
     this.state = { toggled: false }
     this.handleToggle = this.handleToggle.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.validate = this.validate.bind(this)
   }
 
   onSubmit () {
@@ -57,7 +56,7 @@ class ReviewForm extends React.PureComponent {
               </FormGroup>
               <FormGroup>
                 <GrayText>Role</GrayText>
-                <Field component={InputField} name="company" validate={required} />
+                <Field component={InputField} name="role" validate={required} />
               </FormGroup>
               <FormGroup>
                 <GrayText>Comment</GrayText>
