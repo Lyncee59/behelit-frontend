@@ -172,6 +172,10 @@ export const editUser = (user) => put({
   data: user
 })
 
+export const getUser = (id) => get({
+  endpoint: `/admin/users/${id}`
+})
+
 export const getUsers = () => get({
   endpoint: '/admin/users'
 })

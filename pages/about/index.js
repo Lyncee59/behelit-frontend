@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Layout from 'layouts/Public'
@@ -40,7 +39,7 @@ const Column = styled.div`
 const About = () => (
   <Layout>
     <Wrapper>
-      <Column position='left'>
+      <Column position="left">
         <History />
       </Column>
       <Column>

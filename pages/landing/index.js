@@ -32,7 +32,7 @@ const Column = styled.div`
 const Landing = ({ articles }) => (
   <Layout>
     <Wrapper>
-      <Column position='left'>
+      <Column position="left">
         <BlogList articles={articles} />
       </Column>
       <Column>
@@ -43,11 +43,11 @@ const Landing = ({ articles }) => (
 )
 
 Landing.getInitialProps = (context) => fetchData(context, {
-  articles: getArticles(),
+  articles: getArticles()
 })
 
 Landing.propTypes = {
-  articles: PropTypes.array,
+  articles: PropTypes.array
 }
 
 export default Landing

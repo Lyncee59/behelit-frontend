@@ -23,8 +23,6 @@ const Wrapper = styled.div`
 class ReviewForm extends React.PureComponent {
   constructor (props) {
     super(props)
-    this.state = { toggled: false }
-    this.handleToggle = this.handleToggle.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
@@ -32,14 +30,7 @@ class ReviewForm extends React.PureComponent {
     console.log('onSubmit')
   }
 
-  handleToggle () {
-    const { toggled } = this.state
-    this.setState({ toggled: !toggled })
-  }
-
   render () {
-    const { toggled } = this.state
-
     return (
       <Wrapper>
         <ReactForm

@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { assoc, merge, path } from 'ramda'
 
 import { fetchData } from 'services/utils'
 import { getProjects } from 'services/api/public'
@@ -15,11 +13,11 @@ const Projects = ({ projects }) => (
 )
 
 Projects.getInitialProps = (context) => fetchData(context, {
-  projects: getProjects(),
+  projects: getProjects()
 })
 
 Projects.propTypes = {
-  projects: PropTypes.array,
+  projects: PropTypes.array
 }
 
 export default Projects

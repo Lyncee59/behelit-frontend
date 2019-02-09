@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { assoc, merge, path } from 'ramda'
 
 import { fetchData } from 'services/utils'
 import { getArticle, getComments } from 'services/api/public'

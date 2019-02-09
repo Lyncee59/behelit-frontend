@@ -52,11 +52,11 @@ const Reviews = ({ reviews }) => (
 )
 
 Reviews.getInitialProps = (context) => fetchData(context, {
-  reviews: getReviews(),
+  reviews: getReviews()
 })
 
 Reviews.propTypes = {
-  reviews: PropTypes.array,
+  reviews: PropTypes.array
 }
 
 export default Reviews
