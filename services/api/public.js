@@ -1,8 +1,8 @@
 import { get, post } from './fetch'
 
-const createComment = comment => post({ endpoint: '/comments', data: comment })
+const createComment = comment => post({ data: comment, endpoint: '/comments' })
 
-const createReview = review => post({ endpoint: '/reviews', data: review })
+const createReview = review => post({ data: review, endpoint: '/reviews' })
 
 const getArticle = (articleId) => get({ endpoint: `/articles/${articleId}` })
 
@@ -14,9 +14,9 @@ const getProjects = () => get({ endpoint: '/projects' })
 
 const getReviews = () => get({ endpoint: '/reviews' })
 
-const login = (username, password) => post({ endpoint: '/token', data: { username, password } })
+const login = (username, password) => post({ data: { password, username }, endpoint: '/token' })
 
-const sendEmail = email => post({ endpoint: '/contact', data: email })
+const sendEmail = email => post({ data: email, endpoint: '/contact' })
 
 export {
   createComment,

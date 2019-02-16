@@ -1,11 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Form as ReactForm, Field } from 'react-final-form'
+import { FORM_ERROR } from 'final-form'
 
+import { createComment } from 'services/api/public'
 import { required, isEmail } from 'services/formHelper'
 import { Button, palette } from '@behelit/components'
 import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
-import { GrayText } from 'components/Typography'
+import { GrayText, GreenText, RedText } from 'components/Typography'
 import ToggleButton from './ToggleButton'
 
 const Wrapper = styled.div`
@@ -21,6 +24,19 @@ const Wrapper = styled.div`
   border: 1px solid ${palette('gray2')};
   border-radius: 5px;
 `
+const ErrorLabel = styled(RedText)`
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+`
+const SuccessLabel = styled(GreenText)`
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+`
+
 class CommentForm extends React.PureComponent {
   constructor (props) {
     super(props)
@@ -29,8 +45,11 @@ class CommentForm extends React.PureComponent {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onSubmit () {
-    console.log('onSubmit')
+  onSubmit = async (values) => {
+    const { article } = this.props
+    return createComment({ articleId: article._id, ...values })
+      .then(() => window.location.reload())
+      .catch(() => ({ [FORM_ERROR]: 'Error submitting comment' }))
   }
 
   handleToggle () {
@@ -47,7 +66,7 @@ class CommentForm extends React.PureComponent {
         { toggled &&
           <ReactForm
             onSubmit={this.onSubmit}
-            render={({ handleSubmit, invalid, pristine }) => (
+            render={({ handleSubmit, invalid, pristine, submitError, submitSucceeded, submitting }) => (
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
                   <GrayText>Name</GrayText>
@@ -59,9 +78,11 @@ class CommentForm extends React.PureComponent {
                 </FormGroup>
                 <FormGroup>
                   <GrayText>Comment</GrayText>
-                  <Field component={TextAreaField} name="comment" validate={required} />
+                  <Field component={TextAreaField} name="message" validate={required} />
                 </FormGroup>
-                <Button disabled={invalid || pristine}>Send comment</Button>
+                <Button disabled={invalid || pristine || submitting} type="submit">Send comment</Button>
+                {submitError && <ErrorLabel>Could not send comment :(</ErrorLabel>}
+                {submitSucceeded && <SuccessLabel>Comment sent!</SuccessLabel>}
               </Form>
             )}
           />
@@ -69,6 +90,10 @@ class CommentForm extends React.PureComponent {
       </Wrapper>
     )
   }
+}
+
+CommentForm.propTypes = {
+  article: PropTypes.object.isRequired
 }
 
 export default CommentForm

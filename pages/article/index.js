@@ -41,7 +41,7 @@ const Article = ({ article, comments }) => (
         <ArticleDetails article={article} />
       </Column>
       <Column>
-        <CommentForm />
+        <CommentForm article={article} />
         <CommentList comments={comments} />
       </Column>
     </Wrapper>

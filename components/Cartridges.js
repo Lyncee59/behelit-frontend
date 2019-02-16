@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { palette } from '@behelit/components'
-import { DefaultLink } from './Links'
 
 export const GrayCartridge = styled.div`
   display: flex;
