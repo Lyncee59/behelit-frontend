@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import { FlatLoader, palette } from '@behelit/components'
 import Prism from 'prismjs'
 import Inline from './Inline'
 import Multiline from './Multiline'
@@ -12,10 +11,9 @@ class PrismCode extends React.PureComponent {
     super(props)
     this.state = { ready: false }
     this.containerRef = React.createRef()
-
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.setState({ ready: true })
     this.hightlight()
   }
@@ -24,14 +22,14 @@ class PrismCode extends React.PureComponent {
     this.hightlight()
   }
 
-  hightlight() {
+  hightlight () {
     const node = ReactDOM.findDOMNode(this.containerRef.current)
     Prism.highlightElement(node, this.props.async)
   }
 
   render () {
     const { ready } = this.state
-    const { code, language, inline } = this.props
+    const { code, inline } = this.props
 
     return inline
       ? <Inline code={code} ready={ready} ref={this.containerRef} />
@@ -40,7 +38,8 @@ class PrismCode extends React.PureComponent {
 }
 
 PrismCode.propTypes = {
-  children: PropTypes.string,
+  async: PropTypes.bool,
+  code: PropTypes.string,
   inline: PropTypes.bool
 }
 

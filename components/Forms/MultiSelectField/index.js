@@ -26,8 +26,13 @@ const ErrorLabel = styled(CrimsonText)`
 const MultiSelectField = ({ input, meta, ...rest }) => (
   <Wrapper>
     <MultiSelectInput {...input} {...rest} />
-    {meta.error && meta.touched && <ErrorLabel size='0.9rem'>{meta.error}</ErrorLabel>}
+    {meta.error && meta.touched && <ErrorLabel size="0.9rem">{meta.error}</ErrorLabel>}
   </Wrapper>
 )
+
+MultiSelectField.propTypes = {
+  input: PropTypes.object.isRequired,
+  meta: PropTypes.object.isRequired
+}
 
 export default MultiSelectField

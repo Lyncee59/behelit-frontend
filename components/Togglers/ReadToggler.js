@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { FarFileAlt, palette } from '@behelit/components'
@@ -20,6 +19,6 @@ const ReadToggler = (props) => (
     <TogglerIcon size="16px" />
     <GrayText size="1rem" weight={400}>Read</GrayText>
   </Wrapper>
-) 
+)
 
 export default ReadToggler

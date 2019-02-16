@@ -4,11 +4,10 @@ import styled from 'styled-components'
 
 import { getTags, getUsers } from 'services/api/private'
 import {
-  FasPlusSquare,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
+  ModalToggler
 } from '@behelit/components'
 import { CreateIcon } from 'components/Icons'
 import LoadingScreen from 'components/LoadingScreen'
@@ -50,9 +49,9 @@ class ArticleCreate extends React.PureComponent {
           <ModalToggler onClick={onClose} selectable />
         </ModalHeader>
         <ModalBody>
-          {loading 
+          {loading
             ? <LoadingScreen height="300px" />
-            : <ArticleCreateForm tags={tags} users={users} onClose={onClose} {...rest} />
+            : <ArticleCreateForm onClose={onClose} tags={tags} users={users} {...rest} />
           }
         </ModalBody>
       </Modal>
@@ -61,7 +60,7 @@ class ArticleCreate extends React.PureComponent {
 }
 
 ArticleCreate.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default ArticleCreate

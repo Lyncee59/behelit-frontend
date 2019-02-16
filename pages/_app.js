@@ -13,7 +13,7 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
 }
 
 class ExplorerApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps ({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -26,17 +26,17 @@ class ExplorerApp extends App {
     const { locals: { nonce } } = res
     const { locale, messages } = req || window.__NEXT_DATA__.props.pageProps
 
-    return { pageProps, locale, messages, nonce }
+    return { locale, messages, nonce, pageProps }
   }
 
-  render() {
+  render () {
     const { Component, pageProps, locale, messages } = this.props
     const now = Date.now()
 
     return (
       <Container>
         <ThemeProvider>
-          <IntlProvider locale={locale} messages={messages} initialNow={now} textComponent={React.Fragment}>
+          <IntlProvider initialNow={now} locale={locale} messages={messages} textComponent={React.Fragment}>
             <Component {...pageProps} />
           </IntlProvider>
         </ThemeProvider>

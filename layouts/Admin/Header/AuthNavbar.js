@@ -1,15 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import { darken } from 'polished'
 
-import { FasSignInAlt, NavbarNav, NavbarNavItem, palette } from '@behelit/components'
+import { FasSignInAlt, NavbarNav, NavbarNavItem } from '@behelit/components'
 import Modal from 'providers/Modal'
 import { CrimsonText } from 'components/Typography'
 
 const AuthNavbar = () => (
   <NavbarNav width="10rem">
     <NavbarNavItem>
-      <CrimsonText size='1.2rem' weight={700}>
+      <CrimsonText size="1.2rem" weight={700}>
         Lyncee
       </CrimsonText>
     </NavbarNavItem>

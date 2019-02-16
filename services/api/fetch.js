@@ -22,13 +22,13 @@ const query = ({ method, endpoint, data }) => {
     .then((r) => r.json().catch(() => {}))
 }
 
-const get = ({ endpoint }) => query({ method: 'GET', endpoint })
+const get = ({ endpoint }) => query({ endpoint, method: 'GET' })
 
-const post = ({ endpoint, data }) => query({ method: 'POST', endpoint, data })
+const post = ({ endpoint, data }) => query({ data, endpoint, method: 'POST' })
 
-const put = ({ endpoint, data }) => query({ method: 'PUT', endpoint, data })
+const put = ({ endpoint, data }) => query({ data, endpoint, method: 'PUT' })
 
-const del = ({ endpoint }) => query({ method: 'DELETE', endpoint })
+const del = ({ endpoint }) => query({ endpoint, method: 'DELETE' })
 
 export {
   get,

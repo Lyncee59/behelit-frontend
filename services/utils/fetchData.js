@@ -11,7 +11,7 @@ const fetchData = async (context, providers) => {
         providers[k].then(() => {
           let dTime = Date.now() - timeStart
           console.log(`  -> ${k} ~ ${dTime.toFixed(2)}ms`)
-        }),
+        })
       )
     }
 
@@ -21,7 +21,7 @@ const fetchData = async (context, providers) => {
       .map((key, i) => ({ key, result: results[i] }))
       .reduce(
         (acc, data) => Object.assign(acc, { [data.key]: data.result }),
-        {},
+        {}
       )
 
     if (config.CONFIG_SET === 'local') {

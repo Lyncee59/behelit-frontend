@@ -42,17 +42,17 @@ const Timeline = ({ articles }) => {
   return (
     <Wrapper>
       <Header>
-        <GrayText size='1.2rem' uppercase weight={700}>Articles</GrayText>
+        <GrayText size="1.2rem" uppercase weight={700}>Articles</GrayText>
       </Header>
-     <Content>
-         {categories.map((category, index) => <TimelineItem key={index} category={category} articles={prop(category, groupedArticles)} />)}
+      <Content>
+        {categories.map((category) => <TimelineItem articles={prop(category, groupedArticles)} category={category} key={category.text} />)}
       </Content>
     </Wrapper>
   )
 }
 
 Timeline.propTypes = {
-  articles: PropTypes.array,
+  articles: PropTypes.array
 }
 
 Timeline.defaultProps = {

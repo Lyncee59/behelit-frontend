@@ -1,10 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { FlatLoader, palette } from '@behelit/components'
-import Prism from 'prismjs'
 
 const Wrapper = styled.span`
   display: inline-block;
@@ -13,19 +11,13 @@ const Wrapper = styled.span`
   background: ${palette('white')};
 `
 
-class Inline extends React.PureComponent {
-  render () {
-    const { code, language, ready, ...rest } = this.props
-
-    return !ready ? (
-      <Wrapper {...rest}>
-        <FlatLoader width="70px" height="15px" />
-      </Wrapper>
-    ) : (
-      <code className={`language-${language}`} {...rest}>{code}</code>
-    )
-  }
-}
+const Inline = ({ code, language, ready, ...rest }) => !ready ? (
+  <Wrapper {...rest}>
+    <FlatLoader height="15px" width="70px" />
+  </Wrapper>
+) : (
+  <code className={`language-${language}`} {...rest}>{code}</code>
+)
 
 Inline.propTypes = {
   code: PropTypes.string,

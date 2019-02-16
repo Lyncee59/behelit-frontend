@@ -19,7 +19,7 @@ const TogglerIconExpand = styled(FasArrowDown)`
 
 const ExpandToggler = ({ toggled, ...rest }) => (
   <Wrapper as={DefaultLink} {...rest}>
-    {toggled ? <TogglerIconCollapse size='16px' selectable /> : <TogglerIconExpand size='16px' selectable />}
+    {toggled ? <TogglerIconCollapse selectable size="16px" /> : <TogglerIconExpand selectable size="16px" />}
     <GrayText size="1rem" weight={400}>{toggled ? 'Collapse' : 'Expand'}</GrayText>
   </Wrapper>
 )

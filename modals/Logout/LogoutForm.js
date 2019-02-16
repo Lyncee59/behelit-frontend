@@ -9,7 +9,7 @@ import { Form } from 'components/Forms'
 
 const onSubmit = async ({ username }) => {
   // logout(username).then(() => {
-    // window.location = '/admin'
+  // window.location = '/admin'
   // })
 }
 

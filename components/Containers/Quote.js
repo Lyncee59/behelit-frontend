@@ -34,7 +34,7 @@ const Quote = ({ children }) => (
 )
 
 Quote.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Quote

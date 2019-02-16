@@ -39,7 +39,6 @@ class Admin extends React.PureComponent {
   }
 
   handleScroll () {
-    console.log('hooo')
     const prevPosition = this.state.scrollTop
     const newPosition = window.pageYOffset || document.documentElement.scrollTop
     this.setState({
@@ -50,8 +49,7 @@ class Admin extends React.PureComponent {
 
   render () {
     const { scrollDirection, scrollTop } = this.state
-    const sticky = scrollTop > 300
-    console.log('sticky', sticky)
+    const sticky = scrollTop > 300 && scrollDirection === 'up'
 
     return (
       <React.Fragment>

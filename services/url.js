@@ -1,5 +1,4 @@
 import URL from 'url-parse'
-import getConfig from 'next/config'
 import Router from 'next/router'
 import { path } from 'ramda'
 import { config } from './config'

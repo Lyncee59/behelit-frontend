@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasGlobe,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
-  palette,
+  ModalToggler
 } from '@behelit/components'
 import { PublishIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
@@ -37,7 +35,7 @@ const CommentUnpublish = ({ onClose, ...rest }) => (
 
 CommentUnpublish.propTypes = {
   id: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default CommentUnpublish

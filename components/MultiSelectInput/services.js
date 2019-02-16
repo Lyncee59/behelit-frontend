@@ -1,4 +1,4 @@
-import { append, compose, concat, contains, equals, filter, includes, isEmpty, isNil, prop, remove, toLower } from 'ramda'
+import { append, contains, equals, filter, isEmpty, isNil, prop, toLower } from 'ramda'
 
 export const getAvailableItems = (items, values, search) => isNil(search) || isEmpty(search)
   ? filter(x => !contains(prop('value', x), values), items)

@@ -1,10 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { FlatLoader, palette } from '@behelit/components'
-import Prism from 'prismjs'
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,19 +14,13 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   background: ${palette('white')};
 `
-class Multiline extends React.PureComponent {
-  render () {
-    const { code, language, ready, ...rest } = this.props
-
-    return !ready ? (
-      <Wrapper {...rest}>
-        <FlatLoader width="200px" height="40px" />
-      </Wrapper>
-    ) : (
-      <pre className={`language-${language}`} {...rest}><code>{code}</code></pre>
-    )
-  }
-}
+const Multiline = ({ code, language, ready, ...rest }) => !ready ? (
+  <Wrapper {...rest}>
+    <FlatLoader height="40px" width="200px" />
+  </Wrapper>
+) : (
+  <pre className={`language-${language}`} {...rest}><code>{code}</code></pre>
+)
 
 Multiline.propTypes = {
   code: PropTypes.string,

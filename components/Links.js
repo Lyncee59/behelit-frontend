@@ -22,4 +22,4 @@ export const WhiteLink = styled(DefaultLink)`
   &:hover {
     color: ${palette('red10')};
   }
-` 
+`

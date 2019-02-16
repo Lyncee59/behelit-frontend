@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasEnvelope,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
+  ModalToggler
 } from '@behelit/components'
 import { ContactIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
@@ -35,7 +34,7 @@ const Contact = ({ onClose, ...rest }) => (
 )
 
 Contact.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default Contact

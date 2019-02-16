@@ -2,9 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Input } from '@behelit/components'
-import { CrimsonText } from 'components/Typography'
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,5 +19,9 @@ const FormGroup = ({ children }) => (
     {children}
   </Wrapper>
 )
+
+FormGroup.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 export default FormGroup

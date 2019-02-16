@@ -1,29 +1,28 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 import { BrandName, Navbar, NavbarBrand, NavbarHeader, NavbarMenu, NavbarToggler } from '@behelit/components'
-import { DefaultLink, WhiteLink } from 'components/Links'
+import { DefaultLink } from 'components/Links'
 import { DarkGraySection } from 'components/Sections'
 import StickyContainer from 'components/StickyContainer'
 import MenuNavbar from './MenuNavbar'
 import NavigationNavbar from './NavigationNavbar'
 
 class Header extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = { menuToggled: false }
     this.handleToggleMenu = this.handleToggleMenu.bind(this)
   }
 
-  handleToggleMenu() {
+  handleToggleMenu () {
     const { menuToggled } = this.state
     this.setState({ menuToggled: !menuToggled })
   }
 
-  render() {
+  render () {
     const { menuToggled } = this.state
-    const { nature, sticky } = this.props
+    const { sticky } = this.props
 
     return (
       <DarkGraySection>
@@ -31,7 +30,7 @@ class Header extends React.PureComponent {
           <Navbar>
             <NavbarHeader>
               <NavbarBrand>
-                <DefaultLink href='/'>
+                <DefaultLink href="/">
                   <BrandName />
                 </DefaultLink>
               </NavbarBrand>
@@ -46,13 +45,13 @@ class Header extends React.PureComponent {
             />
           </Navbar>
         </StickyContainer>
-        </DarkGraySection>
+      </DarkGraySection>
     )
   }
 }
 
 Header.propTypes = {
-  sticky: PropTypes.bool.isRequired,
+  sticky: PropTypes.bool.isRequired
 }
 
 export default Header

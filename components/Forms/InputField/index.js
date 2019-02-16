@@ -26,8 +26,13 @@ const ErrorLabel = styled(CrimsonText)`
 const InputField = ({ input, meta, ...rest }) => (
   <Wrapper>
     <Input {...input} {...rest} />
-    {meta.error && meta.touched && <ErrorLabel size='0.9rem'>{meta.error}</ErrorLabel>}
+    {meta.error && meta.touched && <ErrorLabel size="0.9rem">{meta.error}</ErrorLabel>}
   </Wrapper>
 )
+
+InputField.propTypes = {
+  input: PropTypes.object.isRequired,
+  meta: PropTypes.object.isRequired
+}
 
 export default InputField

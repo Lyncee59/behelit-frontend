@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  FasSignOutAlt,
   Modal,
   ModalHeader,
   ModalBody,
-  ModalToggler,
-  palette,
+  ModalToggler
 } from '@behelit/components'
 import { LogoutIcon } from 'components/Icons'
 import { GrayText } from 'components/Typography'
@@ -36,7 +34,7 @@ const Logout = ({ onClose, ...rest }) => (
 )
 
 Logout.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default Logout

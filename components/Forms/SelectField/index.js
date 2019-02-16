@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { config, categories } from 'services/config'
 import SelectInput from 'components/SelectInput'
 import { CrimsonText } from 'components/Typography'
 
@@ -27,16 +26,18 @@ const ErrorLabel = styled(CrimsonText)`
 const SelectField = ({ input, meta, items, ...rest }) => (
   <Wrapper>
     <SelectInput {...input} items={items} {...rest} />
-    {meta.error && meta.touched && <ErrorLabel size='0.9rem'>{meta.error}</ErrorLabel>}
+    {meta.error && meta.touched && <ErrorLabel size="0.9rem">{meta.error}</ErrorLabel>}
   </Wrapper>
 )
 
 SelectField.propTypes = {
+  input: PropTypes.object.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   })).isRequired,
-  value: PropTypes.string,
+  meta: PropTypes.object.isRequired,
+  value: PropTypes.string
 }
 
 SelectField.defaultProps = {

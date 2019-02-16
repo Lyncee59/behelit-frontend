@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { merge } from 'ramda'
 
 import { DefaultTheme, DefaultPalette, ThemeProvider } from '@behelit/components'
@@ -10,10 +11,16 @@ const customPalette = merge(DefaultPalette, {
 })
 
 const customTheme = merge(DefaultTheme, {
-  fontPrimary: "Roboto,sans-serif",
+  fontPrimary: 'Roboto,sans-serif',
   palette: customPalette
 })
 
-export default ({ children }) => (
+const CustomThemeProvider = ({ children }) => (
   <ThemeProvider theme={customTheme}>{children}</ThemeProvider>
 )
+
+CustomThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default CustomThemeProvider

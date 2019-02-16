@@ -1,6 +1,5 @@
-import React from 'react'
 import styled from 'styled-components'
-import { theme } from '@behelit/components' 
+import { theme } from '@behelit/components'
 
 const Wrapper = styled.div`
   display: flex;

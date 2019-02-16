@@ -109,7 +109,8 @@ class MultiSelectField extends React.Component {
   }
 
   handleToggle () {
-    this.setState({ toggled: !this.state.toggled })
+    const { toggled } = this.state
+    this.setState({ toggled: !toggled })
     this.searchRef.current.focus()
   }
 
@@ -133,9 +134,9 @@ class MultiSelectField extends React.Component {
       <Input ref={this.dropdownRef}>
         <Display onClick={this.handleToggle}>{selectedItem.text}</Display>
         <Dropdown toggled={toggled}>
-          <Search ref={this.searchRef} onChange={this.handleSearch} value={search} />
+          <Search onChange={this.handleSearch} ref={this.searchRef} value={search} />
           <Result>
-            {availableItems.map((item, index) => <ResultItem key={index} onClick={() => this.handleSelect(item)}>{item.text}</ResultItem>)}
+            {availableItems.map((item, index) => <ResultItem key={item.text} onClick={() => this.handleSelect(item)}>{item.text}</ResultItem>)}
           </Result>
         </Dropdown>
       </Input>
@@ -148,8 +149,8 @@ MultiSelectField.propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
   })).isRequired,
-  value: PropTypes.array,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.array
 }
 
 export default MultiSelectField

@@ -23,17 +23,17 @@ const StickyContainer = ({ children, enabled }) => {
       <Container>{children}</Container>
     </Wrapper>
   ) : (
-      <Container>{children}</Container>
-    )
+    <Container>{children}</Container>
+  )
 }
 
 StickyContainer.propTypes = {
   children: PropTypes.node,
-  enabled: PropTypes.bool,
+  enabled: PropTypes.bool
 }
 
 StickyContainer.defaultProps = {
-  enabled: false,
+  enabled: false
 }
 
 export default StickyContainer

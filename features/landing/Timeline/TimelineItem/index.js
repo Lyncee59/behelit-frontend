@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
 import { DefaultLink, BlackLink } from 'components/Links'
 
 const Wrapper = styled.div`
@@ -46,10 +45,10 @@ class TimelineItem extends React.PureComponent {
     const { category, articles } = this.props
 
     return (
-    <Wrapper>
-        <DefaultLink size='1.2rem' uppercase weight={700} onClick={this.handleToggle}>{category}</DefaultLink>
+      <Wrapper>
+        <DefaultLink onClick={this.handleToggle} size="1.2rem" uppercase weight={700}>{category}</DefaultLink>
         <Articles toggled={toggled}>
-          {articles.map((article, index) => <BlackLink key={index} size='1rem' weight={400} onClick={() => handleClick(article._id)}>{article.title}</BlackLink>)}
+          {articles.map((article, index) => <BlackLink href={`/article/${article._id}`} key={article._id} size="1rem" weight={400}>{article.title}</BlackLink>)}
         </Articles>
       </Wrapper>
     )
@@ -57,8 +56,8 @@ class TimelineItem extends React.PureComponent {
 }
 
 TimelineItem.propTypes = {
-  category: PropTypes.string.isRequired,
-  articles: PropTypes.array.isRequired
+  articles: PropTypes.array.isRequired,
+  category: PropTypes.string.isRequired
 }
 
 export default TimelineItem
