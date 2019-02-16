@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import SelectInput from 'components/SelectInput'
+import { SelectInput } from '@behelit/components'
 import { CrimsonText } from 'components/Typography'
 
 const Wrapper = styled.div`

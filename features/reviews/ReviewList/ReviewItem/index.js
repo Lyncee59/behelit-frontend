@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Quote } from 'components/Containers'
+import { Quote } from '@behelit/components'
 import { GrayText } from 'components/Typography'
 
 const Wrapper = styled.div`

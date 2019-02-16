@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { DataCell, DataRow, DataTable } from 'components/DataTables'
+import { DataCell, DataRow, DataTable } from '@behelit/components'
 import { CrimsonText, GrayText } from 'components/Typography'
 import ReviewMenu from './ReviewMenu'
 

@@ -20,7 +20,7 @@
     "manage:translations": "node ./scripts/translationRunner.js"
   },
   "dependencies": {
-    "@behelit/components": "0.0.10",
+    "@behelit/components": "0.0.11",
     "@zeit/next-bundle-analyzer": "0.1.2",
     "accept-language-parser": "1.5.0",
     "axios": "0.18.0",

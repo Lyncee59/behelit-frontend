@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { DataCell, DataRow, DataTable } from '@behelit/components'
 import Modal from 'providers/Modal'
 import { CrimsonButton } from 'components/Buttons'
-import { DataCell, DataRow, DataTable } from 'components/DataTables'
 import { CrimsonText, GrayText } from 'components/Typography'
 import UserMenu from './UserMenu'
 
