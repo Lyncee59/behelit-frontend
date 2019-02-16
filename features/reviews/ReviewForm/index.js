@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Form as ReactForm, Field } from 'react-final-form'
+import { FORM_ERROR } from 'final-form'
 
+import { createReview } from 'services/api/public'
 import { required } from 'services/formHelper'
 import { Button, palette } from '@behelit/components'
 import { Form, FormGroup, InputField, TextAreaField } from 'components/Forms'
-import { GrayText } from 'components/Typography'
+import { GrayText, GreenText, RedText } from 'components/Typography'
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,14 +22,28 @@ const Wrapper = styled.div`
   border: 1px solid ${palette('gray2')};
   border-radius: 5px;
 `
+const ErrorLabel = styled(RedText)`
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+`
+const SuccessLabel = styled(GreenText)`
+  padding: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+`
+
 class ReviewForm extends React.PureComponent {
   constructor (props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onSubmit () {
-    console.log('onSubmit')
+  onSubmit = async (values) => {
+    return createReview(values)
+      .catch(() => ({ [FORM_ERROR]: 'Error submitting review' }))
   }
 
   render () {
@@ -35,7 +51,7 @@ class ReviewForm extends React.PureComponent {
       <Wrapper>
         <ReactForm
           onSubmit={this.onSubmit}
-          render={({ handleSubmit, pristine, invalid }) => (
+          render={({ handleSubmit, invalid, pristine, submitError, submitSucceeded, submitting }) => (
             <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <GrayText>Name</GrayText>
@@ -50,10 +66,12 @@ class ReviewForm extends React.PureComponent {
                 <Field component={InputField} name="role" validate={required} />
               </FormGroup>
               <FormGroup>
-                <GrayText>Comment</GrayText>
-                <Field component={TextAreaField} name="comment" validate={required} />
+                <GrayText>Message</GrayText>
+                <Field component={TextAreaField} name="message" validate={required} />
               </FormGroup>
-              <Button disabled={invalid || pristine}>Send review</Button>
+              <Button disabled={invalid || pristine || submitting} type="submit">Send review</Button>
+              {submitError && <ErrorLabel>Could not submit review :(</ErrorLabel>}
+              {submitSucceeded && <SuccessLabel>Review submitted!</SuccessLabel>}
             </Form>
           )}
         />
