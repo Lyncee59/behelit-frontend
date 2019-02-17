@@ -1,36 +1,63 @@
+/* eslint-disable react/no-find-dom-node */
 import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Prism from 'prismjs'
 
 import { FlatLoader, palette } from '@behelit/components'
 
-const Wrapper = styled.div`
-  display: flex;
+const Wrapper = styled.span`
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
-  padding: 0.5rem 1rem;
+  min-width: 100%;
+  min-height: 100px;
+  padding: 0.2rem 0.4rem;
   box-sizing: border-box;
   background: ${palette('white')};
 `
-const Multiline = ({ code, language, ready, ...rest }) => !ready ? (
-  <Wrapper {...rest}>
-    <FlatLoader height="40px" width="200px" />
-  </Wrapper>
-) : (
-  <pre className={`language-${language}`} {...rest}><code>{code}</code></pre>
-)
+
+class Multiline extends React.PureComponent {
+  constructor (props) {
+    super(props)
+    this.state = { ready: false }
+    this.containerRef = React.createRef()
+  }
+
+  componentDidMount () {
+    this.setState({ ready: true })
+    this.hightlight()
+  }
+
+  hightlight () {
+    const node = ReactDOM.findDOMNode(this.containerRef.current)
+    Prism.highlightElement(node, true)
+  }
+
+  render () {
+    const { ready } = this.state
+    const { code, language } = this.props
+
+    return !ready ? (
+      <Wrapper ref={this.containerRef}>
+        <FlatLoader height="40px" width="200px" />
+      </Wrapper>
+    ) : (
+      <pre className={`language-${language}`} ref={this.containerRef}><code>{code}</code></pre>
+    )
+  }
+}
 
 Multiline.propTypes = {
   code: PropTypes.string,
-  language: PropTypes.node,
-  ready: PropTypes.bool
+  language: PropTypes.node
 }
 
 Multiline.defaultProps = {
-  language: 'javascript',
-  ready: false
+  language: 'javascript'
 }
 
 export default Multiline
+/* eslint-enable react/no-find-dom-node */

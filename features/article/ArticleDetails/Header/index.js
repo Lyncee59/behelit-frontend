@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
+import { palette, screenSize } from '@behelit/components'
 import { CrimsonText, GrayText, OddEvenText } from 'components/Typography'
 
 const Wrapper = styled.div`
@@ -26,7 +26,7 @@ const Category = styled.div`
   height: 150px;
   background: ${palette('gray2')};
 
-  @media(min-width: 768px) {
+  @media(min-width: ${screenSize('sm')}) {
     display: flex;
   }
 `
@@ -43,7 +43,7 @@ const Description = styled.div`
   padding: 10px;
   box-sizing: border-box;
 
-  @media(min-width: 768px) {
+  @media(min-width: ${screenSize('sm')}) {
     width: calc(100% - 150px);
   }
 `

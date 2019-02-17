@@ -29,7 +29,7 @@ class ArticleCreateForm extends React.PureComponent {
     const { onClose } = this.props
     createArticle(values).then(() => {
       onClose()
-      window.window.location.reload()
+      window.location.reload()
     })
   }
 

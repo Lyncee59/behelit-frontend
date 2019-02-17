@@ -18,7 +18,7 @@ class ArticleDeleteForm extends React.PureComponent {
 
     deleteArticle(id).then(() => {
       onClose()
-      window.window.location.reload()
+      window.location.reload()
     })
   }
 

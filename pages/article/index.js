@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { screenSize } from '@behelit/components'
 import { fetchData } from 'services/utils'
 import { getArticle, getComments } from 'services/api/public'
 import Layout from 'layouts/Public'
@@ -29,7 +30,7 @@ const Column = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  @media(min-width: 992px) {
+  @media(min-width: ${screenSize('md')}) {
     width: ${(props) => props.position === 'left' ? '70%' : '30%'};
   }
 `

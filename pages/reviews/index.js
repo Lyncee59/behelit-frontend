@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { screenSize } from '@behelit/components'
 import { fetchData } from 'services/utils'
 import { getReviews } from 'services/api/public'
 import Layout from 'layouts/Public'
@@ -16,7 +17,7 @@ const Wrapper = styled.section`
   align-items: flex-start;
   width: 100%;
 
-  @media(min-width: 992px) {
+  @media(min-width: ${screenSize('md')}) {
     flex-direction: row;
   }
 `
@@ -31,7 +32,7 @@ const Column = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  @media(min-width: 992px) {
+  @media(min-width: ${screenSize('md')}) {
     margin-left: ${(props) => props.position === 'left' ? '0' : '1rem'};
     margin-right: ${(props) => props.position === 'left' ? '1rem' : '0'};
     width: 50%;

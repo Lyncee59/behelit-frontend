@@ -18,7 +18,7 @@ class ReviewDeleteForm extends React.PureComponent {
 
     deleteReview(id).then(() => {
       onClose()
-      window.window.location.reload()
+      window.location.reload()
     })
   }
 

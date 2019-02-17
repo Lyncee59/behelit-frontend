@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { palette } from '@behelit/components'
+import { palette, screenSize } from '@behelit/components'
 import { Markdown } from 'components/Markdown'
 import { ExpandToggler } from 'components/Togglers'
 import { CrimsonText, GrayText, OddEvenText } from 'components/Typography'
@@ -25,7 +25,7 @@ const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
 
-  @media(min-width: 992px) { 
+  @media(min-width: ${screenSize('md')}) {
     flex-direction: row;
     justify-content: flex-start;
   }
@@ -41,7 +41,7 @@ const Description = styled.div`
 
   &  > * { margin-bottom: 10px; }
 
-  @media(min-width: 992px) { width: 60%; }
+  @media(min-width: ${screenSize('md')}) { width: 60%; }
 `
 const Details = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ const Tags = styled.div`
 
   & > * { padding: 5px; }
   
-  @media(min-width: 992px) { width: 40%; }
+  @media(min-width: ${screenSize('md')}) { width: 40%; }
 `
 const Toggler = styled(ExpandToggler)`
   position: absolute;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Head from 'next/head'
 
-import { Container as BhContainer, palette } from '@behelit/components'
+import { Container as BhContainer, palette, screenSize } from '@behelit/components'
 import Header from './Header'
 
 const Wrapper = styled.div`
@@ -17,7 +17,7 @@ const Container = styled(BhContainer)`
   padding: 1rem;
   box-sizing: border-box;
 
-  @media(min-width: 48rem) {
+  @media(min-width: ${screenSize('sm')}) {
     padding: 1rem 0;
   }
 `
