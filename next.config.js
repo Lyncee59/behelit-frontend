@@ -16,26 +16,7 @@ const buildVersionName = () => {
 }
 
 const supportedLanguages = {
-  'id': 'Bahasa Indonesia',
-  'ms': 'Bahasa Melayu',
-  'de': 'Deutsch',
-  'en': 'English',
-  'fr': 'Français',
-  'it': 'Italiano',
-  'nl': 'Nederlands',
-  'pl': 'Polski',
-  'pt': 'Português',
-  'ru': 'Русский',
-  'ro': 'Română',
-  'sv': 'Svenska',
-  'vi': 'Tiếng',
-  'tr': 'Türkçe',
-  'cs': 'čeština',
-  'uk': 'український',
-  'zh': '中文(简体)',
-  'ja': '日本語',
-  'ko': '한국어',
-  'th': 'ภาษาไทย',
+  'en': 'English'
 }
 
 const nextConfig = {

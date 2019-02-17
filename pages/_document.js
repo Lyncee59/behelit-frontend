@@ -53,8 +53,8 @@ class BehelitDocument extends Document {
           <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
           <link href="/static/favicon.ico" nonce={nonce} rel="shortcut icon" type="image/x-icon" />
           {injectMetadata()}
-          {/* {injectFacebookOpenGraph()} */}
-          {/* {injectTwitterCard()} */}
+          {injectFacebookOpenGraph()}
+          {injectTwitterCard()}
           {injectGlobalStyle(nonce)}
           {injectFonts(nonce)}
           {injectLanguageLinks(page, locale, nonce)}

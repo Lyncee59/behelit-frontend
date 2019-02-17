@@ -21,6 +21,7 @@ console.log(settings)
 // Variables
 const port = settings.NODE_SERVER_PORT
 const dev = settings.NODE_CONFIG_SET === 'local'
+
 const app = next({ dev })
 const handle = app.getRequestHandler()
 

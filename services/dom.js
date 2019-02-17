@@ -35,7 +35,9 @@ export const injectGlobalStyle = (nonce) => (
 export const injectMetadata = () => (
   <React.Fragment>
     <meta content="behelit" name="keywords" />
-    <meta content="" name="description" />
+    <meta content="I am a full stack developer with over 10 years of experience working in .NET, HTML5, CSS3, Javascript (React & Node.js).
+        I love programming, playing videogames and learning new things !" name="description"
+    />
   </React.Fragment>
 )
 
@@ -43,10 +45,10 @@ export const injectFacebookOpenGraph = () => (
   <React.Fragment>
     <meta content={`${config.PATHS_BASE}`} property="og:url" />
     <meta content="website" property="og:type" />
-    <meta content="Behelit" property="og:title" />
+    <meta content="Behelit Software Limited" property="og:title" />
     <meta content="r" property="og:description" />
-    <meta content={`${config.PATHS_BASE}${config.SERVER_PREFIX}`} property="og:image" />
-    <meta content="Behelit homepage" property="og:image:alt" />
+    <meta content={`${config.PATHS_BASE}${config.SERVER_PREFIX}/static/img/logo.png`} property="og:image" />
+    <meta content="Behelit Software Limited" property="og:image:alt" />
     <meta content="image/png" property="og:image:type" />
     <meta content="1200" property="og:image:width" />
     <meta content="630" property="og:image:height" />
@@ -55,9 +57,9 @@ export const injectFacebookOpenGraph = () => (
 
 export const injectTwitterCard = () => (
   <React.Fragment>
-    <meta content="Behelit" name="twitter:card" />
-    <meta content={`${config.PATHS_BASE}${config.SERVER_PREFIX}`} name="twitter:image" />
-    <meta content="Behelit homepage" name="twitter:image:alt" />
+    <meta content="Behelit Software Limited" name="twitter:card" />
+    <meta content={`${config.PATHS_BASE}${config.SERVER_PREFIX}/static/img/logo.png`} name="twitter:image" />
+    <meta content="Behelit Software Limited" name="twitter:image:alt" />
     <meta content="" name="twitter:description" />
   </React.Fragment>
 )
@@ -83,30 +85,22 @@ export const injectLanguageLinks = (page, locale, nonce) => {
 export const injectGoogleAnalytics = (nonce) => (
   <script dangerouslySetInnerHTML={{
     __html: `
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          ga('create', '${config.SETTINGS_GOOGLE_ANALYTICS_ID}', 'auto');
-          var page = document.location.pathname;
-          // Strip language path
-          page = page.replace(/^(\\/[a-z]{2}|\\/zh-cn)?\\/(.*)$/, "/$2")
-          // Strip hashes, addresses, etc
-          page = page.replace(/^\\/([a-z]{3})\\/block\\/.*$/, "/$1/block");
-          page = page.replace(/^\\/([a-z]{3})\\/tx\\/.*$/, "/$1/tx");
-          page = page.replace(/^\\/([a-z]{3})\\/address\\/.*$/, "/$1/address");
-          ga('send', 'pageview', page, { anonymizeIp: true });
-      `
-  }}
-  nonce={nonce}
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', '${config.SETTINGS_GOOGLE_ANALYTICS_ID}', 'auto');
+            var page = document.location.pathname;
+            ga('send', 'pageview', page, { anonymizeIp: true });
+        `
+  }} nonce={nonce}
   />
 )
 
 export const injectLocaleData = (localeDataScript, nonce) => (
   <script dangerouslySetInnerHTML={{
     __html: localeDataScript
-  }}
-    nonce={nonce}
+  }} nonce={nonce}
   />
 )
 

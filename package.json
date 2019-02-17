@@ -8,7 +8,7 @@
   "author": "Lyncee",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node server",
+    "dev": "node server",
     "build": "cross-env NODE_ENV=production next build",
     "start": "cross-env NODE_ENV=production node server",
     "analyze": "BUNDLE_ANALYZE=both next build",

@@ -33,7 +33,7 @@ const Footer = ({ article }) => (
     <Description>
       <CrimsonText capitalize size="20px" weight={300}>{article.author}</CrimsonText>
       <GrayText italic>
-        I am a full stack developer with over 9 years of experience working in .NET, HTML5, CSS3, Javascript (React & Node.js).
+        I am a full stack developer with over 10 years of experience working in .NET, HTML5, CSS3, Javascript (React & Node.js).
         I love programming, playing videogames and learning new things !
       </GrayText>
     </Description>

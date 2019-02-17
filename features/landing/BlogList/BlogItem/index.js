@@ -55,14 +55,14 @@ const Toggler = styled(ReadToggler)`
 
 const BlogItem = ({ article }) => (
   <Wrapper>
-    <Category href={`/article/${article._id}`}>
+    <Category href={`/article/${article.seo}`}>
       <CategoryImage src={`/static/icons/${article.category}.svg`} />
     </Category>
     <Content>
       <CrimsonText size="1.2rem" uppercase weight={700}>{article.title}</CrimsonText>
       <GrayText size="0.9rem" weight={300}>{article.description}</GrayText>
     </Content>
-    <Toggler href={`/article/${article._id}`} />
+    <Toggler href={`/article/${article.seo}`} />
   </Wrapper>
 )
 
@@ -73,6 +73,7 @@ BlogItem.propTypes = {
     content: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    seo: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     title: PropTypes.string.isRequired
   })

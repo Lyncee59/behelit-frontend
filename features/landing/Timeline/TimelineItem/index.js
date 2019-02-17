@@ -48,7 +48,7 @@ class TimelineItem extends React.PureComponent {
       <Wrapper>
         <DefaultLink onClick={this.handleToggle} size="1.2rem" uppercase weight={700}>{category}</DefaultLink>
         <Articles toggled={toggled}>
-          {articles.map((article, index) => <BlackLink href={`/article/${article._id}`} key={article._id} size="1rem" weight={400}>{article.title}</BlackLink>)}
+          {articles.map((article, index) => <BlackLink href={`/article/${article.seo}`} key={article.title} size="1rem" weight={400}>{article.title}</BlackLink>)}
         </Articles>
       </Wrapper>
     )

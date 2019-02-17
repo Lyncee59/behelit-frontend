@@ -32,6 +32,10 @@ const MetadataScreen = ({ tags, users, toggled }) => (
       <Field component={InputField} name="title" validate={required} />
     </FormGroup>
     <FormGroup>
+      <GrayText>SEO</GrayText>
+      <Field component={InputField} name="seo" validate={required} />
+    </FormGroup>
+    <FormGroup>
       <GrayText>Description</GrayText>
       <Field component={TextAreaField} name="description" validate={required} />
     </FormGroup>
